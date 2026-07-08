@@ -1,0 +1,92 @@
+.home-navbar {
+  display: flex;
+  gap: 10px;
+  background-color: var(--body-color);
+  align-items: center;
+  height: 75px;
+}
+
+.home-navbar .links-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex: 1;
+}
+.home-navbar .links-container a {
+  text-transform: capitalize;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 15px;
+}
+.home-navbar .links-container a:hover {
+  background-color: color-mix(in oklab, var(--main-color) 20%, transparent);
+  color: var(--main-color);
+}
+
+.home-navbar .logo {
+  width: 150px;
+  object-fit: contain;
+  height: 100%;
+}
+
+.home-navbar .settings {
+  display: flex;
+  gap: 10px;
+}
+.home-navbar .settings .itm {
+  background-color: var(--section-color);
+  padding: 4px 10px;
+  border-radius: 5px;
+  border: solid 1px var(--border-color);
+  cursor: pointer;
+}
+.home-navbar .settings .itm:hover {
+  background-color: color-mix(in oklab, var(--main-color) 20%, transparent);
+  border-color: color-mix(in oklab, var(--main-color) 60%, transparent);
+}
+.home-navbar .language-container {
+  position: relative;
+}
+
+.home-navbar .settings .selected-lang {
+  display: flex;
+  gap: 5px;
+  text-transform: uppercase;
+  font-size: 14px;
+  align-items: center;
+}
+
+.home-navbar .settings .selected-lang svg {
+  width: 12px;
+}
+
+.home-navbar .language-container article {
+  position: absolute;
+  top: calc(100% + 3px);
+  right: 0;
+  min-width: 100%;
+  background-color: var(--section-color);
+  border-radius: 5px;
+  border: solid 1px var(--border-color);
+  overflow: hidden;
+  animation: fadeIn 0.4s;
+}
+.home-navbar .language-container article:hover {
+  border-color: color-mix(in oklab, var(--main-color) 60%, transparent);
+}
+
+.home-navbar .language-container article p {
+  padding: 4px 8px;
+  line-height: 1.3;
+  cursor: pointer;
+  border-top: solid 1px var(--border-color);
+  font-size: 14px;
+}
+.home-navbar .language-container article p:hover {
+  background-color: color-mix(in oklab, var(--main-color) 20%, transparent);
+  border-color: color-mix(in oklab, var(--main-color) 60%, transparent);
+}
+
+.home-navbar .settings .mode svg {
+  width: 14px;
+}
