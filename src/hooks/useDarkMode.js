@@ -1,19 +1,22 @@
 import { useCallback, useEffect, useState } from "react";
 
-const useDarkMode = () => {
+const useDarkMode = ({ setDefault, changeState }) => {
   const [isDark, setIsDark] = useState(() => {
     if (typeof window === "undefined") return false;
-    const saved = localStorage.getItem("isDark");
-    return saved ? JSON.parse(saved) : false;
+    const savedValue = localStorage.getItem("isDark");
+    const saved = savedValue ? JSON.parse(savedValue) : false;
+    if (setDefault) changeState(saved);
+    return saved;
   });
 
   const changeMode = useCallback(() => {
     setIsDark((prev) => {
       const changedValue = !prev;
       localStorage?.setItem("isDark", changedValue);
+      if (changeState) changeState(changedValue);
       return changedValue;
     });
-  }, []);
+  }, [changeState]);
 
   useEffect(() => {
     if (isDark) return document.body.classList.add("dark");

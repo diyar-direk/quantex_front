@@ -72,8 +72,9 @@ input {
 
 body {
   --body-color: #fff;
-  --hover-color: #1902a9;
-  --main-color: #054ca9;
+  --hover-color: #004099;
+  --main-color: #006bff;
+  --main-2: #66a6ff;
   --border-color: #83838340;
   --section-color: #f0f1f3;
   --font-color: #000;
@@ -82,6 +83,14 @@ body {
   overflow-x: hidden;
   --aside-color: #e7e9eb;
   color: var(--font-color);
+}
+body.dark {
+  --body-color: #111827;
+  --border-color: #374151;
+  --section-color: #030712;
+  --font-color: #f3f4f6;
+  --box-shadow: 0 0 18px rgba(0, 0, 0, 0.45);
+  --aside-color: #1f2937;
 }
 
 .section-color {
@@ -185,6 +194,9 @@ body::-webkit-scrollbar {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.main-section {
+  padding-block: 40px;
 }
 
 @media (max-width: 1000px) {

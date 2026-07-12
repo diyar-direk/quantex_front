@@ -1,5 +1,7 @@
 import Navbar from "@/components/layout/navbar/Navbar";
 import { Cairo } from "next/font/google";
+import "@/styles/index.css";
+import AppProvider from "@/context/AppContext";
 
 export const metadata = {
   title: "Create Next App",
@@ -15,7 +17,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={cairo.className}>
-        <Navbar /> {children}
+        <AppProvider>
+          <Navbar /> {children}
+        </AppProvider>
       </body>
     </html>
   );

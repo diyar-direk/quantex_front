@@ -8,14 +8,14 @@ import {
   faGlobe,
   faMoon,
 } from "@fortawesome/free-solid-svg-icons";
-import useDarkMode from "@/hooks/useDarkMode";
 import languages from "@/constants/languages";
 import { useClickOutside } from "@/hooks/useClickOutside";
 import "./style.css";
+import { useAppContext } from "@/context/AppContext";
 
 const Navbar = () => {
-  const { changeMode } = useDarkMode();
   const { toggleOpen, isOpen, ref } = useClickOutside();
+  const { changeMode, isDark } = useAppContext();
 
   return (
     <header className="container home-navbar">

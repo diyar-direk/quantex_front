@@ -1,9 +1,15 @@
 .home-navbar {
   display: flex;
   gap: 10px;
-  background-color: var(--body-color);
   align-items: center;
   height: 75px;
+  border-bottom: solid 1px
+    color-mix(in oklab, var(--main-color) 30%, transparent);
+  backdrop-filter: blur(1px);
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background-color: color-mix(in srgb, var(--main-color) 2%, transparent);
 }
 
 .home-navbar .links-container {
@@ -12,6 +18,7 @@
   justify-content: center;
   flex: 1;
 }
+
 .home-navbar .links-container a {
   text-transform: capitalize;
   padding: 5px 10px;
