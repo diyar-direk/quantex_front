@@ -1,0 +1,47 @@
+.scroll-top-btn {
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  width: 40px;
+  height: 40px;
+  background: var(--main-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  animation: view-btn 0.5s;
+}
+.scroll-top-btn:hover {
+  box-shadow: 0 0 20px color-mix(in srgb, var(--main-color) 80%, transparent);
+}
+.scroll-top-btn:hover svg {
+  animation: 1.5s up-down infinite;
+}
+
+@keyframes view-btn {
+  0% {
+    right: -40px;
+    opacity: 0;
+  }
+  100% {
+    right: 40px;
+    opacity: 1;
+  }
+}
+@keyframes up-down {
+  0%,
+  10%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40%,
+  60% {
+    transform: translateY(5px);
+  }
+}

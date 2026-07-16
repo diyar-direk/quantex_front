@@ -100,66 +100,62 @@
   opacity: 0.7;
 }
 
-.services-container .service-card {
+.home-contact {
   border: solid 1px var(--main-color);
-  backdrop-filter: blur(1px);
-  padding: 20px;
+  backdrop-filter: blur(2px);
+  background-color: color-mix(in srgb, var(--main-color) 25%, transparent);
   border-radius: 10px;
-  background-color: color-mix(in srgb, var(--main-color) 5%, transparent);
+  padding: 25px;
+  position: relative;
+  text-align: center;
   position: relative;
   overflow: hidden;
 }
 
-.services-container .service-card::before {
-  content: "";
-  position: absolute;
-  top: -30px;
-  right: -30px;
-  width: 100px;
-  height: 100px;
-  background: radial-gradient(
-    circle,
-    color-mix(in srgb, var(--main-color) 14%, transparent),
-    transparent
-  );
-  border-radius: 50%;
-  transition: 0.4s;
+.home-contact h1 {
+  font-size: 35px;
+  text-transform: capitalize;
 }
-.services-container .service-card:hover::before {
-  transform: scale(1.5);
+.home-contact p {
+  max-width: 600px;
+  margin: auto;
+  font-size: 18px;
 }
-.services-container .service-card:hover {
-  background-color: color-mix(in srgb, var(--main-color) 9%, transparent);
+.home-contact .btns {
+  margin-top: 20px;
 }
 
-.services-container .service-card .icon {
-  font-size: 25px;
-  color: var(--main-color);
-  background-color: color-mix(in srgb, var(--main-color) 10%, transparent);
-  border: solid 1px var(--main-color);
-  padding: 10px;
-  border-radius: 6px;
+.home-contact::before {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.048);
+  top: 0;
+  z-index: -1;
+  transform: skewX(-20deg);
+  backdrop-filter: blur(10px);
+  transition: 0.4s;
+  left: 100%;
 }
-.services-container .service-card h2 {
-  text-transform: capitalize;
-  font-size: 19px;
+.home-contact::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.048);
+  top: 0;
+  z-index: -1;
+  transform: skewX(-20deg);
+  right: 100%;
+  backdrop-filter: blur(10px);
+  transition: 0.4s;
 }
-.services-container .service-card p {
-  opacity: 0.8;
-  line-height: 1.5;
+
+.home-contact:hover::before {
+  left: -50px;
 }
-.services-container .service-card .btns {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin-top: 10px;
-}
-.services-container .service-card .btns span {
-  color: var(--main-color);
-  background-color: color-mix(in srgb, var(--main-color) 13%, transparent);
-  border: solid 1px var(--main-color);
-  padding: 2px 8px;
-  border-radius: 20px;
-  text-transform: capitalize;
-  font-size: 13px;
+
+.home-contact:hover::after {
+  right: -50px;
 }

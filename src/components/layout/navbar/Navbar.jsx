@@ -12,6 +12,7 @@ import languages from "@/constants/languages";
 import { useClickOutside } from "@/hooks/useClickOutside";
 import "./style.css";
 import { useAppContext } from "@/context/AppContext";
+import { pages } from "@/constants/pages";
 
 const Navbar = () => {
   const { toggleOpen, isOpen, ref } = useClickOutside();
@@ -23,10 +24,8 @@ const Navbar = () => {
         <Image alt="logo" src={Logo} className="logo" />
       </Link>
       <nav className="links-container">
-        <Link href="/about">من نحن</Link>
-        <Link href="/about">About</Link>
-        <Link href="/about">About</Link>
-        <Link href="/about">About</Link>
+        <Link href="/">home</Link>
+        <Link href={pages.joinUs}>join us</Link>
       </nav>
       <div className="settings">
         <div className="language-container itm" ref={ref}>

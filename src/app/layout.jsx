@@ -2,6 +2,7 @@ import Navbar from "@/components/layout/navbar/Navbar";
 import { Cairo } from "next/font/google";
 import "@/styles/index.css";
 import AppProvider from "@/context/AppContext";
+import ScrollButton from "@/components/layout/scroll_button/ScrollButton";
 
 export const metadata = {
   title: "Create Next App",
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={cairo.className}>
         <AppProvider>
+          <ScrollButton />
           <Navbar /> {children}
         </AppProvider>
       </body>
