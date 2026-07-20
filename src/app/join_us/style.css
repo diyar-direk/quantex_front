@@ -1,0 +1,47 @@
+.join-us-page {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: var(--body-color);
+  min-height: 100vh;
+}
+.join-us-page section {
+  flex: 400px;
+  padding: 20px 40px;
+  min-height: 300px;
+}
+.join-us-page .image {
+  position: relative;
+  background: url(@/assets/joinus.jpg) center no-repeat;
+  background-size: cover;
+  z-index: 1;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+.join-us-page .image::after {
+  content: "";
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--main-color) 80%, transparent),
+    color-mix(in srgb, var(--main-color) 10%, transparent)
+  );
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.join-us-page form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+  align-items: center;
+}
+.join-us-page form > div {
+  flex: 100%;
+}

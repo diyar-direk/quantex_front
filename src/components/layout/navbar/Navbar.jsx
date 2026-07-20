@@ -13,10 +13,11 @@ import { useClickOutside } from "@/hooks/useClickOutside";
 import "./style.css";
 import { useAppContext } from "@/context/AppContext";
 import { pages } from "@/constants/pages";
+import NavLink from "@/components/NavLink";
 
 const Navbar = () => {
   const { toggleOpen, isOpen, ref } = useClickOutside();
-  const { changeMode, isDark } = useAppContext();
+  const { changeMode } = useAppContext();
 
   return (
     <header className="container home-navbar">
@@ -24,8 +25,11 @@ const Navbar = () => {
         <Image alt="logo" src={Logo} className="logo" />
       </Link>
       <nav className="links-container">
-        <Link href="/">home</Link>
-        <Link href={pages.joinUs}>join us</Link>
+        <NavLink href="/">home</NavLink>
+        <NavLink href={pages.aboutUs}>about us</NavLink>
+        <NavLink href={pages.joinUs}>join us</NavLink>
+        <NavLink href={pages.contactUs}>contact us</NavLink>
+        <NavLink href={pages.ourServices}>services</NavLink>
       </nav>
       <div className="settings">
         <div className="language-container itm" ref={ref}>

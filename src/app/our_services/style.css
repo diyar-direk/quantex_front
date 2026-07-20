@@ -1,0 +1,21 @@
+.services-page {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.services-page section {
+  flex: 300px;
+}
+.services-page section img {
+  max-height: 250px;
+  object-fit: contain;
+  width: 100%;
+}
+.services-page section h1 {
+  color: var(--main-color);
+  text-transform: capitalize;
+}
+.services-page section p {
+  opacity: 0.7;
+  font-size: 17px;
+}
