@@ -10,10 +10,12 @@ import "@/styles/home.css";
 import "./style.css";
 import AboutImg from "@/assets/about.svg";
 import Image from "next/image";
+import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
 
 const AboutUs = () => {
   return (
     <>
+      <Breadcrumbs />
       <main className="container main-section body-color about-page">
         <section>
           <h2>who are we</h2>

@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./style.css";
-import { socialLinks } from "@/constants/links";
+import { companyLocation, socialLinks } from "@/constants/links";
 import { pages } from "@/constants/pages";
 import Link from "next/link";
 const Footer = () => {
@@ -38,12 +38,12 @@ const Footer = () => {
         </div>
       </div>
       <div className="company-info">
-        <h2> soical links </h2>
+        <h2> quantex info </h2>
         <div className="links">
-          <article className="itm">
-            <FontAwesomeIcon icon={socialLinks.location.icon} />
-            {socialLinks.location.text}
-          </article>
+          <a className="itm" href={companyLocation.view} target="_blank">
+            <FontAwesomeIcon icon={companyLocation.icon} />
+            {companyLocation.text}
+          </a>
           <a className="itm" href={socialLinks.email.link} target="_blank">
             <FontAwesomeIcon icon={socialLinks.email.icon} />
             {socialLinks.email.text}

@@ -12,16 +12,11 @@ import {
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 
-export const socialLinks = {
+const socialLinks = {
   instagram: {
     text: "@diyar_direk",
     link: "diyardireki",
     icon: faInstagram,
-  },
-  facebook: {
-    text: "diyar direki",
-    link: "test",
-    icon: faFacebook,
   },
   github: {
     text: "diyar_direk",
@@ -38,11 +33,6 @@ export const socialLinks = {
     link: "test",
     icon: faLinkedin,
   },
-  threads: {
-    text: "test",
-    link: "test",
-    icon: faThreads,
-  },
   email: {
     text: "diyardireki111@gmail.com",
     link: "mailto:diyardireki111@gmail.com",
@@ -53,9 +43,13 @@ export const socialLinks = {
     link: "tel:+963936038904",
     icon: faPhone,
   },
-  location: {
-    text: "Qamsilo Al-Kornish Street",
-    link: "ewesdas",
-    icon: faLocationDot,
-  },
 };
+
+const companyLocation = {
+  text: "Qamsilo Al-Kornish Street",
+  map: `https://www.google.com/maps?q=37.04381577440059,41.22354037748979&z=15&output=embed&t=h`,
+  view: `https://www.google.com/maps/place/37%C2%B002'37.7%22N+41%C2%B013'24.8%22E/@37.0438201,41.2261153,662m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d37.0438158!4d41.2235404?entry=ttu&g_ep=EgoyMDI2MDcxNS4wIKXMDSoASAFQAw%3D%3D`,
+  icon: faLocationDot,
+};
+
+export { socialLinks, companyLocation };

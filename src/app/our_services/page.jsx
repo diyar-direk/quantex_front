@@ -14,10 +14,12 @@ import {
 import Image from "next/image";
 import ServicesImg from "@/assets/services.svg";
 import "./style.css";
+import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
 
 const Services = () => {
   return (
     <>
+      <Breadcrumbs />
       <main className="container main-section body-color services-page">
         <section>
           <h1>Lorem ipsum dolor sit amet.</h1>
