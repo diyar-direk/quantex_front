@@ -168,7 +168,7 @@ export default function Home() {
         </div>
       </main>
 
-      <main className="main-section container body-color"></main>
+      <main className="main-section container section-color"></main>
 
       <main className="container main-section">
         <section className="home-contact">

@@ -9,7 +9,7 @@
   position: sticky;
   top: 0;
   z-index: 3;
-  background-color: color-mix(in srgb, var(--main-color) 2%, transparent);
+  background-color: color-mix(in srgb, var(--main-color) 5%, transparent);
 }
 
 .home-navbar .links-container {

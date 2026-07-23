@@ -30,6 +30,7 @@ const Navbar = () => {
         <NavLink href={pages.joinUs}>join us</NavLink>
         <NavLink href={pages.contactUs}>contact us</NavLink>
         <NavLink href={pages.ourServices}>services</NavLink>
+        <NavLink href={pages.dashboard.page}>dashboard</NavLink>
       </nav>
       <div className="settings">
         <div className="language-container itm" ref={ref}>

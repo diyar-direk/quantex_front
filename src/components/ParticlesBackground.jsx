@@ -16,7 +16,7 @@ export default function ParticlesBackground() {
     () => ({
       background: {
         color: {
-          value: isDark ? "#010007" : "#f8f8f8",
+          value: isDark ? "#010007" : "#878b94",
         },
       },
       fpsLimit: 60,

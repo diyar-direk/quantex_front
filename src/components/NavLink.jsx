@@ -7,6 +7,7 @@ const NavLink = ({
   children,
   className = "",
   activeClassName = "active",
+  ...props
 }) => {
   const pathname = usePathname();
 
@@ -16,6 +17,7 @@ const NavLink = ({
     <Link
       href={href}
       className={`${className} ${isActive ? activeClassName : ""}`}
+      {...props}
     >
       {children}
     </Link>
