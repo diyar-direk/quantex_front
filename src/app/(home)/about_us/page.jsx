@@ -12,6 +12,12 @@ import AboutImg from "@/assets/about.svg";
 import Image from "next/image";
 import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
 
+export const metadata = {
+  title: "About",
+  description: "meta description",
+  keywords: ["te", "tes", "tes"],
+};
+
 const AboutUs = () => {
   return (
     <>

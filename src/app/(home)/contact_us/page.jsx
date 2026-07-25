@@ -13,6 +13,12 @@ import {
   faSignature,
 } from "@fortawesome/free-solid-svg-icons";
 
+export const metadata = {
+  title: "contact us",
+  description: "meta description",
+  keywords: ["te", "tes", "test"],
+};
+
 const ContactUs = () => {
   return (
     <>

@@ -16,6 +16,12 @@ import ServicesImg from "@/assets/services.svg";
 import "./style.css";
 import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
 
+export const metadata = {
+  title: "our services",
+  description: "meta description",
+  keywords: ["te", "tes", "test"],
+};
+
 const Services = () => {
   return (
     <>

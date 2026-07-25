@@ -1,4 +1,5 @@
 "use client";
+import AboutUsCards from "@/components/about_us_cards/AboutUsCards";
 import Button from "@/components/buttons/Button";
 import MainTitle from "@/components/main_title/MainTitle";
 import ParticlesBackground from "@/components/ParticlesBackground";
@@ -16,11 +17,9 @@ import {
   faNetworkWired,
   faQuestionCircle,
   faRobot,
-  faRocket,
   faServer,
   faShieldHalved,
 } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { TypeAnimation } from "react-type-animation";
 
 export default function Home() {
@@ -65,39 +64,21 @@ export default function Home() {
       <main className="container main-section section-color">
         <MainTitle subTitle={"Lorem ipsum dolor sit"}>about us</MainTitle>
         <div className="about-card-container">
-          <div className="about-card">
-            <FontAwesomeIcon icon={faExclamationCircle} className="icon" />
-            <h2>who are we</h2>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora,
-              sit itaque? Dolore maiores voluptatum
-            </p>
-          </div>
-          <div className="about-card">
-            <FontAwesomeIcon icon={faQuestionCircle} className="icon" />
-            <h2>why choose us</h2>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora,
-              sit itaque? Dolore maiores voluptatum
-            </p>
-          </div>
-          <div className="about-card">
-            <FontAwesomeIcon icon={faRocket} className="icon" />
-            <h2>our mission</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime,
-              quibusdam, culpa repudiandae cum repellendus
-            </p>
-          </div>
-          <div className="about-card">
-            <FontAwesomeIcon icon={faEye} className="icon" />
-            <h2>our vission</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat
-              architecto illum dolor a quasi aspernatur, dicta aliquam, itaque
-              esse explicabo ipsam hic voluptatum rem molestiae!
-            </p>
-          </div>
+          <AboutUsCards
+            title="who are we"
+            desc="Lorem, ipsum dolor sit amet consectetur adipisicing"
+            icon={faExclamationCircle}
+          />
+          <AboutUsCards
+            title="why choose us"
+            desc="Lorem, ipsum dolor sit amet consectetur adipisicing"
+            icon={faQuestionCircle}
+          />
+          <AboutUsCards
+            title="our vission"
+            desc="Lorem, ipsum dolor sit amet consectetur adipisicing"
+            icon={faEye}
+          />
         </div>
         <div className="center gap-10" style={{ marginTop: "15px" }}>
           <Button>viwe services</Button>

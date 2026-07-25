@@ -12,6 +12,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
 
+export const metadata = {
+  title: "join us",
+  description: "meta description",
+  keywords: ["te", "tes", "test"],
+};
+
 const JoinUs = () => {
   return (
     <>
