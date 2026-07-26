@@ -1,6 +1,7 @@
 "use client";
 import useDarkMode from "@/hooks/useDarkMode";
 import { createContext, useContext, useState } from "react";
+import { AuthProvider } from "./AuthContext";
 
 const AppContext = createContext({});
 
@@ -12,9 +13,11 @@ const AppProvider = ({ children }) => {
   });
 
   return (
-    <AppContext.Provider value={{ isDark, setIsDark, changeMode }}>
-      {children}
-    </AppContext.Provider>
+    <AuthProvider>
+      <AppContext.Provider value={{ isDark, setIsDark, changeMode }}>
+        {children}
+      </AppContext.Provider>
+    </AuthProvider>
   );
 };
 

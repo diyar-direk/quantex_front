@@ -2,6 +2,8 @@ import { Cairo } from "next/font/google";
 import "@/styles/index.css";
 import AppProvider from "@/context/AppContext";
 import ScrollButton from "@/components/layouts/scroll_button/ScrollButton";
+import { Bounce, ToastContainer } from "react-toastify";
+import QueryProvider from "@/providers/QueryProvider";
 
 export const metadata = {
   title: "Create Next App",
@@ -17,10 +19,25 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={cairo.className}>
-        <AppProvider>
-          <ScrollButton />
-          {children}
-        </AppProvider>
+        <QueryProvider>
+          <AppProvider>
+            <ScrollButton />
+            <ToastContainer
+              position="top-center"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick={false}
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="colored"
+              transition={Bounce}
+            />
+            {children}
+          </AppProvider>
+        </QueryProvider>
       </body>
     </html>
   );

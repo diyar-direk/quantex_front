@@ -5,17 +5,16 @@ import {
   faQuestionCircle,
   faRocket,
 } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "@/styles/home.css";
 import "./style.css";
 import AboutImg from "@/assets/about.svg";
 import Image from "next/image";
 import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
+import AboutUsCards from "@/components/about_us_cards/AboutUsCards";
 
 export const metadata = {
-  title: "About",
+  title: "About us",
   description: "meta description",
-  keywords: ["te", "tes", "tes"],
+  keywords: ["te", "tes", "test"],
 };
 
 const AboutUs = () => {
@@ -47,39 +46,26 @@ const AboutUs = () => {
       <main className="container main-section section-color">
         <MainTitle>about us</MainTitle>
         <div className="about-card-container">
-          <div className="about-card">
-            <FontAwesomeIcon icon={faExclamationCircle} className="icon" />
-            <h2>who are we</h2>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora,
-              sit itaque? Dolore maiores voluptatum
-            </p>
-          </div>
-          <div className="about-card">
-            <FontAwesomeIcon icon={faQuestionCircle} className="icon" />
-            <h2>why choose us</h2>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora,
-              sit itaque? Dolore maiores voluptatum
-            </p>
-          </div>
-          <div className="about-card">
-            <FontAwesomeIcon icon={faRocket} className="icon" />
-            <h2>our mission</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime,
-              quibusdam, culpa repudiandae cum repellendus
-            </p>
-          </div>
-          <div className="about-card">
-            <FontAwesomeIcon icon={faEye} className="icon" />
-            <h2>our vission</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat
-              architecto illum dolor a quasi aspernatur, dicta aliquam, itaque
-              esse explicabo ipsam hic voluptatum rem molestiae!
-            </p>
-          </div>
+          <AboutUsCards
+            title="who are we"
+            desc="Lorem, ipsum dolor sit amet consectetur adipisicing"
+            icon={faExclamationCircle}
+          />
+          <AboutUsCards
+            title="why choose us"
+            desc="Lorem, ipsum dolor sit amet consectetur adipisicing"
+            icon={faQuestionCircle}
+          />
+          <AboutUsCards
+            title="our vission"
+            desc="Lorem, ipsum dolor sit amet consectetur adipisicing"
+            icon={faEye}
+          />
+          <AboutUsCards
+            title="our mission"
+            desc="Lorem, ipsum dolor sit amet consectetur adipisicing"
+            icon={faRocket}
+          />
         </div>
       </main>
     </>

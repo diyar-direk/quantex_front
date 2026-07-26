@@ -1,0 +1,19 @@
+.login-page {
+  min-height: 80vh;
+}
+.login-page form {
+  background-color: var(--body-color);
+  padding: 30px;
+  border-radius: 6px;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.login-page form h1 {
+  text-transform: uppercase;
+  font-size: 30px;
+  letter-spacing: 2px;
+  color: var(--main-color);
+}

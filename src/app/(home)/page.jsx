@@ -17,6 +17,7 @@ import {
   faNetworkWired,
   faQuestionCircle,
   faRobot,
+  faRocket,
   faServer,
   faShieldHalved,
 } from "@fortawesome/free-solid-svg-icons";
@@ -78,6 +79,11 @@ export default function Home() {
             title="our vission"
             desc="Lorem, ipsum dolor sit amet consectetur adipisicing"
             icon={faEye}
+          />
+          <AboutUsCards
+            title="our mission"
+            desc="Lorem, ipsum dolor sit amet consectetur adipisicing"
+            icon={faRocket}
           />
         </div>
         <div className="center gap-10" style={{ marginTop: "15px" }}>
