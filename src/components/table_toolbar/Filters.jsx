@@ -1,0 +1,146 @@
+"use client";
+import { Fragment, useCallback, useEffect, useState } from "react";
+import IconButton from "../buttons/IconButton";
+import "./filters.css";
+import Input from "../inputs/Input";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFilter } from "@fortawesome/free-solid-svg-icons";
+import { useDebounce } from "use-debounce";
+import DBkeys from "@/constants/DBkeys";
+import { useAuth } from "@/context/AuthContext";
+
+/**
+ * @typedef {Object} FromToFieldsProps
+ * @property {string} name
+ * @property {string} label
+ * @property {"datetime-local" | "date" | "time" | "number"} [type]
+ * @property {Array} [roles]
+ */
+
+/**
+ * @typedef {Object} FilerProps
+ * @property {object} filters
+ * @property {React.SetStateAction} setFilters
+ * @property {boolean} [hideCreatedAtInputs]
+ * @property {boolean} [hideUpdatedAtInputs]
+ * @property {FromToFieldsProps[]} FromToFields
+ */
+
+/**
+ * @param {FilerProps} props
+ */
+
+const Filters = ({
+  children,
+  filters,
+  setFilters,
+  hideCreatedAtInputs,
+  hideUpdatedAtInputs,
+  FromToFields,
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleOpen = useCallback(() => setIsOpen((prev) => !prev), []);
+
+  const { user } = useAuth();
+  const { role } = user || {};
+
+  const [localFilters, setLocalFilters] = useState(filters || {});
+
+  const [debouncedValue] = useDebounce(localFilters, 500);
+
+  useEffect(() => {
+    setFilters(debouncedValue);
+  }, [debouncedValue, setFilters]);
+
+  const handleChange = useCallback((e) => {
+    const { value, name } = e.target;
+    setLocalFilters((prev) => ({ ...prev, [name]: value }));
+  }, []);
+
+  return (
+    <>
+      <IconButton
+        title="Filters"
+        color={isOpen ? "main" : "secondry-color"}
+        onClick={toggleOpen}
+      >
+        <FontAwesomeIcon icon={faFilter} />
+      </IconButton>
+
+      <div className={`${isOpen ? "open" : ""} filters`}>
+        {!hideCreatedAtInputs && (
+          <>
+            <Input
+              label={"from date"}
+              type="date"
+              value={localFilters?.[`${[DBkeys.createdAt]}[gte]`]}
+              name={`${[DBkeys.createdAt]}[gte]`}
+              onInput={handleChange}
+              notRequired
+            />
+            <Input
+              label={"to date"}
+              type="date"
+              value={localFilters?.[`${[DBkeys.createdAt]}[lte]`]}
+              name={`${[DBkeys.createdAt]}[lte]`}
+              onInput={handleChange}
+              notRequired
+            />
+          </>
+        )}
+        {!hideUpdatedAtInputs && (
+          <>
+            <Input
+              label={"from date"}
+              type="date"
+              value={localFilters?.[`${[DBkeys.updatedAt]}[gte]`]}
+              name={`${[DBkeys.updatedAt]}[gte]`}
+              onInput={handleChange}
+              notRequired
+            />
+            <Input
+              label={"to date"}
+              type="date"
+              value={localFilters?.[`${[DBkeys.updatedAt]}[lte]`]}
+              name={`${[DBkeys.updatedAt]}[lte]`}
+              onInput={handleChange}
+              notRequired
+            />
+          </>
+        )}
+
+        {FromToFields?.map(
+          (e, i) =>
+            (!e?.roles || e?.roles?.includes(role)) && (
+              <Fragment key={i}>
+                <Input
+                  {...e}
+                  label={`from ${e.label}`}
+                  placeholder={`from ${e.label}`}
+                  type={e.type || "date"}
+                  value={localFilters?.[`${e.name}[gte]`]}
+                  name={`${e.name}[gte]`}
+                  notRequired
+                  onInput={handleChange}
+                />
+                <Input
+                  {...e}
+                  label={`to ${e.label}`}
+                  placeholder={`to ${e.label}`}
+                  type={e.type || "date"}
+                  value={localFilters?.[`${e.name}[lte]`]}
+                  name={`${e.name}[lte]`}
+                  notRequired
+                  onInput={handleChange}
+                />
+              </Fragment>
+            ),
+        )}
+
+        {children}
+      </div>
+    </>
+  );
+};
+
+export default Filters;

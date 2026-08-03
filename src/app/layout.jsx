@@ -4,6 +4,7 @@ import AppProvider from "@/context/AppContext";
 import ScrollButton from "@/components/layouts/scroll_button/ScrollButton";
 import { Bounce, ToastContainer } from "react-toastify";
 import QueryProvider from "@/providers/QueryProvider";
+import { cookies } from "next/headers";
 
 export const metadata = {
   title: "Create Next App",
@@ -15,12 +16,16 @@ const cairo = Cairo({
   weight: ["400", "500", "700"],
 });
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const cookieStore = await cookies();
+
+  const token = cookieStore.get("access_token")?.value;
+
   return (
     <html lang="en">
       <body className={cairo.className}>
         <QueryProvider>
-          <AppProvider>
+          <AppProvider token={token}>
             <ScrollButton />
             <ToastContainer
               position="top-center"

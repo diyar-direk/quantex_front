@@ -6,7 +6,17 @@ import * as yup from "yup";
 import Button from "@/components/buttons/Button";
 import axiosInstance from "@/utils/axios";
 import { endPoints } from "@/constants/endPoints";
+import AuthHelper from "@/utils/authHelper";
+import { useQueryClient } from "@tanstack/react-query";
+import { pages } from "@/constants/pages";
+import { useRouter } from "next/navigation";
+
+const { setToken } = new AuthHelper();
+
 const LoginPage = () => {
+  const query = useQueryClient();
+  const { replace } = useRouter();
+
   const formik = useFormik({
     initialValues: { password: "", username: "" },
     validationSchema: yup.object({
@@ -15,7 +25,9 @@ const LoginPage = () => {
     }),
     onSubmit: async (v) => {
       const { data } = await axiosInstance.post(endPoints.users.login, v);
-      console.log(data);
+      setToken(data.accessToken);
+      query.invalidateQueries(endPoints.users);
+      replace(pages.dashboard.page);
     },
   });
 

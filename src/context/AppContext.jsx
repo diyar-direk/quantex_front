@@ -5,7 +5,7 @@ import { AuthProvider } from "./AuthContext";
 
 const AppContext = createContext({});
 
-const AppProvider = ({ children }) => {
+const AppProvider = ({ children, token }) => {
   const [isDark, setIsDark] = useState(false);
   const { changeMode } = useDarkMode({
     changeState: setIsDark,
@@ -13,7 +13,7 @@ const AppProvider = ({ children }) => {
   });
 
   return (
-    <AuthProvider>
+    <AuthProvider token={token}>
       <AppContext.Provider value={{ isDark, setIsDark, changeMode }}>
         {children}
       </AppContext.Provider>

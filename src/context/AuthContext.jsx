@@ -19,7 +19,7 @@ const AuthContext = createContext();
 
 const authHelper = new AuthHelper();
 
-export const AuthProvider = ({ children }) => {
+export const AuthProvider = ({ children, token }) => {
   const query = useQueryClient();
   const isRefreshing = useRef(false);
   const failedQueue = useRef([]);
@@ -126,7 +126,6 @@ export const AuthProvider = ({ children }) => {
             isRefreshing.current = false;
           }
         }
-        console.log(extarctErrorMessage(error));
 
         toast.error(extarctErrorMessage(error));
 
@@ -148,14 +147,12 @@ export const AuthProvider = ({ children }) => {
     },
     retry: false,
     refetchOnWindowFocus: false,
-    enabled: authHelper.isAuthenticated(),
+    enabled: Boolean(token),
   });
-
-  if (isLoading) return <Loading />;
 
   return (
     <AuthContext.Provider value={{ user, logout }}>
-      {children}
+      {isLoading ? <Loading /> : children}
     </AuthContext.Provider>
   );
 };

@@ -13,8 +13,8 @@ export const pages = {
   dashboard: {
     page: "/dashboard",
     users: {
-      page: "/dashobard/users",
-      add: "/dashobard/users/add",
+      page: "/dashboard/users",
+      add: "/dashboard/users/add",
     },
   },
 };
