@@ -1,8 +1,8 @@
 "use client";
 import NavLink from "@/components/NavLink";
 import { dashboardPages } from "@/constants/pages";
+import { usePathname, useRouter } from "@/i18n/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { usePathname, useRouter } from "next/navigation";
 
 const BottomHeader = () => {
   const { push } = useRouter();

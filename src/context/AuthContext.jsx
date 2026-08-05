@@ -11,9 +11,9 @@ import { toast } from "react-toastify";
 import Loading from "@/components/loading/Loading";
 import axiosInstance from "@/utils/axios";
 import AuthHelper from "@/utils/authHelper";
-import { useRouter } from "next/navigation";
 import { endPoints } from "@/constants/endPoints";
 import { extarctErrorMessage } from "@/utils/extarctErrorMessage";
+import { useRouter } from "@/i18n/navigation";
 
 const AuthContext = createContext();
 

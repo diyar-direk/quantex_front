@@ -1,11 +1,11 @@
 "use client";
 import { faLanguage, faMoon } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Link from "next/link";
 import { useClickOutside } from "@/hooks/useClickOutside";
 import languages from "@/constants/languages";
 import Tooltip from "@/components/tooltip/Tooltip";
 import { useAppContext } from "@/context/AppContext";
+import { Link } from "@/i18n/navigation";
 
 const TopHeader = () => {
   const { isOpen, ref, toggleOpen } = useClickOutside();

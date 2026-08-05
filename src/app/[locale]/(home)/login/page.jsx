@@ -9,7 +9,7 @@ import { endPoints } from "@/constants/endPoints";
 import AuthHelper from "@/utils/authHelper";
 import { useQueryClient } from "@tanstack/react-query";
 import { pages } from "@/constants/pages";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/navigation";
 
 const { setToken } = new AuthHelper();
 

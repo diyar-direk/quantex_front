@@ -1,8 +1,7 @@
 "use client";
-import Link from "next/link";
+import { Link, usePathname } from "@/i18n/navigation";
 import "./breadcrumbs.css";
 import { sliceText } from "@/utils/sliceText";
-import { usePathname } from "next/navigation";
 import { useMemo } from "react";
 
 /**

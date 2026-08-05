@@ -1,7 +1,7 @@
-import Link from "next/link";
 import IconButton from "../buttons/IconButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "@/i18n/navigation";
 
 const Add = ({ path, ...props }) => {
   return (

@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./style.css";
 import { companyLocation, socialLinks } from "@/constants/links";
 import { pages } from "@/constants/pages";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 const Footer = () => {
   return (
     <footer className="home-footer container">

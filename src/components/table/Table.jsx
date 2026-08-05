@@ -8,7 +8,7 @@ import CloumnsVisible from "./CloumnsVisible";
 import TableLoading from "./TableLoading";
 import TabelError from "./TabelError";
 import TableNoResults from "./TableNoResults";
-import { usePathname } from "next/navigation";
+import { usePathname } from "@/i18n/navigation";
 
 /**
  * @typedef TableProps
@@ -51,7 +51,7 @@ const Table = ({
 }) => {
   const pathname = usePathname();
 
-  const savedStatus = JSON.parse(localStorage.getItem(pathname));
+  const savedStatus = JSON.parse(localStorage?.getItem(pathname));
 
   const [columnsState, setColumnsState] = useState(() =>
     colmuns.map((col) => {

@@ -2,10 +2,10 @@
 import { useCallback, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsis, faRotateRight } from "@fortawesome/free-solid-svg-icons";
-import { usePathname } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import IconButton from "@/components/buttons/IconButton";
 import Button from "@/components/buttons/Button";
+import { usePathname } from "@/i18n/navigation";
 
 const CloumnsVisible = ({ columns, setColumns, defaultColumns, onRefetch }) => {
   const [search, setSearch] = useState("");

@@ -7,7 +7,7 @@ import { endPoints } from "@/constants/endPoints";
 import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
 import Input from "@/components/inputs/Input";
 import Button from "@/components/buttons/Button";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/navigation";
 
 const api = new APIClient(endPoints.users.all);
 
