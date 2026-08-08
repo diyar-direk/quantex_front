@@ -6,7 +6,7 @@ import { useInView } from "react-intersection-observer";
 const AboutUsCards = ({ title, desc, icon }) => {
   const { ref, inView } = useInView({
     threshold: 0,
-    
+    triggerOnce: true,
   });
 
   return (

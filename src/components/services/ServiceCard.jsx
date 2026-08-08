@@ -6,6 +6,7 @@ import { useInView } from "react-intersection-observer";
 const ServiceCard = ({ icon, title, subTitle, tags, theme }) => {
   const { ref, inView } = useInView({
     threshold: 0,
+    triggerOnce: true,
   });
 
   return (

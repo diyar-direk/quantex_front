@@ -21,14 +21,33 @@ import {
   faServer,
   faShieldHalved,
 } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { TypeAnimation } from "react-type-animation";
 
 export default function Home() {
   return (
     <>
       <ParticlesBackground />
-      <main className="home-landing container main-section">
-        <div className="landing-container">
+      <main className="home-landing">
+        <section className="company-info container">
+          <div className="service">
+            <FontAwesomeIcon icon={faServer} />
+            <h2>Software Development</h2>
+          </div>
+          <div className="service">
+            <FontAwesomeIcon icon={faShieldHalved} />
+            <h2>Software Development</h2>
+          </div>
+          <div className="service">
+            <FontAwesomeIcon icon={faBrain} />
+            <h2>Software Development</h2>
+          </div>
+          <div className="service">
+            <FontAwesomeIcon icon={faCode} />
+            <h2>Software Development</h2>
+          </div>
+        </section>
+        <div className="landing-container container main-section">
           <h1>
             welcome to <span>quantex</span> company
           </h1>
