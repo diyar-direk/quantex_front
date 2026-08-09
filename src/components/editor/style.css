@@ -1,0 +1,31 @@
+.my-editor .ql-toolbar {
+  border-bottom: 0;
+  border-radius: 8px 8px 0 0;
+  background: var(--aside-color);
+  border: solid 1px var(--border-color);
+}
+.my-editor.error .ql-toolbar,
+.my-editor.error .ql-container {
+  color: #e61313;
+  background-color: #eb040415;
+  border: 1px solid #eb090927;
+}
+
+.my-editor .ql-container {
+  min-height: 250px;
+  border-radius: 0 0 8px 8px;
+  background-color: var(--section-color);
+  display: flex;
+  flex-direction: column;
+  border: solid 1px var(--border-color);
+}
+
+.my-editor .ql-editor {
+  flex: 1;
+}
+
+.my-editor .ql-editor.ql-blank::before {
+  font-style: normal;
+  color: var(--font-color);
+  opacity: 0.6;
+}

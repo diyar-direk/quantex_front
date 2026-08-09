@@ -1,5 +1,7 @@
 import {
   faDashboard,
+  faNewspaper,
+  faPlus,
   faUserPlus,
   faUsers,
 } from "@fortawesome/free-solid-svg-icons";
@@ -15,6 +17,12 @@ export const pages = {
     users: {
       page: "/dashboard/users",
       add: "/dashboard/users/add",
+    },
+    posts: {
+      page: "/dashboard/posts",
+      view: (id = ":id") => `/dashboard/posts/${id}`,
+      update: (id = ":id") => `/dashboard/posts/${id}/update`,
+      add: "/dashboard/posts/add",
     },
   },
 };
@@ -39,6 +47,23 @@ export const dashboardPages = [
         title: "add user",
         to: pages.dashboard.users.add,
         icon: faUserPlus,
+      },
+    ],
+  },
+  {
+    title: "posts",
+    to: pages.dashboard.posts.page,
+    icon: faNewspaper,
+    children: [
+      {
+        title: "posts",
+        to: pages.dashboard.posts.page,
+        icon: faNewspaper,
+      },
+      {
+        title: "add post",
+        to: pages.dashboard.posts.add,
+        icon: faPlus,
       },
     ],
   },

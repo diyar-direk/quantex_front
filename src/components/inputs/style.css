@@ -140,7 +140,19 @@ label.required::after {
   background-color: var(--main-color);
 }
 .select-input .options h3.array.selected {
-  background-color: var(--transparent-color);
+  background-color: color-mix(in srgb, var(--main-color) 10%, transparent);
+}
+.select-input .options h3.array.selected::before {
+  content: "✓";
+  background-color: var(--main-color);
+}
+.select-input .options h3.array.selected::before {
+  content: "✓";
+  background-color: var(--main-color);
+}
+.select-input .options h3.array.selected,
+.select-input .options h3.selected {
+  background-color: color-mix(in srgb, var(--main-color) 10%, transparent);
 }
 
 .select-input .selected-values {
@@ -207,7 +219,7 @@ label.required::after {
 }
 .multiple-upload-container .styled:hover,
 .multiple-upload-container .styled.dragging {
-  background-color: var(--transparent-color);
+  background-color: color-mix(in srgb, var(--main-color) 10%, transparent);
 }
 
 .multiple-upload-container .uploaded-images {

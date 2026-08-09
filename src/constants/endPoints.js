@@ -6,5 +6,8 @@ export const endPoints = {
     refresh: "/users/refresh",
     me: "/users/me",
   },
+  posts: {
+    all: "/posts/",
+  },
   deleteMany: "delete-many",
 };

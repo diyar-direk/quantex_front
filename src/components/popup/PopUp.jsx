@@ -4,12 +4,10 @@
  * @property {() => void} [onClose]
  */
 
-import { memo, useMemo } from "react";
 import IconButton from "../buttons/IconButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./popups.css";
-import { useTranslation } from "react-i18next";
-import { icons } from "../../constants/icons";
+import { faClose } from "@fortawesome/free-solid-svg-icons";
 
 /**
  * @param {divProps & React.HTMLAttributes<HTMLDivElement>} props
@@ -21,9 +19,7 @@ const PopUp = ({
   children,
   ...props
 }) => {
-  const popupClassName = useMemo(() => `popup ${className || ""}`, [className]);
-
-  const { t } = useTranslation();
+  const popupClassName = `popup ${className || ""}`;
 
   if (!isOpen) return;
 
@@ -38,10 +34,10 @@ const PopUp = ({
           <IconButton
             color="delete"
             styleType="transparent"
-            title={t("common.close")}
+            title={"close"}
             onClick={onClose}
           >
-            <FontAwesomeIcon icon={icons.close} />
+            <FontAwesomeIcon icon={faClose} />
           </IconButton>
         </div>
         {children}
@@ -50,4 +46,4 @@ const PopUp = ({
   );
 };
 
-export default memo(PopUp);
+export default PopUp;

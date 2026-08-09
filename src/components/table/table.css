@@ -127,7 +127,7 @@ div.table-header > article .columns-visible > label {
 }
 
 div.table-header > article .columns-visible > label:has(input:checked) {
-  background-color: var(--transparent-color);
+  background-color: color-mix(in srgb, var(--main-color) 10%, transparent);
   border-color: var(--main-color);
 }
 
@@ -283,7 +283,7 @@ tr:not(:last-of-type) td {
 }
 
 .table-loading {
-  background-color: var(--transparent-color);
+  background-color: color-mix(in srgb, var(--main-color) 10%, transparent);
 }
 
 .table-loading::before {

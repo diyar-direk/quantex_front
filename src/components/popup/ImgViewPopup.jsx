@@ -8,9 +8,8 @@ import { memo, useMemo } from "react";
 import IconButton from "../buttons/IconButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./popups.css";
-import { useTranslation } from "react-i18next";
-import { icons } from "../../constants/icons";
-import { faDownload } from "@fortawesome/free-solid-svg-icons";
+import { faClose, faDownload } from "@fortawesome/free-solid-svg-icons";
+import Image from "next/image";
 
 /**
  * @param {divProps & React.HTMLAttributes<HTMLDivElement>} props
@@ -23,8 +22,6 @@ const ImgViewPopup = ({
   ...props
 }) => {
   const popupClassName = useMemo(() => `popup ${className || ""}`, [className]);
-
-  const { t } = useTranslation();
 
   if (!src) return;
 
@@ -40,7 +37,7 @@ const ImgViewPopup = ({
             <IconButton
               color="save"
               styleType="transparent"
-              title={t("download")}
+              title="download"
               onClick={onClose}
             >
               <FontAwesomeIcon icon={faDownload} />
@@ -49,13 +46,19 @@ const ImgViewPopup = ({
           <IconButton
             color="delete"
             styleType="transparent"
-            title={t("close")}
+            title="close"
             onClick={onClose}
           >
-            <FontAwesomeIcon icon={icons.close} />
+            <FontAwesomeIcon icon={faClose} />
           </IconButton>
         </div>
-        <img src={src} alt="view-img" {...imgProps} />
+        <Image
+          src={src}
+          alt="view-img"
+          {...imgProps}
+          width={100}
+          height={100}
+        />
       </div>
     </div>
   );

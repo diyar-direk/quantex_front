@@ -11,31 +11,17 @@ import TableToolBar from "@/components/table_toolbar/TableToolBar";
 import { useFetchData } from "@/hooks/useFetchData";
 import dateFormatter from "@/utils/dateFormatter";
 import { formatInputsData } from "@/utils/formatInputsData";
-import { useState } from "react";
-import { useAuth } from "@/context/AuthContext";
+import { useMemo, useState } from "react";
+import Link from "next/link";
 import DBkeys from "@/constants/DBkeys";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import Button from "@/components/buttons/Button";
+import Image from "next/image";
+import imgServerSrc from "@/utils/imgServerSrc";
+import ImgViewPopup from "@/components/popup/ImgViewPopup";
 
-const columns = [
-  {
-    name: "username",
-    sort: true,
-    headerName: "username",
-  },
-  {
-    name: "createdAt",
-    headerName: "createdAt",
-    sort: true,
-    getCell: ({ row }) => dateFormatter(row.createdAt, "fullDate"),
-  },
-  {
-    name: "updatedAt",
-    headerName: "updatedAt",
-    sort: true,
-    getCell: ({ row }) => dateFormatter(row.updatedAt, "fullDate"),
-  },
-];
-
-const AllUsers = () => {
+const AllPosts = () => {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const [filters, setFilters] = useState({});
@@ -43,29 +29,95 @@ const AllUsers = () => {
   const [sort, setSort] = useState("");
 
   const { data, isLoading, error, refetch } = useFetchData({
-    endPoints: endPoints.users.all,
+    endPoints: endPoints.posts.all,
     page,
-    "username[contains]": search,
+    "title[contains]": search,
     sort,
     ...formatInputsData(filters),
   });
 
-  const { user } = useAuth();
+  const [viewImg, setViewImg] = useState(null);
+
+  const columns = useMemo(
+    () => [
+      {
+        name: "title",
+        sort: true,
+        headerName: "title",
+        getCell: ({ row }) => (
+          <Link
+            href={pages.dashboard.posts.view(row[DBkeys.id])}
+            className="link-hover"
+          >
+            {row.title}
+          </Link>
+        ),
+      },
+      {
+        name: "category",
+        headerName: "category",
+      },
+      {
+        name: "image",
+        headerName: "image",
+        getCell: ({ row }) => (
+          <Image
+            src={imgServerSrc(row.image)}
+            alt={row.title}
+            width={100}
+            height={100}
+            onClick={() => setViewImg(imgServerSrc(row.image))}
+          />
+        ),
+      },
+      {
+        name: "createdAt",
+        headerName: "createdAt",
+        sort: true,
+        getCell: ({ row }) => dateFormatter(row.createdAt, "fullDate"),
+      },
+      {
+        name: "updatedAt",
+        headerName: "updatedAt",
+        sort: true,
+        getCell: ({ row }) => dateFormatter(row.updatedAt, "fullDate"),
+      },
+      {
+        name: "actions",
+        headerName: "actions",
+        getCell: ({ row }) => (
+          <div className="center gap-10">
+            <Link href={pages.dashboard.posts.update(row[DBkeys.id])}>
+              <Button btnStyleType="transparent" btnType="update">
+                <FontAwesomeIcon icon={faPenToSquare} />
+              </Button>
+            </Link>
+            <Link href={pages.dashboard.posts.view(row[DBkeys.id])}>
+              <Button btnStyleType="transparent" btnType="save">
+                <FontAwesomeIcon icon={faEye} />
+              </Button>
+            </Link>
+          </div>
+        ),
+      },
+    ],
+    [],
+  );
 
   return (
     <>
       <Breadcrumbs />
       <main className="dashboard-main">
         <div className="table-container">
-          <TableToolBar title={"users"}>
+          <TableToolBar title={"posts"}>
             <Search setSearch={setSearch} />
-            <Add path={pages.dashboard.users.add} />
+            <Add path={pages.dashboard.posts.add} />
             <Delete
               data={data?.data}
               selectedItems={selectedItems}
               setPage={setPage}
               setSelectedItems={setSelectedItems}
-              endPoint={endPoints.users.all}
+              endPoint={endPoints.posts.all}
             />
             <Filters filters={filters} setFilters={setFilters} />
           </TableToolBar>
@@ -83,13 +135,13 @@ const AllUsers = () => {
             setSelectedItems={setSelectedItems}
             colmuns={columns}
             sortBy={sort}
-            addBtnProps={{ href: pages.dashboard.users.add }}
-            notSelectIf={(u) => user[DBkeys.id] === u[DBkeys.id]}
+            addBtnProps={{ href: pages.dashboard.posts.add }}
           />
         </div>
       </main>
+      <ImgViewPopup src={viewImg} onClose={() => setViewImg(null)} />
     </>
   );
 };
 
-export default AllUsers;
+export default AllPosts;

@@ -17,9 +17,8 @@ const AddUser = () => {
   const router = useRouter();
 
   const handleAdd = useMutation({
-    mutationFn: (v) => {
-      return api.addData({ username: v.username, password: v.password });
-    },
+    mutationFn: (v) =>
+      api.addData({ username: v.username, password: v.password }),
     onSuccess: () => {
       query.invalidateQueries([endPoints.users.all]);
       router.back();
