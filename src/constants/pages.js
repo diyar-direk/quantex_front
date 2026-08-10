@@ -20,9 +20,16 @@ export const pages = {
     },
     posts: {
       page: "/dashboard/posts",
-      view: (id = ":id") => `/dashboard/posts/${id}`,
-      update: (id = ":id") => `/dashboard/posts/${id}/update`,
       add: "/dashboard/posts/add",
+    },
+  },
+};
+
+export const pagesActionRouts = {
+  dashboard: {
+    posts: {
+      view: (id="") => `${pages.dashboard.posts.page}/${id}`,
+      update: (id="") => `${pages.dashboard.posts.page}/${id}/update`,
     },
   },
 };

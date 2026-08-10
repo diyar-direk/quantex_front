@@ -2,7 +2,7 @@
 import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
 import Table from "@/components/table/Table";
 import { endPoints } from "@/constants/endPoints";
-import { pages } from "@/constants/pages";
+import { pages, pagesActionRouts } from "@/constants/pages";
 import Add from "@/components/table_toolbar/Add";
 import Delete from "@/components/table_toolbar/Delete";
 import Filters from "@/components/table_toolbar/Filters";
@@ -46,7 +46,7 @@ const AllPosts = () => {
         headerName: "title",
         getCell: ({ row }) => (
           <Link
-            href={pages.dashboard.posts.view(row[DBkeys.id])}
+            href={pagesActionRouts.dashboard.posts.view(row[DBkeys.id])}
             className="link-hover"
           >
             {row.title}
@@ -64,9 +64,10 @@ const AllPosts = () => {
           <Image
             src={imgServerSrc(row.image)}
             alt={row.title}
-            width={100}
-            height={100}
+            width={50}
+            height={50}
             onClick={() => setViewImg(imgServerSrc(row.image))}
+            style={{ borderRadius: "6px", cursor: "pointer" }}
           />
         ),
       },
@@ -87,12 +88,14 @@ const AllPosts = () => {
         headerName: "actions",
         getCell: ({ row }) => (
           <div className="center gap-10">
-            <Link href={pages.dashboard.posts.update(row[DBkeys.id])}>
+            <Link
+              href={pagesActionRouts.dashboard.posts.update(row[DBkeys.id])}
+            >
               <Button btnStyleType="transparent" btnType="update">
                 <FontAwesomeIcon icon={faPenToSquare} />
               </Button>
             </Link>
-            <Link href={pages.dashboard.posts.view(row[DBkeys.id])}>
+            <Link href={pagesActionRouts.dashboard.posts.view(row[DBkeys.id])}>
               <Button btnStyleType="transparent" btnType="save">
                 <FontAwesomeIcon icon={faEye} />
               </Button>

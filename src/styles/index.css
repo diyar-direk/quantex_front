@@ -198,6 +198,10 @@ body::-webkit-scrollbar {
 .main-section {
   padding-block: 70px;
 }
+.link-hover:hover {
+  color: var(--main-color);
+  text-decoration: underline;
+}
 
 @media (max-width: 1000px) {
   .grid-3 {
