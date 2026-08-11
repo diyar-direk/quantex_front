@@ -39,9 +39,10 @@
   gap: 10px;
   justify-content: space-between;
   align-items: center;
-  background-color: color-mix(in oklab, var(--main-color) 15%, transparent);
+  background-color: color-mix(in oklab, var(--main-color) 13%, transparent);
   border-block: solid var(--main-color) 1px;
-  padding-block: 15px;
+  padding-block: 25px;
+  backdrop-filter: blur(1px);
 }
 .home-landing .company-info .service {
   display: flex;
@@ -159,4 +160,36 @@
 
 .home-contact:hover::after {
   right: -50px;
+}
+
+.about-page {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.about-page section {
+  flex: 300px;
+}
+.about-page section img {
+  max-height: 350px;
+  object-fit: contain;
+  width: 100%;
+}
+.about-page section h2 {
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+.about-page section h2::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  background-color: var(--main-color);
+  border-radius: 50%;
+}
+.about-page section p {
+  opacity: 0.7;
+  padding-inline: 15px;
 }

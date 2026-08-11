@@ -5,10 +5,11 @@ import APIClient from "@/utils/ApiClient";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
-import Link from "next/link";
+
 import IconButton from "@/components/buttons/IconButton";
 import { pagesActionRouts } from "@/constants/pages";
 import PostView from "@/components/posts/PostView";
+import { Link } from "@/i18n/navigation";
 
 const api = new APIClient(endPoints.posts.all);
 

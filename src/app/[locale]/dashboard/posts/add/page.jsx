@@ -11,7 +11,7 @@ import UploadPhoto from "@/components/inputs/UploadPhoto";
 import MyEditor from "@/components/editor/MyEditor";
 import { postSchema } from "@/schema/post";
 import SelectOptionInput from "@/components/inputs/SelectOptionInput";
-import { categories } from "@/constants/enums";
+import { categories, postTypes } from "@/constants/enums";
 
 const api = new APIClient(endPoints.posts.all);
 
@@ -22,11 +22,12 @@ const AddPost = () => {
 
   const handleAdd = useMutation({
     mutationFn: (v) => {
-      const { title, content, category, image, video } = v;
+      const { title, content, category, image, video, type } = v;
       const formData = new FormData();
       formData.append("title", title);
       formData.append("content", content);
       formData.append("category", category);
+      formData.append("type", type);
       if (image) formData.append("image", image?.file);
       if (video) formData.append("video", video?.file);
       return api.addData(formData);
@@ -42,6 +43,7 @@ const AddPost = () => {
       title: "",
       content: "",
       category: "",
+      type: "",
       image: "",
       video: "",
     },
@@ -67,6 +69,19 @@ const AddPost = () => {
               name="title"
               containerProps={{ style: { flex: "200px" } }}
             />
+
+            <SelectOptionInput
+              label="type"
+              errorText={formik.errors.type}
+              value={formik.values.type}
+              options={Object.values(postTypes)?.map((e) => ({
+                text: e.value,
+                value: e.value,
+              }))}
+              onSelectOption={(e) => formik.setFieldValue("type", e.value)}
+              wrapperProps={{ style: { flex: "200px" } }}
+            />
+            
             <SelectOptionInput
               label="category"
               errorText={formik.errors.category}

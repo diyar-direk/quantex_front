@@ -84,6 +84,7 @@ body {
   --aside-color: #e7e9eb;
   color: var(--font-color);
 }
+
 body.dark {
   --body-color: #111827;
   --border-color: #374151;

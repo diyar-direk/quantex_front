@@ -12,7 +12,7 @@ import { useFetchData } from "@/hooks/useFetchData";
 import dateFormatter from "@/utils/dateFormatter";
 import { formatInputsData } from "@/utils/formatInputsData";
 import { useMemo, useState } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import DBkeys from "@/constants/DBkeys";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
@@ -20,6 +20,8 @@ import Button from "@/components/buttons/Button";
 import Image from "next/image";
 import imgServerSrc from "@/utils/imgServerSrc";
 import ImgViewPopup from "@/components/popup/ImgViewPopup";
+import SelectOptionInput from "@/components/inputs/SelectOptionInput";
+import { categories, postTypes } from "@/constants/enums";
 
 const AllPosts = () => {
   const [search, setSearch] = useState("");
@@ -52,6 +54,10 @@ const AllPosts = () => {
             {row.title}
           </Link>
         ),
+      },
+      {
+        name: "type",
+        headerName: "type",
       },
       {
         name: "category",
@@ -122,7 +128,46 @@ const AllPosts = () => {
               setSelectedItems={setSelectedItems}
               endPoint={endPoints.posts.all}
             />
-            <Filters filters={filters} setFilters={setFilters} />
+            <Filters filters={filters} setFilters={setFilters}>
+              <SelectOptionInput
+                label="type"
+                notRequired
+                onSelectOption={(e) =>
+                  setFilters((p) => ({ ...p, type: e.value }))
+                }
+                options={Object.keys(postTypes)?.map((e) => ({
+                  text: e,
+                  value: e,
+                }))}
+                value={filters?.type}
+                placeholder={filters?.type ? filters?.type : "all"}
+                customOptions={[
+                  {
+                    title: "all",
+                    onChange: () => setFilters((p) => ({ ...p, type: "" })),
+                  },
+                ]}
+              />
+              <SelectOptionInput
+                label="category"
+                notRequired
+                onSelectOption={(e) =>
+                  setFilters((p) => ({ ...p, category: e.value }))
+                }
+                options={Object.keys(categories)?.map((e) => ({
+                  text: e,
+                  value: e,
+                }))}
+                value={filters?.category}
+                placeholder={filters?.category ? filters?.category : "all"}
+                customOptions={[
+                  {
+                    title: "all",
+                    onChange: () => setFilters((p) => ({ ...p, category: "" })),
+                  },
+                ]}
+              />
+            </Filters>
           </TableToolBar>
           <Table
             currentPage={page}

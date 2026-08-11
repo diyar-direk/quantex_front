@@ -1,17 +1,27 @@
 import {
+  faContactBook,
   faDashboard,
+  faHome,
+  faLightbulb,
   faNewspaper,
   faPlus,
+  faQuestionCircle,
+  faSignIn,
   faUserPlus,
   faUsers,
 } from "@fortawesome/free-solid-svg-icons";
+import { postTypes } from "./enums";
 
-export const pages = {
+const pages = {
   home: "/",
   joinUs: "/join_us",
   contactUs: "/contact_us",
   ourServices: "/our_services",
   aboutUs: "/about_us",
+  projects: "/projects",
+  blogs: "/blogs",
+  products: "/product",
+  announcements: "/announcements",
   dashboard: {
     page: "/dashboard",
     users: {
@@ -25,16 +35,64 @@ export const pages = {
   },
 };
 
-export const pagesActionRouts = {
+const homePages = [
+  {
+    title: "home",
+    icon: faHome,
+    to: pages.home,
+  },
+  {
+    title: "about us",
+    icon: faQuestionCircle,
+    to: pages.aboutUs,
+  },
+  {
+    title: "our services",
+    icon: faLightbulb,
+    to: pages.ourServices,
+  },
+  {
+    title: "contact us",
+    icon: faContactBook,
+    to: pages.contactUs,
+  },
+  {
+    title: "join us",
+    icon: faSignIn,
+    to: pages.joinUs,
+  },
+  {
+    title: "projects",
+    icon: postTypes.Project.icon,
+    to: pages.projects,
+  },
+  {
+    title: "blogs",
+    icon: postTypes.blog.icon,
+    to: pages.blogs,
+  },
+  {
+    title: "Products",
+    icon: postTypes.Product.icon,
+    to: pages.products,
+  },
+  {
+    title: "announcements",
+    icon: postTypes.Announcement.icon,
+    to: pages.announcements,
+  },
+];
+
+const pagesActionRouts = {
   dashboard: {
     posts: {
-      view: (id="") => `${pages.dashboard.posts.page}/${id}`,
-      update: (id="") => `${pages.dashboard.posts.page}/${id}/update`,
+      view: (id = ":id") => `${pages.dashboard.posts.page}/${id}`,
+      update: (id = ":id") => `${pages.dashboard.posts.page}/${id}/update`,
     },
   },
 };
 
-export const dashboardPages = [
+const dashboardPages = [
   {
     title: "statistics",
     to: pages.dashboard.page,
@@ -75,3 +133,5 @@ export const dashboardPages = [
     ],
   },
 ];
+
+export { pages, homePages, pagesActionRouts, dashboardPages };

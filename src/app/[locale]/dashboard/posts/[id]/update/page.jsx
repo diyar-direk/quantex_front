@@ -11,9 +11,10 @@ import UploadPhoto from "@/components/inputs/UploadPhoto";
 import MyEditor from "@/components/editor/MyEditor";
 import { postUpdateSchema } from "@/schema/post";
 import SelectOptionInput from "@/components/inputs/SelectOptionInput";
-import { categories } from "@/constants/enums";
+import { categories, postTypes } from "@/constants/enums";
 import { useParams } from "next/navigation";
 import imgServerSrc from "@/utils/imgServerSrc";
+import HandleError from "@/components/error/HandleError";
 
 const api = new APIClient(endPoints.posts.all);
 
@@ -23,18 +24,19 @@ const UpdatePost = () => {
   const router = useRouter();
   const { id } = useParams();
 
-  const { data } = useQuery({
+  const { data, error, refetch } = useQuery({
     queryKey: [endPoints.posts.all, id],
     queryFn: () => api.getOne(id),
   });
 
   const handleAdd = useMutation({
     mutationFn: (v) => {
-      const { title, content, category, image, video } = v;
+      const { title, content, category, image, video, type } = v;
       const formData = new FormData();
       formData.append("title", title);
       formData.append("content", content);
       formData.append("category", category);
+      formData.append("type", type);
       if (image) formData.append("image", image?.file);
       if (video) formData.append("video", video?.file);
       return api.updateData({ data: formData, id });
@@ -50,6 +52,7 @@ const UpdatePost = () => {
       title: data?.title ?? "",
       content: data?.content ?? "",
       category: data?.category ?? "",
+      type: data?.type ?? "",
       image: "",
       video: "",
     },
@@ -57,6 +60,8 @@ const UpdatePost = () => {
     onSubmit: handleAdd.mutate,
     enableReinitialize: true,
   });
+
+  if (error) return <HandleError error={error} refetch={refetch} />;
 
   return (
     <>
@@ -76,6 +81,19 @@ const UpdatePost = () => {
               name="title"
               containerProps={{ style: { flex: "200px" } }}
             />
+
+            <SelectOptionInput
+              label="type"
+              errorText={formik.errors.type}
+              value={formik.values.type}
+              options={Object.values(postTypes)?.map((e) => ({
+                text: e.value,
+                value: e.value,
+              }))}
+              onSelectOption={(e) => formik.setFieldValue("type", e.value)}
+              wrapperProps={{ style: { flex: "200px" } }}
+            />
+
             <SelectOptionInput
               label="category"
               errorText={formik.errors.category}
