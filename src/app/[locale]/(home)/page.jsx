@@ -5,16 +5,28 @@ import HomeAbout from "./(home)/HomeAbout";
 import Landing from "./(home)/Landing";
 import HomeServices from "./(home)/HomeServices";
 import HomeProjects from "./(home)/HomeProjects";
+import HomeBlogs from "./(home)/HomeBlogs";
+import HomeAnnouncement from "./(home)/HomeAnnouncements";
+import Homeproducts from "./(home)/HomeProduct";
 
 export default function Home() {
   return (
     <>
       <ParticlesBackground />
+
       <Landing />
+
       <HomeAbout />
+
+      <Homeproducts />
+
       <HomeServices />
 
       <HomeProjects />
+
+      <HomeBlogs />
+
+      <HomeAnnouncement />
 
       <main className="container main-section">
         <section className="home-contact">

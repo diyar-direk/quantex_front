@@ -49,6 +49,7 @@ const Services = () => {
             subTitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi,"
             tags={[{ text: "react", icon: faReact }, { text: "test" }]}
           />
+
           <ServiceCard
             icon={faShieldHalved}
             title="Cybersecurity & Pentesting"

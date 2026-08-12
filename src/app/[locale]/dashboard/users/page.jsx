@@ -22,16 +22,16 @@ const columns = [
     headerName: "username",
   },
   {
-    name: "createdAt",
-    headerName: "createdAt",
+    name: DBkeys.createdAt,
+    headerName: DBkeys.createdAt,
     sort: true,
-    getCell: ({ row }) => dateFormatter(row.createdAt, "fullDate"),
+    getCell: ({ row }) => dateFormatter(row[DBkeys.createdAt], "fullDate"),
   },
   {
-    name: "updatedAt",
-    headerName: "updatedAt",
+    name: DBkeys.updatedAt,
+    headerName: DBkeys.updatedAt,
     sort: true,
-    getCell: ({ row }) => dateFormatter(row.updatedAt, "fullDate"),
+    getCell: ({ row }) => dateFormatter(row[DBkeys.updatedAt], "fullDate"),
   },
 ];
 

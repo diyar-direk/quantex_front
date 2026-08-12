@@ -11,6 +11,7 @@ import ImgViewPopup from "../popup/ImgViewPopup";
 import { useState } from "react";
 import dateFormatter from "@/utils/dateFormatter";
 import "./style.css";
+import DBkeys from "@/constants/DBkeys";
 
 const PostView = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -52,7 +53,7 @@ const PostView = ({ data }) => {
                 <FontAwesomeIcon icon={faClock} /> created at
               </p>
               <p className="value">
-                {dateFormatter(data?.createdAt, "fullDate")}
+                {dateFormatter(data?.[DBkeys.createdAt], "fullDate")}
               </p>
             </article>
             <article>
@@ -60,7 +61,7 @@ const PostView = ({ data }) => {
                 <FontAwesomeIcon icon={faArrowsRotate} /> last update
               </p>
               <p className="value">
-                {dateFormatter(data?.updatedAt, "fullDate")}
+                {dateFormatter(data?.[DBkeys.updatedAt], "fullDate")}
               </p>
             </article>
           </div>

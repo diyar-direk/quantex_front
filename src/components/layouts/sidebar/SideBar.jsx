@@ -1,11 +1,14 @@
 "use client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./style.css";
-import { faClose } from "@fortawesome/free-solid-svg-icons";
+import { faChartLine, faClose } from "@fortawesome/free-solid-svg-icons";
 import IconButton from "@/components/buttons/IconButton";
 import NavLink from "@/components/NavLink";
-import { homePages } from "@/constants/pages";
+import { homePages, pages } from "@/constants/pages";
+import { useAuth } from "@/context/AuthContext";
 const SideBar = ({ setIsOpen }) => {
+  const { user } = useAuth();
+
   return (
     <div className="sidebar-overlay" onClick={() => setIsOpen(false)}>
       <aside>
@@ -26,6 +29,10 @@ const SideBar = ({ setIsOpen }) => {
             {e.title}
           </NavLink>
         ))}
+        <NavLink href={pages.dashboard.page} className="pages">
+          <FontAwesomeIcon icon={faChartLine} />
+          dashboard
+        </NavLink>
       </aside>
     </div>
   );

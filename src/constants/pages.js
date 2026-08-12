@@ -90,6 +90,10 @@ const pagesActionRouts = {
       update: (id = ":id") => `${pages.dashboard.posts.page}/${id}/update`,
     },
   },
+  projects: (id = ":id") => `${pages.projects}/${id}`,
+  products: (id = ":id") => `${pages.products}/${id}`,
+  blogs: (id = ":id") => `${pages.blogs}/${id}`,
+  announcements: (id = ":id") => `${pages.announcements}/${id}`,
 };
 
 const dashboardPages = [

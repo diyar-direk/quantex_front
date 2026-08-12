@@ -17,7 +17,7 @@ import NavLink from "@/components/NavLink";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
 import SideBar from "../sidebar/SideBar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const { toggleOpen, isOpen, ref } = useClickOutside();
@@ -33,6 +33,18 @@ const Navbar = () => {
       locale: newLocale,
     });
   }
+
+  useEffect(() => {
+    if (sideBarOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [sideBarOpen]);
 
   return (
     <>
