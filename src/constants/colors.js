@@ -4,9 +4,8 @@ export const colors = {
   move: "rgb(183 0 255)",
   blue: "#0ea5e9",
   orange: "#f9ab06",
-  purple: "#4f46e5",
+  purple: "#7c3aed",
   pink: "#db2777",
-  teal: "#14b8a6",
-  yellow: "#eab308",
-  dark: "#1e293b",
+  teal: "#84cc16",
+  cyan: "#06b6d4",
 };

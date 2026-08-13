@@ -24,10 +24,6 @@ export default function Home() {
 
       <HomeProjects />
 
-      <HomeBlogs />
-
-      <HomeAnnouncement />
-
       <main className="container main-section">
         <section className="home-contact">
           <h1>Ready to Transform Your Digital Future?</h1>
@@ -42,6 +38,9 @@ export default function Home() {
           </div>
         </section>
       </main>
+      <HomeBlogs />
+
+      <HomeAnnouncement />
     </>
   );
 }

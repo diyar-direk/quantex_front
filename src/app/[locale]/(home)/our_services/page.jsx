@@ -15,6 +15,8 @@ import Image from "next/image";
 import ServicesImg from "@/assets/services.svg";
 import "./style.css";
 import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
+import { categories } from "@/constants/enums";
+import MainTitle from "@/components/main_title/MainTitle";
 
 export const metadata = {
   title: "our services",
@@ -42,61 +44,70 @@ const Services = () => {
       </main>
 
       <main className="container main-section">
+        <MainTitle>our services</MainTitle>
         <div className="services-container grid-3">
           <ServiceCard
-            icon={faCode}
+            icon={categories.softwareDevelopment.icon}
             title="Software Development"
             subTitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi,"
             tags={[{ text: "react", icon: faReact }, { text: "test" }]}
+            theme={categories.softwareDevelopment.color}
           />
-
           <ServiceCard
-            icon={faShieldHalved}
+            icon={categories.cybersecurityAndPentesting.icon}
+            theme={categories.cybersecurityAndPentesting.color}
             title="Cybersecurity & Pentesting"
             subTitle="Comprehensive security assessments, penetration testing, and 24/7 SOC services protecting your digital perimeter."
             tags={[{ text: "test" }, { text: "test" }]}
-            theme={colors.green}
           />
           <ServiceCard
-            icon={faMobile}
-            title="Web & Mobile Apps"
+            icon={categories.webApps.icon}
+            theme={categories.webApps.color}
+            title="Web Apps"
             subTitle="Comprehensive security assessments, penetration testing, and 24/7 SOC services protecting your digital perimeter."
             tags={[{ text: "test" }, { text: "test" }]}
-            theme={colors.move}
           />
           <ServiceCard
-            icon={faNetworkWired}
             title="Network Engineering"
             subTitle="Comprehensive security assessments, penetration testing, and 24/7 SOC services protecting your digital perimeter."
             tags={[{ text: "test" }, { text: "test" }]}
-            theme={colors.orange}
+            icon={categories.network_Engineering.icon}
+            theme={categories.network_Engineering.color}
           />
           <ServiceCard
-            icon={faServer}
             title="server management"
             subTitle="Comprehensive security assessments, penetration testing, and 24/7 SOC services protecting your digital perimeter."
             tags={[{ text: "test" }, { text: "test" }]}
-            theme={colors.blue}
+            icon={categories.serverManagement.icon}
+            theme={categories.serverManagement.color}
           />
           <ServiceCard
-            icon={faBrain}
             title="AI Development"
             subTitle="Comprehensive security assessments, penetration testing, and 24/7 SOC services protecting your digital perimeter."
             tags={[{ text: "test" }, { text: "test" }]}
-            theme={colors.red}
+            icon={categories.aiDevelopment.icon}
+            theme={categories.aiDevelopment.color}
           />
           <ServiceCard
-            icon={faRobot}
-            title="AI Agents & Automation"
-            subTitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi,"
-            tags={[{ text: "react", icon: faReact }, { text: "test" }]}
-          />
-          <ServiceCard
-            icon={faCloud}
-            title="SaaS & Cloud Products"
+            title="SAAS"
             subTitle="Comprehensive security assessments, penetration testing, and 24/7 SOC services protecting your digital perimeter."
             tags={[{ text: "test" }, { text: "test" }]}
-            theme={colors.green}
+            icon={categories.SAAS.icon}
+            theme={categories.SAAS.color}
+          />
+          <ServiceCard
+            title="cloudProducts"
+            subTitle="Comprehensive security assessments, penetration testing, and 24/7 SOC services protecting your digital perimeter."
+            tags={[{ text: "test" }, { text: "test" }]}
+            icon={categories.cloudProducts.icon}
+            theme={categories.cloudProducts.color}
+          />
+          <ServiceCard
+            title="mobileApps"
+            subTitle="Comprehensive security assessments, penetration testing, and 24/7 SOC services protecting your digital perimeter."
+            tags={[{ text: "test" }, { text: "test" }]}
+            icon={categories.mobileApps.icon}
+            theme={categories.mobileApps.color}
           />
         </div>
       </main>

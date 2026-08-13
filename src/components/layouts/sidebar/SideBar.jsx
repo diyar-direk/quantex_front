@@ -29,10 +29,12 @@ const SideBar = ({ setIsOpen }) => {
             {e.title}
           </NavLink>
         ))}
-        <NavLink href={pages.dashboard.page} className="pages">
-          <FontAwesomeIcon icon={faChartLine} />
-          dashboard
-        </NavLink>
+        {user && (
+          <NavLink href={pages.dashboard.page} className="pages">
+            <FontAwesomeIcon icon={faChartLine} />
+            dashboard
+          </NavLink>
+        )}
       </aside>
     </div>
   );

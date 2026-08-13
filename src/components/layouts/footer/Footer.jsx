@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./style.css";
 import { companyLocation, socialLinks } from "@/constants/links";
-import { pages } from "@/constants/pages";
+import { homePages, pages } from "@/constants/pages";
 import { Link } from "@/i18n/navigation";
 const Footer = () => {
   return (
@@ -30,9 +30,19 @@ const Footer = () => {
       <div className="quick-link">
         <h2> quick link </h2>
         <div className="links">
-          {Object.entries(pages).map(([key, value]) => (
-            <Link href={value} key={key}>
-              {key}
+          {homePages.slice(0, 5).map((e) => (
+            <Link href={e.to} key={e.to}>
+              {e.title}
+            </Link>
+          ))}
+        </div>
+      </div>
+      <div className="quick-link">
+        <h2> quick link </h2>
+        <div className="links">
+          {homePages.slice(5).map((e) => (
+            <Link href={e.to} key={e.to}>
+              {e.title}
             </Link>
           ))}
         </div>

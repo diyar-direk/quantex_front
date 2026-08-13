@@ -40,7 +40,7 @@ export const categories = {
   },
   aiDevelopment: {
     value: "aiDevelopment",
-    color: colors.yellow,
+    color: colors.cyan,
     icon: faBrain,
   },
   SAAS: { value: "SAAS", color: colors.pink, icon: faRobot },

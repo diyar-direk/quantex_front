@@ -386,6 +386,7 @@ tr:not(:last-of-type) td {
   font-size: 16px;
   font-weight: 500;
   animation: fade-in 0.4s ease;
+  text-transform: uppercase;
 }
 
 .no-data-content > svg {
