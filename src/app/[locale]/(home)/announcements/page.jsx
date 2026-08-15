@@ -1,17 +1,17 @@
 import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
-import ProjectsComp from "./ProjectsComp";
+import AnnouncementComp from "./AnnouncementComp";
 import MainTitle from "@/components/main_title/MainTitle";
 
-const Projects = () => {
+const Announcements = () => {
   return (
     <>
       <Breadcrumbs />
       <main className="main-section container">
-        <MainTitle>our projects</MainTitle>
-        <ProjectsComp />
+        <MainTitle>our Announcements</MainTitle>
+        <AnnouncementComp />
       </main>
     </>
   );
 };
 
-export default Projects;
+export default Announcements;

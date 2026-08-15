@@ -12,12 +12,6 @@
   text-align: center;
   border: solid 2px transparent;
 }
-.about-card.view:nth-child(even) {
-  animation: evenView 0.6s linear;
-}
-.about-card.view:nth-child(odd) {
-  animation: oddView 0.6s linear;
-}
 
 .about-card:hover {
   box-shadow: 0 0 20px color-mix(in srgb, var(--main-color) 10%, transparent);
@@ -38,25 +32,4 @@
 }
 .about-card p {
   opacity: 0.7;
-}
-
-@keyframes oddView {
-  0% {
-    opacity: 0;
-    transform: translateX(-90%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-@keyframes evenView {
-  0% {
-    opacity: 0;
-    transform: translateX(90%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
 }

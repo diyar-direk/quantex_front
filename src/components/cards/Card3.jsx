@@ -5,17 +5,15 @@ import { faClock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import "./card.css";
-import { Link } from "@/i18n/navigation";
 import { categories } from "@/constants/enums";
 
-const Card3 = ({ data, view }) => {
+const Card3 = ({ data }) => {
   const text = new DOMParser()
     .parseFromString(data?.content, "text/html")
     .body.textContent.trim();
 
   return (
-    <Link
-      href={view(data?.[DBkeys.id])}
+    <div
       className="card"
       style={{ "--main-color": categories[data?.category].color }}
     >
@@ -33,7 +31,10 @@ const Card3 = ({ data, view }) => {
         <p className="one-line-ellipsis"> {text} </p>
         <div className="card-footer">
           <div className="itm">
-            <FontAwesomeIcon icon={categories[data?.category].icon} />
+            <FontAwesomeIcon
+              icon={categories[data?.category].icon}
+              style={{ color: categories[data?.category].color }}
+            />
             {data?.category}
           </div>
           <div className="itm">
@@ -42,7 +43,7 @@ const Card3 = ({ data, view }) => {
           </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

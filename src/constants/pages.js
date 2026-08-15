@@ -20,7 +20,7 @@ const pages = {
   aboutUs: "/about_us",
   projects: "/projects",
   blogs: "/blogs",
-  products: "/product",
+  products: "/products",
   announcements: "/announcements",
   dashboard: {
     page: "/dashboard",

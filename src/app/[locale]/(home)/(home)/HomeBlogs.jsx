@@ -1,4 +1,5 @@
 "use client";
+import Animations from "@/components/animations/Animations";
 import Button from "@/components/buttons/Button";
 import Card from "@/components/cards/Card2";
 import MainTitle from "@/components/main_title/MainTitle";
@@ -21,7 +22,7 @@ const HomeBlogs = () => {
   if (isLoading)
     return (
       <main className="main-section container body-color">
-        <div className="2">
+        <div className="grid-2">
           <RepeatChildren count={2}>
             <Skeleton height="300px" />
           </RepeatChildren>
@@ -36,7 +37,11 @@ const HomeBlogs = () => {
       <MainTitle subTitle={"Lorem ipsum dolor sit"}>last blogs</MainTitle>
       <div className="grid-2">
         {data?.data?.map((e) => (
-          <Card data={e} key={e[DBkeys.id]} view={pagesActionRouts.blogs} />
+          <Animations key={e[DBkeys.id]}>
+            <Link href={pagesActionRouts.blogs(e[DBkeys.id])}>
+              <Card data={e} />
+            </Link>
+          </Animations>
         ))}
       </div>
       <div className="center" style={{ marginTop: "10px" }}>

@@ -1,20 +1,16 @@
-"use client";
 import "./style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useInView } from "react-intersection-observer";
+import Animations from "../animations/Animations";
 
 const AboutUsCards = ({ title, desc, icon }) => {
-  const { ref, inView } = useInView({
-    threshold: 0,
-    triggerOnce: true,
-  });
-
   return (
-    <div className={`about-card ${inView ? "view" : ""}`} ref={ref}>
-      <FontAwesomeIcon icon={icon} className="icon" />
-      <h2>{title}</h2>
-      <p>{desc}</p>
-    </div>
+    <Animations type="right-left-in">
+      <div className={`about-card`}>
+        <FontAwesomeIcon icon={icon} className="icon" />
+        <h2>{title}</h2>
+        <p>{desc}</p>
+      </div>
+    </Animations>
   );
 };
 

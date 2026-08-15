@@ -6,12 +6,6 @@
   background-color: color-mix(in srgb, var(--main-color) 5%, transparent);
   position: relative;
   overflow: hidden;
-  transform: translateY(100px);
-  opacity: 0;
-}
-.services-container .service-card.view {
-  opacity: 1;
-  transform: translateY(0px);
 }
 
 .services-container .service-card::before {

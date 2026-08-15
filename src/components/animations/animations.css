@@ -1,0 +1,51 @@
+.animations-container {
+  overflow: hidden;
+}
+.animations-container:nth-child(even) .right-left-in.view {
+  animation: evenView 0.6s linear;
+}
+.animations-container:nth-child(odd) .right-left-in.view {
+  animation: oddView 0.6s linear;
+}
+
+.animations-container .fade-in {
+  transform: translateY(100px);
+  opacity: 0;
+}
+.animations-container .fade-in.view {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.animations-container .opacity.view {
+  animation: opacity 1s linear;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes oddView {
+  0% {
+    opacity: 0;
+    transform: translateX(-90%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes evenView {
+  0% {
+    opacity: 0;
+    transform: translateX(90%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

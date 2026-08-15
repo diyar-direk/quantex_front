@@ -1,31 +1,26 @@
-"use client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./style.css";
-import { useInView } from "react-intersection-observer";
+import Animations from "../animations/Animations";
 
 const ServiceCard = ({ icon, title, subTitle, tags, theme }) => {
-  const { ref, inView } = useInView({
-    threshold: 0,
-    triggerOnce: true,
-  });
-
   return (
-    <div
-      className={`service-card ${inView ? "view" : ""}`}
-      style={theme ? { "--main-color": theme } : {}}
-      ref={ref}
-    >
-      <FontAwesomeIcon icon={icon} className="icon" />
-      <h2>{title}</h2>
-      <p>{subTitle}</p>
-      <div className="tags">
-        {tags?.map((e, i) => (
-          <span key={e.text + i}>
-            {e.icon && <FontAwesomeIcon icon={e.icon} />} {e.text}
-          </span>
-        ))}
+    <Animations type="fade-in">
+      <div
+        className={`service-card`}
+        style={theme ? { "--main-color": theme } : {}}
+      >
+        <FontAwesomeIcon icon={icon} className="icon" />
+        <h2>{title}</h2>
+        <p>{subTitle}</p>
+        <div className="tags">
+          {tags?.map((e, i) => (
+            <span key={e.text + i}>
+              {e.icon && <FontAwesomeIcon icon={e.icon} />} {e.text}
+            </span>
+          ))}
+        </div>
       </div>
-    </div>
+    </Animations>
   );
 };
 

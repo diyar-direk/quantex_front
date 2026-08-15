@@ -15,7 +15,7 @@ const sortOption = [
   { value: DBkeys.createdAt, text: "oldest" },
 ];
 
-const PostsFilters = ({ filters, setFilters }) => {
+const PostsFiltersS2 = ({ filters, setFilters }) => {
   const [search, setSearch] = useState("");
 
   const [debouncedValue] = useDebounce(search, 500);
@@ -25,6 +25,11 @@ const PostsFilters = ({ filters, setFilters }) => {
   }, [debouncedValue, setFilters]);
 
   const { isOpen, ref, toggleOpen } = useClickOutside();
+  const {
+    isOpen: categoryOpen,
+    ref: categoryRef,
+    toggleOpen: toggleCategory,
+  } = useClickOutside();
 
   return (
     <>
@@ -40,6 +45,40 @@ const PostsFilters = ({ filters, setFilters }) => {
           />
           <FontAwesomeIcon icon={faMagnifyingGlass} />
         </label>
+
+        <div className="relative">
+          <div className="sort" onClick={toggleCategory} ref={categoryRef}>
+            <span>{filters?.category || "all"}</span>
+            <FontAwesomeIcon icon={faChevronDown} />
+          </div>
+          {categoryOpen && (
+            <div className="sort-options">
+              <p
+                className={!filters?.category ? "active" : ""}
+                onClick={() => setFilters((p) => ({ ...p, category: "" }))}
+              >
+                all
+              </p>
+
+              {Object.values(categories).map((e) => (
+                <p
+                  key={e.value}
+                  className={filters?.category === e.value ? "active" : ""}
+                  onClick={() =>
+                    setFilters((p) => ({ ...p, category: e.value }))
+                  }
+                >
+                  <FontAwesomeIcon
+                    icon={e.icon}
+                    style={{ color: categories[e.value].color, opacity: 0.7 }}
+                  />
+                  {e.value}
+                </p>
+              ))}
+            </div>
+          )}
+        </div>
+
         <div className="sort" onClick={toggleOpen} ref={ref}>
           <span>{sortOption.find((e) => e.value === filters?.sort)?.text}</span>
           <FontAwesomeIcon icon={faChevronDown} />
@@ -58,28 +97,8 @@ const PostsFilters = ({ filters, setFilters }) => {
           </div>
         )}
       </section>
-
-      <div className="categories-filter">
-        <button
-          className={!filters?.category ? "active" : ""}
-          onClick={() => setFilters((p) => ({ ...p, category: "" }))}
-        >
-          all
-        </button>
-        {Object.values(categories).map((e) => (
-          <button
-            key={e.value}
-            style={{ "--main-color": e.color }}
-            className={filters?.category === e.value ? "active" : ""}
-            onClick={() => setFilters((p) => ({ ...p, category: e.value }))}
-          >
-            <FontAwesomeIcon icon={e.icon} />
-            {e.value}
-          </button>
-        ))}
-      </div>
     </>
   );
 };
 
-export default PostsFilters;
+export default PostsFiltersS2;

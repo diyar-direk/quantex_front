@@ -1,7 +1,7 @@
 "use client";
 import Animations from "@/components/animations/Animations";
-import Card from "@/components/cards/Card4";
-import PostsFilters from "@/components/posts/PostsFilters";
+import Card from "@/components/cards/Card3";
+import PostsFiltersS2 from "@/components/posts/PostsFiltersS2";
 import RepeatChildren from "@/components/RepeatChildren";
 import Skeleton from "@/components/skeleton/Skeleton";
 import DBkeys from "@/constants/DBkeys";
@@ -15,7 +15,7 @@ import { faInbox } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useMemo, useState } from "react";
 
-const ProjectsComp = () => {
+const ProductsComp = () => {
   const [filters, setFilters] = useState({
     "title[contains]": "",
     sort: `-${DBkeys.createdAt}`,
@@ -24,9 +24,9 @@ const ProjectsComp = () => {
 
   const { data, loadMoreRef, isFetching } = useInfiniteFetch({
     endPoint: endPoints.posts.all,
-    type: postTypes.Project.value,
+    type: postTypes.Product.value,
     ...formatInputsData(filters),
-    [DBkeys.limit]: 3,
+    [DBkeys.limit]: 2,
   });
 
   const results = useMemo(
@@ -39,23 +39,23 @@ const ProjectsComp = () => {
 
   return (
     <>
-      <PostsFilters filters={filters} setFilters={setFilters} />
+      <PostsFiltersS2 filters={filters} setFilters={setFilters} />
       {results?.total > 0 && (
         <h1 className="post-results" data-count={results?.total}>
           results
         </h1>
       )}
 
-      <div className="grid-3">
+      <div className="grid-2">
         {results?.posts?.map((e) => (
-          <Animations key={e[DBkeys.id]} type="fade-in">
-            <Link href={pagesActionRouts.projects(e[DBkeys.id])}>
+          <Animations key={e[DBkeys.id]} type="right-left-in">
+            <Link href={pagesActionRouts.products(e[DBkeys.id])}>
               <Card data={e} />
             </Link>
           </Animations>
         ))}
         {isFetching && (
-          <RepeatChildren count={3}>
+          <RepeatChildren count={2}>
             <Skeleton height="300px" />
           </RepeatChildren>
         )}
@@ -72,4 +72,4 @@ const ProjectsComp = () => {
   );
 };
 
-export default ProjectsComp;
+export default ProductsComp;

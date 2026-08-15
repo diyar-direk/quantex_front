@@ -10,6 +10,7 @@ import { postTypes } from "@/constants/enums";
 import { pages, pagesActionRouts } from "@/constants/pages";
 import { useFetchData } from "@/hooks/useFetchData";
 import { Link } from "@/i18n/navigation";
+import Animations  from "@/components/animations/Animations";
 
 const HomeProjects = () => {
   const { data, isLoading } = useFetchData({
@@ -36,7 +37,11 @@ const HomeProjects = () => {
       <MainTitle subTitle={"Lorem ipsum dolor sit"}>last projects</MainTitle>
       <div className="grid-3">
         {data?.data?.map((e) => (
-          <Card data={e} key={e[DBkeys.id]} view={pagesActionRouts.projects} />
+          <Animations key={e[DBkeys.id]} type="fade-in">
+            <Link href={pagesActionRouts.projects(e[DBkeys.id])}>
+              <Card data={e} />
+            </Link>
+          </Animations>
         ))}
       </div>
       <div className="center" style={{ marginTop: "10px" }}>

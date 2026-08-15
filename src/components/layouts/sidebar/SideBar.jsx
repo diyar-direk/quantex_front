@@ -6,6 +6,7 @@ import IconButton from "@/components/buttons/IconButton";
 import NavLink from "@/components/NavLink";
 import { homePages, pages } from "@/constants/pages";
 import { useAuth } from "@/context/AuthContext";
+
 const SideBar = ({ setIsOpen }) => {
   const { user } = useAuth();
 

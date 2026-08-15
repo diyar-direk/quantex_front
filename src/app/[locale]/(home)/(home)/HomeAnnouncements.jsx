@@ -1,4 +1,5 @@
 "use client";
+import Animations from "@/components/animations/Animations";
 import Button from "@/components/buttons/Button";
 import Card from "@/components/cards/Card1";
 import MainTitle from "@/components/main_title/MainTitle";
@@ -38,11 +39,11 @@ const HomeAnnouncement = () => {
       </MainTitle>
       <div className="grid-3">
         {data?.data?.map((e) => (
-          <Card
-            data={e}
-            key={e[DBkeys.id]}
-            view={pagesActionRouts.announcements}
-          />
+          <Animations key={e[DBkeys.id]}>
+            <Link href={pagesActionRouts.announcements(e[DBkeys.id])}>
+              <Card data={e} />
+            </Link>
+          </Animations>
         ))}
       </div>
       <div className="center" style={{ marginTop: "10px" }}>

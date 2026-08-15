@@ -113,6 +113,13 @@
   border-radius: 20px;
   text-transform: capitalize;
 }
+
+.posts-search .sort span {
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .posts-search .sort svg {
   font-size: 85%;
 }
@@ -134,7 +141,7 @@
   border-bottom: solid 1px var(--border-color);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 10px;
 }
 
 .posts-search .sort-options p:hover,
@@ -206,4 +213,18 @@
 .no-results-yet svg {
   color: var(--main-color);
   font-size: 50px;
+}
+
+.posts-search .posts-poup {
+  width: 100%;
+  max-width: 600px;
+}
+.posts-search .posts-poup .filters-container {
+  flex-wrap: wrap;
+}
+.posts-search .posts-poup .filters-container:has(.options.active) {
+  min-height: 300px;
+}
+.posts-search .posts-poup .filters-container .inp {
+  flex: 200px;
 }
