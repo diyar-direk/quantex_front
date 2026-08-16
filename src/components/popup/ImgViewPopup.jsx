@@ -56,8 +56,10 @@ const ImgViewPopup = ({
           src={src}
           alt="view-img"
           {...imgProps}
-          width={100}
-          height={100}
+          width={300}
+          height={300}
+          unoptimized
+          className="pop-up-view-image"
         />
       </div>
     </div>

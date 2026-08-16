@@ -174,6 +174,7 @@ function UploadPhoto({
                     alt="preview"
                     width={300}
                     height={300}
+                    unoptimized={defaultImage}
                   />
                   <Image
                     className="img-main"
@@ -181,6 +182,7 @@ function UploadPhoto({
                     alt="preview"
                     width={300}
                     height={300}
+                    unoptimized={defaultImage}
                   />
                 </>
               )

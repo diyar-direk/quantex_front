@@ -28,6 +28,11 @@
   justify-content: flex-end;
   margin-bottom: 5px;
 }
+.overlay .popup .pop-up-view-image {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
 
 .overlay .popup img {
   max-height: 500px;

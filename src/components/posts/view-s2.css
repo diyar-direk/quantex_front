@@ -1,0 +1,118 @@
+.post-view-s2-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 30px;
+  align-items: flex-start;
+}
+.post-s2-sidebar {
+  display: flex;
+  flex: 300px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.post-s2-sidebar section {
+  padding: 20px;
+  background-color: var(--body-color);
+  border-radius: 10px;
+  flex: 300px;
+}
+.post-s2-sidebar section h3 {
+  text-transform: uppercase;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.post-s2-sidebar section h3 svg {
+  color: var(--main-color);
+}
+.post-s2-sidebar section video {
+  width: 100%;
+  border-radius: 6px;
+}
+.post-s2-sidebar .more-results-s2 {
+  display: flex;
+  margin-top: 15px;
+  gap: 10px;
+}
+.post-s2-sidebar .more-results-s2 .image {
+  width: 50px;
+  height: 50px;
+}
+.post-s2-sidebar .more-results-s2 .image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.post-s2-sidebar .more-results-s2 h4 {
+  line-height: 1;
+}
+.post-s2-sidebar .more-results-s2:hover h4 {
+  text-decoration: underline;
+}
+.post-s2-sidebar .more-results-s2 p {
+  opacity: 0.6;
+  font-size: 14px;
+}
+
+.view-post-s2 {
+  background-color: var(--body-color);
+  border-radius: 10px;
+  overflow: hidden;
+  flex: 500px 10;
+}
+.view-post-s2 .view-cover {
+  display: flex;
+  min-height: 200px;
+  max-height: 500px;
+  cursor: pointer;
+}
+.view-post-s2 .view-cover img {
+  width: 100%;
+  object-fit: cover;
+}
+.view-post-s2 .main-view-section {
+  padding: 20px;
+}
+.view-post-s2 .title {
+  font-size: 28px;
+}
+
+.view-post-s2 .category {
+  border: solid 1px color-mix(in srgb, var(--main-color) 20%, transparent);
+  background-color: color-mix(in srgb, var(--main-color) 10%, transparent);
+  font-weight: bold;
+  padding: 10px 15px;
+  text-transform: capitalize;
+  border-radius: 20px;
+  color: var(--main-color);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.view-post-s2 .dates-container {
+  padding: 15px;
+  background-color: var(--section-color);
+  border: solid 1px var(--border-color);
+  border-radius: 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-block: 10px;
+  text-transform: uppercase;
+}
+.view-post-s2 .dates-container article {
+  display: flex;
+  gap: 5px;
+  font-size: 13px;
+}
+.view-post-s2 .dates-container article .key {
+  opacity: 0.7;
+}
+.view-post-s2 .dates-container article .key::after {
+  content: " : ";
+}

@@ -12,6 +12,7 @@ import { useState } from "react";
 import dateFormatter from "@/utils/dateFormatter";
 import "./style.css";
 import DBkeys from "@/constants/DBkeys";
+import PostContent from "../editor/PostContent";
 
 const PostView = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,23 +25,27 @@ const PostView = ({ data }) => {
           {data?.image && (
             <div className="view-cover" onClick={() => setIsOpen(true)}>
               <Image
-                src={"http://localhost:8000/images/test.png"}
+                src={imgServerSrc(data?.image)}
                 alt={data?.title}
                 width={400}
                 height={400}
+                unoptimized
               />
             </div>
           )}
 
-          <div className="ql-container ql-snow">
-            <div
-              className="ql-editor"
-              dangerouslySetInnerHTML={{ __html: data?.content }}
-            />
-          </div>
+          <PostContent content={data?.content} />
         </main>
 
         <aside className="view-sidebar">
+          {data?.video && (
+            <video
+              src={imgServerSrc(data?.video)}
+              controls
+              width={"100%"}
+              style={{ borderRadius: "6px" }}
+            />
+          )}
           <div className="view-info">
             <article>
               <p className="key">
@@ -65,14 +70,6 @@ const PostView = ({ data }) => {
               </p>
             </article>
           </div>
-          {data?.video && (
-            <video
-              src={imgServerSrc(data?.video)}
-              controls
-              width={"100%"}
-              style={{ borderRadius: "6px" }}
-            />
-          )}
         </aside>
       </div>
       <ImgViewPopup

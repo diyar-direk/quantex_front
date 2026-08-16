@@ -74,6 +74,7 @@ const AllPosts = () => {
             height={50}
             onClick={() => setViewImg(imgServerSrc(row.image))}
             style={{ borderRadius: "6px", cursor: "pointer" }}
+            unoptimized
           />
         ),
       },
