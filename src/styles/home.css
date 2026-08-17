@@ -27,30 +27,23 @@
   z-index: -2;
 }
 
-.home-landing {
-  min-height: calc(100vh - 75px);
-  display: flex;
-  text-align: center;
-  flex-direction: column;
-}
-
-.home-landing .company-info {
-  display: flex;
-  gap: 10px;
+.company-info {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
   justify-content: space-between;
-  align-items: center;
+  gap: 10px;
   background-color: color-mix(in oklab, var(--main-color) 13%, transparent);
   border-block: solid var(--main-color) 1px;
   padding-block: 25px;
   backdrop-filter: blur(1px);
 }
-.home-landing .company-info .service {
+.company-info .service {
   display: flex;
   gap: 10px;
   align-items: center;
   text-transform: capitalize;
 }
-.home-landing .company-info .service svg {
+.company-info .service svg {
   padding: 8px;
   background-color: color-mix(in oklab, var(--main-color) 10%, transparent);
   color: var(--main-color);
@@ -58,30 +51,70 @@
   border: var(--main-color) 1px solid;
   font-size: 14px;
 }
-.home-landing .company-info .service h2 {
+.company-info .service h2 {
   font-size: 16px;
   letter-spacing: 1px;
-  font-weight: 500;
   opacity: 0.8;
 }
 
-.home-landing .landing-container {
-  flex: 1;
+.home-landing {
+  min-height: calc(85vh - 75px);
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.home-landing > section {
+  flex: 400px;
+}
+.home-landing code {
+  background-color: color-mix(in srgb, var(--aside-color) 35%, transparent);
+  backdrop-filter: blur(2px);
+  border: solid 2px var(--border-color);
+  padding: 10px 20px 20px;
+  border-radius: 6px;
+  font-weight: bold;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  color: color-mix(in srgb, var(--font-color) 70%, transparent);
+}
+.home-landing code div {
+  display: flex;
+  gap: 10px;
+}
+.home-landing code section {
+  padding-left: 20px;
+}
+.home-landing code .circle-actions {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.home-landing .code-container {
+  counter-reset: columns;
+}
+
+.home-landing .code-container > div::before {
+  counter-increment: columns;
+  content: counter(columns);
+  opacity: 0.4;
 }
 
 .home-landing h1 {
   text-transform: uppercase;
-  font-size: 40px;
+  font-size: 35px;
+  max-width: 80%;
+  line-height: 1.5;
 }
+
 .home-landing h1 span {
   color: var(--main-color);
 }
 
 .home-landing .typing-text {
-  font-size: 32px;
+  font-size: 25px;
   font-weight: bold;
   color: transparent;
   -webkit-text-stroke-width: 1px;
@@ -92,14 +125,12 @@
 }
 .home-landing p {
   opacity: 0.7;
-  margin: auto;
   margin-block: 10px 20px;
-  max-width: 650px;
+  max-width: 90%;
 }
 .home-landing .btns {
   display: flex;
   gap: 10px;
-  justify-content: center;
 }
 
 .home-contact {
@@ -192,4 +223,45 @@
 .about-page section p {
   opacity: 0.7;
   padding-inline: 15px;
+}
+
+@media (max-width: 1000px) {
+  .company-info .service {
+    gap: 8px;
+  }
+  .company-info .service h2 {
+    font-size: 14px;
+  }
+  .company-info .service svg {
+    font-size: 12px;
+    padding: 7px;
+  }
+  .company-info {
+    padding-block: 20px;
+  }
+}
+@media (max-width: 800px) {
+  .company-info {
+    padding-block: 10px;
+    gap: 5px;
+  }
+  .company-info .service h2 {
+    font-size: 12px;
+    letter-spacing: 0px;
+  }
+  .company-info .service svg {
+    padding: 6px;
+    font-size: 12px;
+  }
+  .company-info .service {
+    gap: 7px;
+  }
+}
+@media (max-width: 600px) {
+  .company-info {
+    grid-template-columns: repeat(2, auto);
+    gap: 10px 5px;
+  }
+}
+@media (max-width: 400px) {
 }

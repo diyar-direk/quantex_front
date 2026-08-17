@@ -49,7 +49,7 @@ const Navbar = () => {
   return (
     <>
       <header className="container home-navbar">
-        <Link href="/">
+        <Link href="/" className="center">
           <Image alt="logo" src={Logo} className="logo" />
         </Link>
         <nav className="links-container">
@@ -57,13 +57,18 @@ const Navbar = () => {
           <NavLink href={pages.aboutUs}>about us</NavLink>
           <NavLink href={pages.contactUs}>contact us</NavLink>
           <NavLink href={pages.ourServices}>services</NavLink>
+          <NavLink href={pages.projects}>projects</NavLink>
         </nav>
         <div className="settings">
-          <div className="language-container itm" ref={ref}>
-            <div className="selected-lang" onClick={toggleOpen}>
+          <div
+            className="language-container itm"
+            ref={ref}
+            onClick={toggleOpen}
+          >
+            <div className="selected-lang">
               <FontAwesomeIcon icon={faGlobe} />
               <span>{locale}</span>
-              <FontAwesomeIcon icon={faChevronDown} />
+              <FontAwesomeIcon icon={faChevronDown} className="arrow" />
             </div>
             {isOpen && (
               <article className="languages">

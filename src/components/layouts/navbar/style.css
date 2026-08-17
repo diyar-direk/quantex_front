@@ -4,12 +4,12 @@
   align-items: center;
   height: 75px;
   border-bottom: solid 1px
-    color-mix(in oklab, var(--main-color) 30%, transparent);
+    color-mix(in oklab, var(--main-color) 50%, transparent);
   backdrop-filter: blur(5px);
   position: sticky;
   top: 0;
   z-index: 3;
-  background-color: color-mix(in srgb, var(--main-color) 5%, transparent);
+  background-color: color-mix(in srgb, var(--main-color) 8%, transparent);
 }
 
 .home-navbar .links-container {
@@ -21,9 +21,9 @@
 
 .home-navbar .links-container a {
   text-transform: capitalize;
-  padding: 5px 10px;
   border-radius: 5px;
-  font-size: 15px;
+  padding: 4px 8px;
+  font-size: 14px;
 }
 .home-navbar .links-container a:hover,
 .home-navbar .links-container a.active {
@@ -47,6 +47,7 @@
   border-radius: 5px;
   border: solid 1px var(--border-color);
   cursor: pointer;
+  align-content: center;
 }
 .home-navbar .settings .itm:hover {
   background-color: color-mix(in oklab, var(--main-color) 20%, transparent);
@@ -65,13 +66,13 @@
 }
 
 .home-navbar .settings .selected-lang svg {
-  width: 12px;
+  font-size: 12px;
 }
 
 .home-navbar .language-container article {
   position: absolute;
   top: calc(100% + 3px);
-  right: 0;
+  left: 0;
   min-width: 100%;
   background-color: var(--section-color);
   border-radius: 5px;
@@ -96,6 +97,58 @@
   border-color: color-mix(in oklab, var(--main-color) 60%, transparent);
 }
 
-.home-navbar .settings .mode svg {
-  width: 14px;
+@media (max-width: 1000px) {
+  .home-navbar .links-container,
+  .home-navbar .settings {
+    gap: 5px;
+  }
+  .home-navbar .settings .itm {
+    padding: 4px 8px;
+  }
+  .home-navbar .settings .selected-lang,
+  .home-navbar .settings .itm {
+    font-size: 12px;
+  }
+  .home-navbar .logo {
+    width: 125px;
+  }
+}
+@media (max-width: 800px) {
+  .home-navbar {
+    justify-content: space-between;
+    height: 65px;
+  }
+  .home-navbar .links-container {
+    display: none;
+  }
+  .home-navbar .language-container article p {
+    font-size: 13px;
+  }
+}
+@media (max-width: 600px) {
+  .home-navbar {
+    height: 60px;
+  }
+  .home-navbar .settings .selected-lang :where(.arrow, span) {
+    display: none;
+  }
+  .home-navbar .settings .itm {
+    padding: 3px 7px;
+  }
+  .home-navbar .settings .selected-lang,
+  .home-navbar .settings .itm {
+    font-size: 11px;
+  }
+  .home-navbar .language-container article p {
+    font-size: 11px;
+  }
+  .home-navbar .language-container article {
+    transform: translateX(-50%);
+    left: 50%;
+  }
+  .home-navbar .logo {
+    width: 120px;
+  }
+}
+@media (max-width: 400px) {
 }

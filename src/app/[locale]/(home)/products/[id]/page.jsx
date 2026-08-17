@@ -33,7 +33,6 @@ const ViewProducts = () => {
       </div>
     );
 
-  console.log(data?.content);
 
   return (
     <>

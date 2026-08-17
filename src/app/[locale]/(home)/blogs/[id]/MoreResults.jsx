@@ -27,7 +27,6 @@ const MoreResults = ({ id, category }) => {
       </div>
     );
 
-  console.log(id);
 
   if (!data?.totalCount) return;
 
