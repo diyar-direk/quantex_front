@@ -10,7 +10,8 @@ import { postTypes } from "@/constants/enums";
 import { pages, pagesActionRouts } from "@/constants/pages";
 import { useFetchData } from "@/hooks/useFetchData";
 import { Link } from "@/i18n/navigation";
-import Animations  from "@/components/animations/Animations";
+import Animations from "@/components/animations/Animations";
+import { useTranslations } from "next-intl";
 
 const HomeProjects = () => {
   const { data, isLoading } = useFetchData({
@@ -18,6 +19,8 @@ const HomeProjects = () => {
     type: postTypes.Project.value,
     [DBkeys.limit]: 3,
   });
+
+  const t = useTranslations();
 
   if (isLoading)
     return (
@@ -34,7 +37,9 @@ const HomeProjects = () => {
 
   return (
     <main className="main-section container section-color">
-      <MainTitle subTitle={"Lorem ipsum dolor sit"}>last projects</MainTitle>
+      <MainTitle subTitle={t("home.project_sub_title")}>
+        {t("pages.projects")}
+      </MainTitle>
       <div className="grid-3">
         {data?.data?.map((e) => (
           <Animations key={e[DBkeys.id]} type="fade-in">
@@ -46,7 +51,9 @@ const HomeProjects = () => {
       </div>
       <div className="center" style={{ marginTop: "10px" }}>
         <Link href={pages.projects}>
-          <Button> view all projects ({data?.totalCount}) </Button>
+          <Button>
+            {t("home.explorer_project")} ({data?.totalCount})
+          </Button>
         </Link>
       </div>
     </main>

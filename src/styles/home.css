@@ -27,38 +27,46 @@
   z-index: -2;
 }
 
-.company-info {
-  display: grid;
-  grid-template-columns: repeat(4, auto);
-  justify-content: space-between;
-  gap: 10px;
-  background-color: color-mix(in oklab, var(--main-color) 13%, transparent);
-  border-block: solid var(--main-color) 1px;
-  padding-block: 25px;
+.live-ticker {
+  background: color-mix(in oklab, var(--main-color) 8%, transparent);
+  border-block: 1px solid var(--main-color);
+  padding: 10px 0;
+  overflow: hidden;
   backdrop-filter: blur(1px);
 }
-.company-info .service {
+
+.ticker-inner {
   display: flex;
-  gap: 10px;
+  gap: 60px;
+  animation: scroll-partners 20s linear infinite;
+  white-space: nowrap;
+}
+
+.ticker-inner div {
+  display: flex;
   align-items: center;
-  text-transform: capitalize;
+  gap: 5px;
 }
-.company-info .service svg {
-  padding: 8px;
-  background-color: color-mix(in oklab, var(--main-color) 10%, transparent);
-  color: var(--main-color);
-  border-radius: 6px;
-  border: var(--main-color) 1px solid;
-  font-size: 14px;
-}
-.company-info .service h2 {
-  font-size: 16px;
-  letter-spacing: 1px;
+
+.ticker-inner div span {
   opacity: 0.8;
+}
+.ticker-inner svg {
+  border-radius: 6px;
+  color: var(--main-color);
+}
+
+@keyframes scroll-partners {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 .home-landing {
-  min-height: calc(85vh - 75px);
+  min-height: calc(90vh - 75px);
   display: flex;
   gap: 30px;
   flex-wrap: wrap;
@@ -77,6 +85,7 @@
   display: flex;
   flex-direction: column;
   color: color-mix(in srgb, var(--font-color) 70%, transparent);
+  direction: ltr;
 }
 .home-landing code div {
   display: flex;
@@ -143,6 +152,11 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .home-contact h1 {
@@ -151,7 +165,6 @@
 }
 .home-contact p {
   max-width: 600px;
-  margin: auto;
   font-size: 18px;
 }
 .home-contact .btns {
@@ -223,45 +236,4 @@
 .about-page section p {
   opacity: 0.7;
   padding-inline: 15px;
-}
-
-@media (max-width: 1000px) {
-  .company-info .service {
-    gap: 8px;
-  }
-  .company-info .service h2 {
-    font-size: 14px;
-  }
-  .company-info .service svg {
-    font-size: 12px;
-    padding: 7px;
-  }
-  .company-info {
-    padding-block: 20px;
-  }
-}
-@media (max-width: 800px) {
-  .company-info {
-    padding-block: 10px;
-    gap: 5px;
-  }
-  .company-info .service h2 {
-    font-size: 12px;
-    letter-spacing: 0px;
-  }
-  .company-info .service svg {
-    padding: 6px;
-    font-size: 12px;
-  }
-  .company-info .service {
-    gap: 7px;
-  }
-}
-@media (max-width: 600px) {
-  .company-info {
-    grid-template-columns: repeat(2, auto);
-    gap: 10px 5px;
-  }
-}
-@media (max-width: 400px) {
 }

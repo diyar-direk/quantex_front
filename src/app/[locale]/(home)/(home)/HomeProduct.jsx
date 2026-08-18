@@ -11,6 +11,7 @@ import { postTypes } from "@/constants/enums";
 import { pages, pagesActionRouts } from "@/constants/pages";
 import { useFetchData } from "@/hooks/useFetchData";
 import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 
 const Homeproducts = () => {
   const { data, isLoading } = useFetchData({
@@ -18,6 +19,8 @@ const Homeproducts = () => {
     type: postTypes.Announcement.value,
     [DBkeys.limit]: 2,
   });
+
+  const t = useTranslations();
 
   if (isLoading)
     return (
@@ -34,7 +37,9 @@ const Homeproducts = () => {
 
   return (
     <main className="main-section container body-color">
-      <MainTitle subTitle={"Lorem ipsum dolor sit"}>last products</MainTitle>
+      <MainTitle subTitle={t("home.producte_sub_title")}>
+        {t("pages.products")}
+      </MainTitle>
       <div className="grid-2">
         {data?.data?.map((e) => (
           <Animations key={e[DBkeys.id]} type="right-left-in">
@@ -46,7 +51,9 @@ const Homeproducts = () => {
       </div>
       <div className="center" style={{ marginTop: "10px" }}>
         <Link href={pages.products}>
-          <Button> view all products ({data?.totalCount}) </Button>
+          <Button>
+            {t("home.explorer_producte")} ({data?.totalCount})
+          </Button>
         </Link>
       </div>
     </main>

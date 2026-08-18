@@ -11,6 +11,7 @@ import { postTypes } from "@/constants/enums";
 import { pages, pagesActionRouts } from "@/constants/pages";
 import { useFetchData } from "@/hooks/useFetchData";
 import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 
 const HomeAnnouncement = () => {
   const { data, isLoading } = useFetchData({
@@ -18,6 +19,8 @@ const HomeAnnouncement = () => {
     type: postTypes.Announcement.value,
     [DBkeys.limit]: 3,
   });
+
+  const t = useTranslations();
 
   if (isLoading)
     return (
@@ -34,8 +37,8 @@ const HomeAnnouncement = () => {
 
   return (
     <main className="main-section container section-color">
-      <MainTitle subTitle={"Lorem ipsum dolor sit"}>
-        last Announcements
+      <MainTitle subTitle={t("home.announcement_sub_title")}>
+        {t("pages.announcements")}
       </MainTitle>
       <div className="grid-3">
         {data?.data?.map((e) => (
@@ -48,7 +51,9 @@ const HomeAnnouncement = () => {
       </div>
       <div className="center" style={{ marginTop: "10px" }}>
         <Link href={pages.announcements}>
-          <Button> view all announcements ({data?.totalCount}) </Button>
+          <Button>
+            {t("home.explorer_announcement")} ({data?.totalCount})
+          </Button>
         </Link>
       </div>
     </main>

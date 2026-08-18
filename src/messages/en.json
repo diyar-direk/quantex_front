@@ -1,5 +1,125 @@
 {
-  "test": {
-    "test": "test"
+  "quantex": "quantex",
+  "landing": {
+    "welcome_to": "welcome to",
+    "company": "company",
+    "head_1": "we transform ideas into powerful digital experiences",
+    "head_2": "Grow your business",
+    "head_3": "Creative Digital Experiences",
+    "head_4": "Bring your ideas to life",
+    "paragraph": "From modern websites to scalable software solutions , combine technology, creativity, and performance to build products that makea real difference.",
+    "explorer_services": "explorer services",
+    "start_now": "start now",
+    "code_comment": "// let's build something amazing togther"
+  },
+  "home": {
+    "more_about_us": "more about us",
+    "contact_title": "Have an idea? Let’s build it together",
+    "contact_desc": "Whether you have a new idea or want to improve your digital presence, we’re ready to help turn your vision into a solution that works",
+    "project_sub_title": "Explore our latest work",
+    "explorer_project": "Explore all projects",
+    "blog_sub_title": "Insights and stories from Quantex",
+    "explorer_blog": "explorer all blogs",
+    "announcement_sub_title": "The latest news from Quantex",
+    "explorer_announcement": "explorer all announcements",
+    "explorer_producte": "explorer all productes",
+    "producte_sub_title": "Discover what we build",
+    "start_project": "start a project"
+  },
+  "about_page": {
+    "who_are_we": "who are we",
+    "who_are_we_desc": "Quantex is a software company focused on building modern and reliable digital solutions. We work with businesses and individuals to turn ideas into practical, engaging, and easy-to-use digital experiences.",
+    "why_quantex": "why quantex",
+    "why_quantex_desc": "Quantex combines creativity, technology, and a  understanding of our clients’ needs to build digital solutions that  simple, reliable, and effective. We focus on delivering quality that help businesses grow, connect with their customers, and turn their ideas into reality.",
+    "our_mission": "Our Mission",
+    "our_mission_desc": "To make technology simple, useful, and accessible by creating digital solutions that make a real difference.",
+    "our_vision": "Our Vision",
+    "our_vision_desc": "To make technology simple, useful, and accessible by creating digital solutions that make a real difference.",
+    "what_we_do": "What We Do",
+    "what_we_do_desc": "We create websites, applications, and custom digital solutions designed to meet real business needs.",
+    "quality_first": "Quality First",
+    "quality_first_desc": "We focus on the details and build solutions that are reliable, polished, and made to deliver a great experience.",
+    "secondry_title": "technology made simple"
+  },
+  "services_page": {
+    "sub_title": "Solutions built around your needs",
+    "title": "Technology that works for your business",
+    "paragraph": "At Quantex, we create modern digital solutions tailored to your needs. From websites and applications to custom software, we turn ideas into simple, reliable, and effective digital experiences."
+  },
+  "pages": {
+    "home": "home",
+    "join_us": "join us",
+    "contact_us": "contact us",
+    "our_services": "our services",
+    "about_us": "about us",
+    "projects": "projects",
+    "blogs": "blogs",
+    "products": "products",
+    "announcements": "announcements",
+    "dashboard": "dashboard",
+    "add": "add",
+    "update": "update"
+  },
+  "enums": {
+    "softwareDevelopment": {
+      "title": "Software Development",
+      "description": "We build reliable software solutions designed to simplify your work and support your business growth.",
+      "tags": ["JavaScript", "Node.js", "Python"]
+    },
+
+    "cybersecurityAndPentesting": {
+      "title": "Cybersecurity & Pentesting",
+      "description": "We help protect your systems and data by identifying security risks before they become real threats.",
+      "tags": ["Security", "Pentesting", "Protection"]
+    },
+
+    "webApps": {
+      "title": "Web Apps",
+      "description": "We create fast, modern, and user-friendly web applications tailored to your business needs.",
+      "tags": ["React", "Next.js", "Web"]
+    },
+
+    "mobileApps": {
+      "title": "Mobile Apps",
+      "description": "We design and develop mobile applications that provide smooth, intuitive, and engaging experiences.",
+      "tags": ["Android", "iOS", "Mobile"]
+    },
+
+    "network_Engineering": {
+      "title": "Network Engineering",
+      "description": "We design and maintain reliable networks that keep your systems connected, secure, and running smoothly.",
+      "tags": ["Networks", "Infrastructure", "Connectivity"]
+    },
+
+    "serverManagement": {
+      "title": "Server Management",
+      "description": "We manage and maintain your servers to keep your applications and services stable, secure, and available.",
+      "tags": ["Servers", "Linux", "Monitoring"]
+    },
+
+    "aiDevelopment": {
+      "title": "AI Development",
+      "description": "We use artificial intelligence to build smart solutions that automate tasks and create better digital experiences.",
+      "tags": ["AI", "Automation", "Machine Learning"]
+    },
+
+    "SAAS": {
+      "title": "SaaS",
+      "description": "We build cloud-based software products that are easy to access, manage, and scale as your business grows.",
+      "tags": ["Cloud", "Subscription", "Scalable"]
+    },
+
+    "cloudProducts": {
+      "title": "Cloud Products",
+      "description": "We create and manage cloud solutions that provide flexibility, performance, and reliable access to your services.",
+      "tags": ["AWS", "Cloud", "DevOps"]
+    }
+  },
+  "footer": {
+    "col_1_title": "quantex company",
+    "col_2_title": "explore",
+    "col_3_title": "services",
+    "copyright": "© 2026 Quantex. All rights reserved.",
+    "col_1_desc": "We create modern digital solutions that turn ideas into meaningful experiences and help businesses grow"
   }
 }

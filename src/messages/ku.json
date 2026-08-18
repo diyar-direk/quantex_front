@@ -1,1 +1,142 @@
-{}
+{
+  "quantex": "quantex",
+  "landing": {
+    "welcome_to": "bi xêr hatî comapnye",
+    "company": "",
+    "head_1": "em ramanên we diguherînin bo ezmûnên dîjîtal ên hêzdar",
+    "head_2": "Karsaziya xwe mezin bikin",
+    "head_3": "Ezmûnên Dîjîtal ên Afirîner",
+    "head_4": "Ramanên xwe bînin jiyanê",
+    "paragraph": "Ji malperên nûjen heta çareseriyên nermalavê yên pîvanbar, em teknolojî, afirînerî û performansê digihînin hev da ku berhemên ku bandorek rastîn çêdikin ava bikin.",
+    "explorer_services": "xizmetên me keşf bikin",
+    "start_now": "niha dest pê bikin",
+    "code_comment": "// werin tiştekî ecêb ava bikin"
+  },
+  "home": {
+    "more_about_us": "Zêdetir li ser me",
+
+    "contact_title": "Ramanek heye? Werin bi hev re ava bikin",
+    "contact_desc": "Çi ramaneke nû hebe an jî tu bixwazî hebûna xwe ya dîjîtal baştir bikî, em amade ne ku alîkariya te bikin da ku dîtina te veguherînin çareseriyek ku bi bandor bixebite.",
+
+    "project_sub_title": "Karên me yên herî nû keşf bikin",
+    "explorer_project": "Hemû projeyan keşf bikin",
+
+    "blog_sub_title": "Raman û çîrokên ji Quantex",
+    "explorer_blog": "Hemû blogan keşf bikin",
+
+    "announcement_sub_title": "Nûçeyên herî dawî ji Quantex",
+    "explorer_announcement": "Hemû daxuyaniyan keşf bikin",
+
+    "explorer_producte": "Hemû berheman keşf bikin",
+    "producte_sub_title": "Bizanin em çi ava dikin",
+
+    "start_project": "Projeyek dest pê bikin"
+  },
+  "pages": {
+    "home": "Destpêk",
+    "join_us": "Tevlî me bibin",
+    "contact_us": "têkilî",
+    "our_services": "Xizmetên me",
+    "about_us": "Derbarê me de",
+    "projects": "Projeyên me",
+    "blogs": "Blog",
+    "products": "Berhemên me",
+    "announcements": "Daxuyanî",
+    "dashboard": "Panela rêveberiyê",
+    "add": "Zêde bike",
+    "update": "Nûve bike"
+  },
+  "about_page": {
+    "who_are_we": "Em kî ne?",
+    "who_are_we_desc": "Quantex şirketeke nermalavê ye ku balê dide ser avakirina çareseriyên dîjîtal ên nûjen û pêbawer. Em bi karsaz û kesan re dixebitin da ku ramanan veguherînin ezmûnên dîjîtal ên pratîk, balkêş û hêsan ji bo bikaranînê.",
+
+    "why_quantex": "Çima Quantex?",
+    "why_quantex_desc": "Quantex afirînerî, teknolojî û têgihiştina pêdiviyên xerîdarên xwe digihîne hev da ku çareseriyên dîjîtal ên hêsan, pêbawer û bi bandor ava bike. Em balê dikin ser pêşkêşkirina kalîteyekê ku alîkariya karsaziyan dike ku mezin bibin, bi xerîdarên xwe re têkilî daynin û ramanên xwe bikin rastî.",
+
+    "our_mission": "Mîsyona me",
+    "our_mission_desc": "Armanca me ew e ku teknolojiyê hêsan, bikêr û gihîştî ji bo hemûyan bikin bi afirandina çareseriyên dîjîtal ên ku bandorek rastîn çêdikin.",
+
+    "our_vision": "Vîzyona me",
+    "our_vision_desc": "Em dixwazin teknolojiyê hêsan, bikêr û gihîştî ji bo hemûyan bikin bi afirandina çareseriyên dîjîtal ên ku bandorek rastîn çêdikin.",
+
+    "what_we_do": "Em çi dikin?",
+    "what_we_do_desc": "Em malper, sepan û çareseriyên dîjîtal ên taybet çêdikin ku ji bo pêdiviyên rastîn ên karsaziyê hatine sêwirandin.",
+
+    "quality_first": "Pêşî kalîte",
+    "quality_first_desc": "Em balê dikin ser hûrguliyên biçûk û çareseriyên pêbawer û başkirî ava dikin ku ji bo pêşkêşkirina ezmûnek baş hatine çêkirin.",
+
+    "secondry_title": "Teknolojî bi awayekî hêsan"
+  },
+  "enums": {
+    "softwareDevelopment": {
+      "title": "Pêşdebirina Nermalavê",
+      "description": "Em çareseriyên nermalavê yên pêbawer ava dikin ku ji bo hêsankirina karê te û piştgirîkirina mezinbûna karsaziya te hatine sêwirandin.",
+      "tags": ["JavaScript", "Node.js", "Python"]
+    },
+
+    "cybersecurityAndPentesting": {
+      "title": "Ewlekariya Sîber û Testa Penetrasyonê",
+      "description": "Em alîkariya parastina pergal û daneyên te dikin bi dîtina xetereyên ewlehiyê berî ku ew bibin gefên rastîn.",
+      "tags": ["Ewlehî", "Testa Penetrasyonê", "Parastin"]
+    },
+
+    "webApps": {
+      "title": "Sepanên Webê",
+      "description": "Em sepanên webê yên bilez, nûjen û hêsan ji bo bikaranînê çêdikin ku li gorî pêdiviyên karsaziya te hatine sêwirandin.",
+      "tags": ["React", "Next.js", "Web"]
+    },
+
+    "mobileApps": {
+      "title": "Sepanên Mobîl",
+      "description": "Em sepanên mobîl sêwirandin û pêş dixin ku ezmûnên hêsan, xweş û balkêş ji bikarhêneran re peyda dikin.",
+      "tags": ["Android", "iOS", "Mobîl"]
+    },
+
+    "network_Engineering": {
+      "title": "Endezyariya Torê",
+      "description": "Em torên pêbawer sêwirandin û parastin dikin ku pergalên te girêdayî, ewle û bi rêkûpêk bixebitin.",
+      "tags": ["Tor", "Bingehên Teknolojiyê", "Girêdan"]
+    },
+
+    "serverManagement": {
+      "title": "Rêvebirina Serveran",
+      "description": "Em serverên te rêve dikin û diparêzin da ku sepan û xizmetên te aram, ewle û her dem peyda bin.",
+      "tags": ["Server", "Linux", "Çavdêrî"]
+    },
+
+    "aiDevelopment": {
+      "title": "Pêşdebirina Zîreya Çêkirî",
+      "description": "Em zîreya çêkirî bikar tînin da ku çareseriyên jîr ava bikin ku karan otomatîk bikin û ezmûnên dîjîtal ên baştir biafirînin.",
+      "tags": ["AI", "Otomatîkasyon", "Fêrbûna Makîneyê"]
+    },
+
+    "SAAS": {
+      "title": "Nermalav wekî Xizmet",
+      "description": "Em berhemên nermalavê yên li ser cloudê ava dikin ku gihîştin, rêvebirin û mezin kirina wan hêsan e li gorî mezinbûna karsaziya te.",
+      "tags": ["Cloud", "Abonetî", "Pîvanbar"]
+    },
+
+    "cloudProducts": {
+      "title": "Berhemên Cloudê",
+      "description": "Em çareseriyên cloudê çêdikin û rêve dikin ku nermbûn, performans û gihîştina pêbawer a xizmetên te peyda dikin.",
+      "tags": ["AWS", "Cloud", "DevOps"]
+    }
+  },
+
+  "services_page": {
+    "sub_title": "Çareseriyên ku li gorî pêdiviyên te hatine çêkirin",
+    "title": "Teknolojiya ku ji bo karsaziya te dixebite",
+    "paragraph": "Li Quantex, em çareseriyên dîjîtal ên nûjen çêdikin ku bi taybetî li gorî pêdiviyên te hatine sêwirandin. Ji malper û sepanan heta nermalavên taybet, em ramanan diguherînin bo ezmûnên dîjîtal ên hêsan, pêbawer û bi bandor."
+  },
+  "footer": {
+    "col_1_title": "Şirketa Quantex",
+
+    "col_2_title": "Keşf bike",
+
+    "col_3_title": "Xizmet",
+
+    "copyright": "© 2026 Quantex. Hemû maf parastî ne.",
+
+    "col_1_desc": "Em çareseriyên dîjîtal ên nûjen çêdikin ku ramanan diguherînin bo ezmûnên watedar û alîkariya karsaziyan dikin ku mezin bibin."
+  }
+}

@@ -10,6 +10,7 @@
   top: 0;
   z-index: 3;
   background-color: color-mix(in srgb, var(--main-color) 8%, transparent);
+  direction: ltr;
 }
 
 .home-navbar .links-container {

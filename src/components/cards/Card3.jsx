@@ -6,11 +6,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import "./card.css";
 import { categories } from "@/constants/enums";
+import { useTranslations } from "next-intl";
 
 const Card3 = ({ data }) => {
   const text = new DOMParser()
     .parseFromString(data?.content, "text/html")
     .body.textContent.trim();
+
+  const t = useTranslations();
 
   return (
     <div
@@ -35,7 +38,7 @@ const Card3 = ({ data }) => {
               icon={categories[data?.category].icon}
               style={{ color: categories[data?.category].color }}
             />
-            {data?.category}
+            {t(`enums.${data?.category}.title`)}
           </div>
           <div className="itm">
             <FontAwesomeIcon icon={faClock} />
