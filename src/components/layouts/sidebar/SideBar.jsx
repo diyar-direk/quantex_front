@@ -6,9 +6,12 @@ import IconButton from "@/components/buttons/IconButton";
 import NavLink from "@/components/NavLink";
 import { homePages, pages } from "@/constants/pages";
 import { useAuth } from "@/context/AuthContext";
+import { useTranslations } from "next-intl";
 
 const SideBar = ({ setIsOpen }) => {
   const { user } = useAuth();
+
+  const t = useTranslations();
 
   return (
     <div className="sidebar-overlay" onClick={() => setIsOpen(false)}>
@@ -17,8 +20,7 @@ const SideBar = ({ setIsOpen }) => {
           <IconButton
             color="delete"
             styleType="transparent"
-            title="close"
-            placement="top"
+            title={t("actions.close")}
             icon={faClose}
             onClick={() => setIsOpen(false)}
           />
@@ -27,13 +29,13 @@ const SideBar = ({ setIsOpen }) => {
         {homePages.map((e) => (
           <NavLink key={e.to} href={e.to} className="pages">
             <FontAwesomeIcon icon={e.icon} />
-            {e.title}
+            {t(`pages.${e.title}`)}
           </NavLink>
         ))}
         {user && (
           <NavLink href={pages.dashboard.page} className="pages">
             <FontAwesomeIcon icon={faChartLine} />
-            dashboard
+            {t("pages.dashboard")}
           </NavLink>
         )}
       </aside>

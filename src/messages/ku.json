@@ -138,5 +138,35 @@
     "copyright": "© 2026 Quantex. Hemû maf parastî ne.",
 
     "col_1_desc": "Em çareseriyên dîjîtal ên nûjen çêdikin ku ramanan diguherînin bo ezmûnên watedar û alîkariya karsaziyan dikin ku mezin bibin."
+  },
+  "actions": {
+    "close": "Bigire",
+    "update": "Nûve bike",
+    "add": "Zêde bike",
+    "delete": "Jê bibe",
+    "submit": "Bișîne",
+    "latest": "Herî nû",
+    "oldest": "Herî kevn",
+    "search": "Lêgerîn ...",
+    "results": "Encam",
+    "all": "Hemû",
+    "no_results_yet": "Hêj encamek tune",
+    "filters": "Parzûn",
+    "sort": "Rêzkirin",
+    "save": "Tomar bike"
+  },
+
+  "contact_page": {
+    "social_links": "Girêdanên torên civakî",
+    "location": "Cihê şirketa",
+    "send_message": "Peyamek bişîne"
+  },
+  "join_page": {
+    "title": "Dahatiya xwe bi Quantex re ava bike",
+    "desc": "Em her tim li kesên jîr, meraqdar û bi hewês in ku dixwazin fêr bibin, biafirînin û pêşve biçin. Ger tu amade yî ku rû bi rûyê dijwariyên nû bibî û bibî beşek ji tiştekî watedar, em dê kêfxweş bibin ku dengê te bibihîzin.",
+    "send": "Serlêdanê bişîne"
+  },
+  "posts": {
+    "category": "Kategorî"
   }
 }

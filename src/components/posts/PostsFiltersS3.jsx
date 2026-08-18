@@ -11,6 +11,7 @@ import { useDebounce } from "use-debounce";
 import PopUp from "../popup/PopUp";
 import SelectOptionInput from "../inputs/SelectOptionInput";
 import { categories } from "@/constants/enums";
+import { useTranslations } from "next-intl";
 
 const sortOption = [
   { value: `-${DBkeys.createdAt}`, text: "latest" },
@@ -28,6 +29,8 @@ const PostsFiltersS3 = ({ filters, setFilters }) => {
 
   const [isOpen, setIsOpen] = useState(false);
 
+  const t = useTranslations();
+
   return (
     <>
       <section className="posts-search">
@@ -36,7 +39,7 @@ const PostsFiltersS3 = ({ filters, setFilters }) => {
             type="text"
             name="search"
             id="posts-search"
-            placeholder="search...."
+            placeholder={t("actions.search")}
             onChange={(e) => setSearch(e.target.value)}
             value={search}
           />
@@ -45,7 +48,7 @@ const PostsFiltersS3 = ({ filters, setFilters }) => {
 
         <div className="sort" onClick={() => setIsOpen(true)}>
           <FontAwesomeIcon icon={faFilter} />
-          <span>filters</span>
+          <span>{t("actions.filters")}</span>
           <FontAwesomeIcon icon={faChevronDown} />
         </div>
 
@@ -56,32 +59,39 @@ const PostsFiltersS3 = ({ filters, setFilters }) => {
         >
           <div className="filters-container">
             <SelectOptionInput
-              label="sort"
+              label={t("actions.sort")}
               notRequired
-              options={sortOption}
-              placeholder={
-                sortOption.find((e) => e.value === filters?.sort)?.text
-              }
+              options={sortOption.map((e) => ({
+                ...e,
+                text: t(`actions.${e.text}`),
+              }))}
+              placeholder={t(
+                `actions.${sortOption.find((e) => e.value === filters?.sort)?.text}`,
+              )}
               onSelectOption={(e) =>
                 setFilters((p) => ({ ...p, sort: e.value }))
               }
             />
             <SelectOptionInput
-              label="category"
+              label={t("posts.category")}
               notRequired
               options={Object.values(categories).map((e) => ({
-                text: e.value,
+                text: t(`enums.${e.value}.title`),
                 icon: e.icon,
                 value: e.value,
               }))}
-              placeholder={filters?.category || "all"}
+              placeholder={
+                filters?.category
+                  ? t(`enums.${filters?.category}.title`)
+                  : t("actions.all")
+              }
               onSelectOption={(e) =>
                 setFilters((p) => ({ ...p, category: e.value }))
               }
               value={filters?.category}
               customOptions={[
                 {
-                  title: "all",
+                  title: t("actions.all"),
                   onChange: () => setFilters((p) => ({ ...p, category: "" })),
                 },
               ]}

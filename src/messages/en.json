@@ -121,5 +121,34 @@
     "col_3_title": "services",
     "copyright": "© 2026 Quantex. All rights reserved.",
     "col_1_desc": "We create modern digital solutions that turn ideas into meaningful experiences and help businesses grow"
+  },
+  "actions": {
+    "close": "close",
+    "update": "update",
+    "add": "add",
+    "delete": "delete",
+    "submit": "submit",
+    "latest": "latest",
+    "oldest": "oldest",
+    "search": "search ...",
+    "results": "results",
+    "all": "all",
+    "filters": "filters",
+    "sort": "sort",
+    "no_results_yet": "no results yet",
+    "save": "save"
+  },
+  "contact_page": {
+    "social_links": "social links",
+    "location": "compnay location",
+    "send_message": "send a message"
+  },
+  "join_page": {
+    "title": "Build your future with Quantex",
+    "desc": "We’re always looking for talented, curious, and passionate people who want to learn, create, and grow. If you’re ready to take on new challenges and be part of something meaningful, we’d love to hear from you",
+    "send": "send application"
+  },
+  "posts": {
+    "category": "category"
   }
 }

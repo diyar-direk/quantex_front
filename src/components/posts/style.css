@@ -120,6 +120,7 @@
   max-width: 100px;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .posts-search .sort svg {
@@ -144,6 +145,8 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  white-space: nowrap;
+  font-size: 14px;
 }
 
 .posts-search .sort-options p:hover,
@@ -176,6 +179,7 @@
   align-items: center;
   gap: 5px;
   justify-content: center;
+  white-space: nowrap;
 }
 
 .categories-filter button:hover,

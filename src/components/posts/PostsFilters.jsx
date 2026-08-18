@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { useDebounce } from "use-debounce";
 import { useClickOutside } from "@/hooks/useClickOutside";
 import { categories } from "@/constants/enums";
+import { useTranslations } from "next-intl";
 
 const sortOption = [
   { value: `-${DBkeys.createdAt}`, text: "latest" },
@@ -26,6 +27,8 @@ const PostsFilters = ({ filters, setFilters }) => {
 
   const { isOpen, ref, toggleOpen } = useClickOutside();
 
+  const t = useTranslations();
+
   return (
     <>
       <section className="posts-search">
@@ -34,14 +37,18 @@ const PostsFilters = ({ filters, setFilters }) => {
             type="text"
             name="search"
             id="posts-search"
-            placeholder="search...."
+            placeholder={t("actions.search")}
             onChange={(e) => setSearch(e.target.value)}
             value={search}
           />
           <FontAwesomeIcon icon={faMagnifyingGlass} />
         </label>
         <div className="sort" onClick={toggleOpen} ref={ref}>
-          <span>{sortOption.find((e) => e.value === filters?.sort)?.text}</span>
+          <span>
+            {t(
+              `actions.${sortOption.find((e) => e.value === filters?.sort)?.text}`,
+            )}
+          </span>
           <FontAwesomeIcon icon={faChevronDown} />
         </div>
         {isOpen && (
@@ -52,7 +59,7 @@ const PostsFilters = ({ filters, setFilters }) => {
                 onClick={() => setFilters((p) => ({ ...p, sort: e.value }))}
                 className={e.value === filters?.sort ? "active" : ""}
               >
-                {e.text}
+                {t(`actions.${e.text}`)}
               </p>
             ))}
           </div>
@@ -64,7 +71,7 @@ const PostsFilters = ({ filters, setFilters }) => {
           className={!filters?.category ? "active" : ""}
           onClick={() => setFilters((p) => ({ ...p, category: "" }))}
         >
-          all
+          {t("actions.all")}
         </button>
         {Object.values(categories).map((e) => (
           <button
@@ -74,7 +81,7 @@ const PostsFilters = ({ filters, setFilters }) => {
             onClick={() => setFilters((p) => ({ ...p, category: e.value }))}
           >
             <FontAwesomeIcon icon={e.icon} />
-            {e.value}
+            {t(`enums.${e.value}.title`)}
           </button>
         ))}
       </div>

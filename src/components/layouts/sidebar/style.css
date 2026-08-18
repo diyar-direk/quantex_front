@@ -10,6 +10,7 @@
   display: flex;
   justify-content: flex-end;
   animation: aside-overlay 0.4s;
+  direction: ltr;
 }
 .sidebar-overlay aside {
   max-height: 100%;
@@ -40,8 +41,9 @@
 }
 .sidebar-overlay .pages:hover,
 .sidebar-overlay .pages.active {
-  background-color: color-mix(in srgb, var(--main-color) 30%, transparent);
+  background-color: color-mix(in srgb, var(--main-color) 50%, transparent);
   font-weight: bold;
+  border-block: solid 2px color-mix(in srgb, var(--main-color) 60%, transparent);
 }
 
 @keyframes aside-overlay {
