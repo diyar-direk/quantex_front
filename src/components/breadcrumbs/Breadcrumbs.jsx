@@ -3,6 +3,7 @@ import { Link, usePathname } from "@/i18n/navigation";
 import "./breadcrumbs.css";
 import { sliceText } from "@/utils/sliceText";
 import { useMemo } from "react";
+import { useTranslations } from "next-intl";
 
 /**
  * @typedef {Object} ReplaceItem
@@ -29,9 +30,11 @@ const Breadcrumbs = ({ replace = [] }) => {
 
   const className = useMemo(() => `${"home container"} breadcrumbs`, []);
 
+  const t = useTranslations();
+
   return (
     <div className={className}>
-      <Link href="/"> home </Link>
+      <Link href="/"> {t("pages.home")} </Link>
 
       {pathes.map((path, i) => {
         const replaceItem = replace.find((item) => item.from === path);
@@ -50,7 +53,7 @@ const Breadcrumbs = ({ replace = [] }) => {
             replacedPath = defaultTo.replace(replaceItem.from, replaceItem.to);
         }
 
-        const text = sliceText(replaceItem?.text || path);
+        const text = sliceText(replaceItem?.text || t(`pages.${path}`));
         const to = replacedPath || defaultTo;
 
         return (

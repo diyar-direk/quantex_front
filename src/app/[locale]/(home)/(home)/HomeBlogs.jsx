@@ -11,6 +11,7 @@ import { postTypes } from "@/constants/enums";
 import { pages, pagesActionRouts } from "@/constants/pages";
 import { useFetchData } from "@/hooks/useFetchData";
 import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 
 const HomeBlogs = () => {
   const { data, isLoading } = useFetchData({
@@ -18,6 +19,8 @@ const HomeBlogs = () => {
     type: postTypes.blog.value,
     [DBkeys.limit]: 2,
   });
+
+  const t = useTranslations();
 
   if (isLoading)
     return (
@@ -34,7 +37,9 @@ const HomeBlogs = () => {
 
   return (
     <main className="main-section container body-color">
-      <MainTitle subTitle={"Lorem ipsum dolor sit"}>last blogs</MainTitle>
+      <MainTitle subTitle={t("home.blog_sub_title")}>
+        {t("pages.blogs")}
+      </MainTitle>
       <div className="grid-2">
         {data?.data?.map((e) => (
           <Animations key={e[DBkeys.id]}>
@@ -46,7 +51,9 @@ const HomeBlogs = () => {
       </div>
       <div className="center" style={{ marginTop: "10px" }}>
         <Link href={pages.blogs}>
-          <Button> view all blogs ({data?.totalCount}) </Button>
+          <Button>
+            {t("home.explorer_blog")} ({data?.totalCount})
+          </Button>
         </Link>
       </div>
     </main>

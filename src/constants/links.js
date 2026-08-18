@@ -46,7 +46,7 @@ const socialLinks = {
 };
 
 const companyLocation = {
-  text: "Qamsilo Al-Kornish Street",
+  text: "Qamishlo Al-Kornish Street",
   map: `https://www.google.com/maps?q=37.04381577440059,41.22354037748979&z=15&output=embed&t=h`,
   view: `https://www.google.com/maps/place/37%C2%B002'37.7%22N+41%C2%B013'24.8%22E/@37.0438201,41.2261153,662m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d37.0438158!4d41.2235404?entry=ttu&g_ep=EgoyMDI2MDcxNS4wIKXMDSoASAFQAw%3D%3D`,
   icon: faLocationDot,

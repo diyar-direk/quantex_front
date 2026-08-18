@@ -42,22 +42,22 @@ const homePages = [
     to: pages.home,
   },
   {
-    title: "about us",
+    title: "about_us",
     icon: faQuestionCircle,
     to: pages.aboutUs,
   },
   {
-    title: "our services",
+    title: "our_services",
     icon: faLightbulb,
     to: pages.ourServices,
   },
   {
-    title: "contact us",
+    title: "contact_us",
     icon: faContactBook,
     to: pages.contactUs,
   },
   {
-    title: "join us",
+    title: "join_us",
     icon: faSignIn,
     to: pages.joinUs,
   },
@@ -72,7 +72,7 @@ const homePages = [
     to: pages.blogs,
   },
   {
-    title: "Products",
+    title: "products",
     icon: postTypes.Product.icon,
     to: pages.products,
   },

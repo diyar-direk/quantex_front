@@ -15,7 +15,7 @@ import { useAppContext } from "@/context/AppContext";
 import { pages } from "@/constants/pages";
 import NavLink from "@/components/NavLink";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import SideBar from "../sidebar/SideBar";
 import { useEffect, useState } from "react";
 
@@ -46,6 +46,8 @@ const Navbar = () => {
     };
   }, [sideBarOpen]);
 
+  const t = useTranslations();
+
   return (
     <>
       <header className="container home-navbar">
@@ -53,11 +55,11 @@ const Navbar = () => {
           <Image alt="logo" src={Logo} className="logo" />
         </Link>
         <nav className="links-container">
-          <NavLink href="/">home</NavLink>
-          <NavLink href={pages.aboutUs}>about us</NavLink>
-          <NavLink href={pages.contactUs}>contact us</NavLink>
-          <NavLink href={pages.ourServices}>services</NavLink>
-          <NavLink href={pages.projects}>projects</NavLink>
+          <NavLink href="/">{t("pages.home")}</NavLink>
+          <NavLink href={pages.aboutUs}>{t("pages.about_us")}</NavLink>
+          <NavLink href={pages.contactUs}>{t("pages.contact_us")}</NavLink>
+          <NavLink href={pages.ourServices}>{t("pages.our_services")}</NavLink>
+          <NavLink href={pages.projects}>{t("pages.projects")}</NavLink>
         </nav>
         <div className="settings">
           <div

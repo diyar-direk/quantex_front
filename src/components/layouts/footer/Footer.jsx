@@ -1,77 +1,75 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./style.css";
-import { companyLocation, socialLinks } from "@/constants/links";
-import { homePages, pages } from "@/constants/pages";
+import { socialLinks } from "@/constants/links";
+import { homePages } from "@/constants/pages";
 import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 const Footer = () => {
+  const t = useTranslations();
+
   return (
     <footer className="home-footer container">
       <div className="company-section">
-        <h2> quantex company </h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
-          accusamus debitis ex accusantium doloribus!
-        </p>
+        <h2>{t("footer.col_1_title")}</h2>
+
+        <p>{t("footer.col_1_desc")}</p>
+
         <div className="links">
-          <a href={socialLinks.github.link} target="_blank">
+          <a href={socialLinks.github.link} target="_blank" rel="noreferrer">
             <FontAwesomeIcon icon={socialLinks.github.icon} />
           </a>
-          <a href={socialLinks.instagram.link} target="_blank">
+
+          <a href={socialLinks.instagram.link} target="_blank" rel="noreferrer">
             <FontAwesomeIcon icon={socialLinks.instagram.icon} />
           </a>
+
           <a href={socialLinks.email.link} target="_blank">
             <FontAwesomeIcon icon={socialLinks.email.icon} />
           </a>
-          <a href={socialLinks.phone.link} target="_blank">
+
+          <a href={socialLinks.phone.link}>
             <FontAwesomeIcon icon={socialLinks.phone.icon} />
-          </a>
-        </div>
-      </div>
-      <div className="quick-link">
-        <h2> quick link </h2>
-        <div className="links">
-          {homePages.slice(0, 5).map((e) => (
-            <Link href={e.to} key={e.to}>
-              {e.title}
-            </Link>
-          ))}
-        </div>
-      </div>
-      <div className="quick-link">
-        <h2> quick link </h2>
-        <div className="links">
-          {homePages.slice(5).map((e) => (
-            <Link href={e.to} key={e.to}>
-              {e.title}
-            </Link>
-          ))}
-        </div>
-      </div>
-      <div className="company-info">
-        <h2> quantex info </h2>
-        <div className="links">
-          <a className="itm" href={companyLocation.view} target="_blank">
-            <FontAwesomeIcon icon={companyLocation.icon} />
-            {companyLocation.text}
-          </a>
-          <a className="itm" href={socialLinks.email.link} target="_blank">
-            <FontAwesomeIcon icon={socialLinks.email.icon} />
-            {socialLinks.email.text}
-          </a>
-          <a className="itm" href={socialLinks.phone.link} target="_blank">
-            <FontAwesomeIcon icon={socialLinks.phone.icon} />
-            {socialLinks.phone.text}
           </a>
         </div>
       </div>
 
-      <div className="footer-foot">
-        <p>© 2026 Quantex. All rights reserved. Engineered for Excellence.</p>
+      <div className="quick-link">
+        <h2>{t("footer.col_2_title")}</h2>
+
         <div className="links">
-          <a href={socialLinks.instagram.link} target="_blank">
-            {socialLinks.instagram.text}
+          {homePages.slice(0, 5).map((e) => (
+            <Link href={e.to} key={e.to}>
+              {t(`pages.${e.title}`)}
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      <div className="quick-link">
+        <h2>{t("footer.col_3_title")}</h2>
+
+        <div className="links">
+          {homePages.slice(5).map((e) => (
+            <Link href={e.to} key={e.to}>
+              {t(`pages.${e.title}`)}
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      <div className="footer-foot">
+        <p>{t("footer.copyright")}</p>
+
+        <div className="links">
+          <a href={socialLinks.email.link}>
+            <FontAwesomeIcon icon={socialLinks.email.icon} />
+            {socialLinks.email.text}
           </a>
-          <Link href={pages.contactUs}> contact us</Link>
+
+          <a href={socialLinks.phone.link}>
+            <FontAwesomeIcon icon={socialLinks.phone.icon} />
+            {socialLinks.phone.text}
+          </a>
         </div>
       </div>
     </footer>
