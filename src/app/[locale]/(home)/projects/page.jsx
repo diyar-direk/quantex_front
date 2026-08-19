@@ -1,13 +1,11 @@
 import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
 import ProjectsComp from "./ProjectsComp";
-import MainTitle from "@/components/main_title/MainTitle";
 
 const Projects = () => {
   return (
     <>
       <Breadcrumbs />
       <main className="main-section container">
-        <MainTitle>our projects</MainTitle>
         <ProjectsComp />
       </main>
     </>

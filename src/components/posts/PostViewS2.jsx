@@ -8,9 +8,12 @@ import dateFormatter from "@/utils/dateFormatter";
 import DBkeys from "@/constants/DBkeys";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PostContent from "../editor/PostContent";
+import { useTranslations } from "next-intl";
 
 const PostViewS2 = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const t = useTranslations();
 
   if (!data) return;
 
@@ -33,17 +36,17 @@ const PostViewS2 = ({ data }) => {
             style={{ "--main-color": categories[data?.category]?.color }}
           >
             <FontAwesomeIcon icon={categories[data?.category]?.icon} />
-            {data?.category}
+            {t(`enums.${data?.category}.title`)}
           </button>
           <h1 className="title"> {data?.title} </h1>
 
           <div className="dates-container">
             <article>
-              <p className="key">created at</p>
+              <p className="key"> {t("actions.created_at")} </p>
               <p> {dateFormatter(data?.[DBkeys.createdAt], "fullDate")} </p>
             </article>
             <article>
-              <p className="key">last update</p>
+              <p className="key">{t("actions.updated_at")}</p>
               <p> {dateFormatter(data?.[DBkeys.updatedAt], "fullDate")} </p>
             </article>
           </div>

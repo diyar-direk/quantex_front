@@ -8,6 +8,7 @@ import { postTypes } from "@/constants/enums";
 import { pagesActionRouts } from "@/constants/pages";
 import { useFetchData } from "@/hooks/useFetchData";
 import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 
 const MoreResults = ({ id, category }) => {
   const { data, isLoading } = useFetchData({
@@ -17,6 +18,8 @@ const MoreResults = ({ id, category }) => {
     "id[notIn][]": id,
     category,
   });
+
+  const t = useTranslations();
 
   if (isLoading)
     return (
@@ -31,7 +34,7 @@ const MoreResults = ({ id, category }) => {
 
   return (
     <>
-      <h1 className="more-results">SIMILAR results</h1>
+      <h1 className="more-results">{t("posts.more_results")}</h1>
       <div className="grid-3">
         {data?.data?.map((e) => (
           <Animations key={e[DBkeys.id]} type="fade-in">

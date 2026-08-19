@@ -26,7 +26,7 @@
   background: linear-gradient(
     to bottom,
     color-mix(in srgb, var(--main-color) 80%, transparent),
-    color-mix(in srgb, var(--main-color) 10%, transparent)
+    color-mix(in srgb, var(--main-color) 10%, #00000045)
   );
   position: absolute;
   width: 100%;

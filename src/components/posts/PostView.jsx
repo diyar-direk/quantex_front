@@ -13,9 +13,13 @@ import dateFormatter from "@/utils/dateFormatter";
 import "./style.css";
 import DBkeys from "@/constants/DBkeys";
 import PostContent from "../editor/PostContent";
+import { useTranslations } from "next-intl";
+import { categories } from "@/constants/enums";
 
 const PostView = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const t = useTranslations();
 
   return (
     <>
@@ -49,13 +53,18 @@ const PostView = ({ data }) => {
           <div className="view-info">
             <article>
               <p className="key">
-                <FontAwesomeIcon icon={faLayerGroup} /> category
+                <FontAwesomeIcon icon={faLayerGroup} /> {t("posts.category")}
               </p>
-              <p className="value enum-style">{data?.category}</p>
+              <p
+                className="value"
+                style={{ color: categories[data?.category]?.color }}
+              >
+                {t(`enums.${data?.category}.title`)}
+              </p>
             </article>
             <article>
               <p className="key">
-                <FontAwesomeIcon icon={faClock} /> created at
+                <FontAwesomeIcon icon={faClock} /> {t("actions.created_at")}
               </p>
               <p className="value">
                 {dateFormatter(data?.[DBkeys.createdAt], "fullDate")}
@@ -63,7 +72,8 @@ const PostView = ({ data }) => {
             </article>
             <article>
               <p className="key">
-                <FontAwesomeIcon icon={faArrowsRotate} /> last update
+                <FontAwesomeIcon icon={faArrowsRotate} />
+                {t("actions.updated_at")}
               </p>
               <p className="value">
                 {dateFormatter(data?.[DBkeys.updatedAt], "fullDate")}

@@ -1,6 +1,7 @@
 "use client";
 import Animations from "@/components/animations/Animations";
 import Card from "@/components/cards/Card1";
+import MainTitle from "@/components/main_title/MainTitle";
 import PostsFiltersS2 from "@/components/posts/PostsFiltersS2";
 import RepeatChildren from "@/components/RepeatChildren";
 import Skeleton from "@/components/skeleton/Skeleton";
@@ -13,6 +14,7 @@ import { Link } from "@/i18n/navigation";
 import { formatInputsData } from "@/utils/formatInputsData";
 import { faInbox } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
 
 const AnnouncementComp = () => {
@@ -37,14 +39,17 @@ const AnnouncementComp = () => {
     [data],
   );
 
+  const t = useTranslations();
+
   return (
     <>
+        <MainTitle>{t("pages.announcements")}</MainTitle>
+
       <PostsFiltersS2 filters={filters} setFilters={setFilters} />
-      {results?.total > 0 && (
-        <h1 className="post-results" data-count={results?.total}>
-          results
-        </h1>
-      )}
+
+      <h1 className="post-results" data-count={results?.total}>
+        {t("actions.results")}
+      </h1>
 
       <div className="grid-3">
         {results?.posts?.map((e) => (
@@ -65,7 +70,7 @@ const AnnouncementComp = () => {
       {results?.total === 0 && (
         <div className="no-results-yet">
           <FontAwesomeIcon icon={faInbox} />
-          <span>no results yet</span>
+          <span>{t("actions.no_results_yet")}</span>
         </div>
       )}
     </>

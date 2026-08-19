@@ -18,11 +18,13 @@ const LoginPage = () => {
   const query = useQueryClient();
   const { replace } = useRouter();
 
+  const t = useTranslations();
+
   const formik = useFormik({
     initialValues: { password: "", username: "" },
     validationSchema: yup.object({
-      username: yup.string().required("error.required_field"),
-      password: yup.string().required("error.required_field"),
+      username: yup.string().required(t("error.required_field")),
+      password: yup.string().required(t("error.required_field")),
     }),
     onSubmit: async (v) => {
       const { data } = await axiosInstance.post(endPoints.users.login, v);
@@ -32,8 +34,6 @@ const LoginPage = () => {
     },
   });
 
-  const t = useTranslations();
-
   return (
     <main className="container main-section login-page center">
       <form onSubmit={formik.handleSubmit}>
@@ -42,7 +42,7 @@ const LoginPage = () => {
           name="username"
           label={t("user.username")}
           placeholder={t("user.username_placeholder")}
-          errorText={t(formik.errors.username)}
+          errorText={formik.errors.username}
           value={formik.values.username}
           onChange={formik.handleChange}
         />
@@ -50,7 +50,7 @@ const LoginPage = () => {
           name="password"
           label={t("user.password")}
           placeholder={t("user.password_placeholder")}
-          errorText={t(formik.errors.password)}
+          errorText={formik.errors.password}
           value={formik.values.password}
           onChange={formik.handleChange}
         />

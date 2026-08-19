@@ -12,6 +12,8 @@ import {
   faPhone,
   faSignature,
 } from "@fortawesome/free-solid-svg-icons";
+import { useTranslations } from "next-intl";
+import MainTitle from "@/components/main_title/MainTitle";
 
 export const metadata = {
   title: "contact us",
@@ -20,13 +22,16 @@ export const metadata = {
 };
 
 const ContactUs = () => {
+  const t = useTranslations();
+
   return (
     <>
       <Breadcrumbs />
       <main className="container main-section contact-page">
+        <MainTitle style={{ width: "100%" }}>{t("pages.contact_us")}</MainTitle>
         <section className="map">
           <h2>
-            <FontAwesomeIcon icon={faLink} /> social links
+            <FontAwesomeIcon icon={faLink} /> {t("contact_page.social_links")}
           </h2>
           <div className="social-links">
             {Object.entries(socialLinks).map(([key, value]) => (
@@ -41,9 +46,10 @@ const ContactUs = () => {
               </a>
             ))}
           </div>
+
           <h2>
             <FontAwesomeIcon icon={companyLocation.icon} />
-            company location
+            {t("contact_page.location")}
           </h2>
           <iframe
             width="100%"
@@ -56,7 +62,8 @@ const ContactUs = () => {
         </section>
         <section className="form">
           <h2>
-            <FontAwesomeIcon icon={faMessage} /> or send a message
+            <FontAwesomeIcon icon={faMessage} />
+            {t("contact_page.send_message")}
           </h2>
           <form>
             <Input
@@ -87,7 +94,8 @@ const ContactUs = () => {
               labelIcon={faMessage}
             />
             <Button btnStyleType="transparent">
-              <FontAwesomeIcon icon={faPaperPlane} /> send
+              <FontAwesomeIcon icon={faPaperPlane} />
+              {t("actions.submit")}
             </Button>
           </form>
         </section>

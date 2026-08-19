@@ -131,5 +131,38 @@
   },
   "error": {
     "required_field": "this is required field"
+  },
+  "actions": {
+    "close": "close",
+    "update": "update",
+    "add": "add",
+    "delete": "delete",
+    "submit": "submit",
+    "latest": "latest",
+    "oldest": "oldest",
+    "search": "search ...",
+    "results": "results",
+    "all": "all",
+    "filters": "filters",
+    "created_at": "created at",
+    "updated_at": "last update",
+    "sort": "sort",
+    "no_results_yet": "no results yet",
+    "save": "save"
+  },
+  "contact_page": {
+    "social_links": "social links",
+    "location": "compnay location",
+    "send_message": "send a message"
+  },
+  "join_page": {
+    "title": "Build your future with Quantex",
+    "desc": "We’re always looking for talented, curious, and passionate people who want to learn, create, and grow. If you’re ready to take on new challenges and be part of something meaningful, we’d love to hear from you",
+    "send": "send application"
+  },
+  "posts": {
+    "category": "category",
+    "category": "category",
+    "more_results": "similar results"
   }
 }

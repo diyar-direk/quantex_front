@@ -370,3 +370,29 @@
     overflow-x: auto;
   }
 }
+
+html[lang="ar"] .post-content {
+  direction: rtl;
+  text-align: right;
+}
+
+html[lang="ar"] .post-content ul,
+html[lang="ar"] .post-content ol {
+  padding-left: 0;
+  padding-right: 2rem;
+}
+
+html[lang="ar"] .post-content blockquote {
+  border-left: 0;
+  border-right: 4px solid var(--main-color, #0ea5e9);
+}
+
+html[lang="ar"] .post-content th,
+html[lang="ar"] .post-content td {
+  text-align: right;
+}
+
+html[lang="ar"] .post-content [class*="indent-1"] {
+  margin-left: 0;
+  margin-right: 2rem;
+}

@@ -19,6 +19,9 @@
   justify-content: center;
   flex: 1;
 }
+[lang="ar"] .home-navbar .links-container {
+  direction: rtl;
+}
 
 .home-navbar .links-container a {
   text-transform: capitalize;

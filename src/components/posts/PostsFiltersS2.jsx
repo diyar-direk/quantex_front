@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { useDebounce } from "use-debounce";
 import { useClickOutside } from "@/hooks/useClickOutside";
 import { categories } from "@/constants/enums";
+import { useTranslations } from "next-intl";
 
 const sortOption = [
   { value: `-${DBkeys.createdAt}`, text: "latest" },
@@ -31,6 +32,8 @@ const PostsFiltersS2 = ({ filters, setFilters }) => {
     toggleOpen: toggleCategory,
   } = useClickOutside();
 
+  const t = useTranslations();
+
   return (
     <>
       <section className="posts-search">
@@ -39,7 +42,7 @@ const PostsFiltersS2 = ({ filters, setFilters }) => {
             type="text"
             name="search"
             id="posts-search"
-            placeholder="search...."
+            placeholder={t("actions.search")}
             onChange={(e) => setSearch(e.target.value)}
             value={search}
           />
@@ -48,7 +51,13 @@ const PostsFiltersS2 = ({ filters, setFilters }) => {
 
         <div className="relative">
           <div className="sort" onClick={toggleCategory} ref={categoryRef}>
-            <span>{filters?.category || "all"}</span>
+            <span>
+              {t(
+                filters?.category
+                  ? `enums.${filters?.category}.title`
+                  : `actions.filters`,
+              )}
+            </span>
             <FontAwesomeIcon icon={faChevronDown} />
           </div>
           {categoryOpen && (
@@ -57,7 +66,7 @@ const PostsFiltersS2 = ({ filters, setFilters }) => {
                 className={!filters?.category ? "active" : ""}
                 onClick={() => setFilters((p) => ({ ...p, category: "" }))}
               >
-                all
+                {t("actions.all")}
               </p>
 
               {Object.values(categories).map((e) => (
@@ -72,7 +81,7 @@ const PostsFiltersS2 = ({ filters, setFilters }) => {
                     icon={e.icon}
                     style={{ color: categories[e.value].color, opacity: 0.7 }}
                   />
-                  {e.value}
+                  {t(`enums.${e?.value}.title`)}
                 </p>
               ))}
             </div>
@@ -80,7 +89,11 @@ const PostsFiltersS2 = ({ filters, setFilters }) => {
         </div>
 
         <div className="sort" onClick={toggleOpen} ref={ref}>
-          <span>{sortOption.find((e) => e.value === filters?.sort)?.text}</span>
+          <span>
+            {t(
+              `actions.${sortOption.find((e) => e.value === filters?.sort)?.text}`,
+            )}
+          </span>
           <FontAwesomeIcon icon={faChevronDown} />
         </div>
         {isOpen && (
@@ -91,7 +104,7 @@ const PostsFiltersS2 = ({ filters, setFilters }) => {
                 onClick={() => setFilters((p) => ({ ...p, sort: e.value }))}
                 className={e.value === filters?.sort ? "active" : ""}
               >
-                {e.text}
+                {t(`actions.${e.text}`)}
               </p>
             ))}
           </div>
