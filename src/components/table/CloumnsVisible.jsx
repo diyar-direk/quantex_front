@@ -6,6 +6,7 @@ import { useAuth } from "@/context/AuthContext";
 import IconButton from "@/components/buttons/IconButton";
 import Button from "@/components/buttons/Button";
 import { usePathname } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 
 const CloumnsVisible = ({ columns, setColumns, defaultColumns, onRefetch }) => {
   const [search, setSearch] = useState("");
@@ -50,6 +51,8 @@ const CloumnsVisible = ({ columns, setColumns, defaultColumns, onRefetch }) => {
     localStorage.removeItem(pathname);
   }, [setColumns, defaultColumns, pathname]);
 
+  const t = useTranslations();
+
   return (
     <div className="relative">
       <IconButton title="Refetch" onClick={onRefetch}>
@@ -68,12 +71,12 @@ const CloumnsVisible = ({ columns, setColumns, defaultColumns, onRefetch }) => {
           <input
             type="text"
             className="search"
-            placeholder="Search columns..."
+            placeholder={t("actions.search")}
             value={search}
             onChange={(e) => setSearch(e.target.value.toLowerCase())}
           />
           {columns?.map((column) => {
-            const headerName = column.headerName;
+            const headerName = t(column.headerName);
 
             return (
               (!column.allowedTo || column.allowedTo?.includes(user?.role)) &&
@@ -110,7 +113,7 @@ const CloumnsVisible = ({ columns, setColumns, defaultColumns, onRefetch }) => {
 
           <Button btnStyleType="outlined" onClick={resetDefaultColumns}>
             <FontAwesomeIcon icon={faRotateRight} />
-            reset
+            {t("actions.reset")}
           </Button>
         </article>
       )}

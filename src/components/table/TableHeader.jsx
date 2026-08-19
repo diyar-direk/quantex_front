@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { useAuth } from "@/context/AuthContext";
 import DBkeys from "@/constants/DBkeys";
+import { useTranslations } from "next-intl";
 
 const TableHeader = ({
   selectable,
@@ -53,6 +54,8 @@ const TableHeader = ({
     });
   }, [data, setSelectedItems, notSelectIf]);
 
+  const t = useTranslations();
+
   return (
     <thead>
       <tr>
@@ -82,7 +85,7 @@ const TableHeader = ({
                       : "a-z"
                 }
               >
-                {headerName}
+                {t(headerName)}
                 {sort && (
                   <FontAwesomeIcon
                     icon={faChevronRight}

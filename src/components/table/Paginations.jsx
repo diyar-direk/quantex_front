@@ -6,6 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "../buttons/Button";
+import { useTranslations } from "next-intl";
 
 const getVisiblePages = (currentPage, totalPages, maxVisibleNeighbors = 2) => {
   const pages = [];
@@ -65,6 +66,8 @@ const Paginations = ({
     setSelectedItems(new Set());
   }, [setPage, setSelectedItems]);
 
+  const t = useTranslations();
+
   if (!currentPage) return;
 
   return (
@@ -115,7 +118,7 @@ const Paginations = ({
 
       {dataLength > 0 && (
         <h2 className="data-count">
-          data count <span>{dataLength}</span>
+          <span>{dataLength}</span> {t("actions.results")}
         </h2>
       )}
     </footer>

@@ -3,10 +3,13 @@ import NavLink from "@/components/NavLink";
 import { dashboardPages } from "@/constants/pages";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useTranslations } from "next-intl";
 
 const BottomHeader = () => {
   const { push } = useRouter();
   const pathname = usePathname();
+
+  const t = useTranslations();
 
   return (
     <div className="bottom-header">
@@ -18,7 +21,7 @@ const BottomHeader = () => {
         >
           <h2>
             <FontAwesomeIcon icon={link.icon} />
-            {link.title}
+            {t(`pages.${link.title}`)}
           </h2>
           <article>
             {link.children?.map((child) => (
@@ -27,7 +30,8 @@ const BottomHeader = () => {
                 key={child.to}
                 onClick={(e) => e.stopPropagation()}
               >
-                <FontAwesomeIcon icon={child.icon} /> {child.title}
+                <FontAwesomeIcon icon={child.icon} />
+                {t(`pages.${child.title}`)}
               </NavLink>
             ))}
           </article>

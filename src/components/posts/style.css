@@ -162,6 +162,7 @@
   gap: 10px;
   overflow: auto;
   padding-bottom: 10px;
+  flex-wrap: wrap;
 }
 .categories-filter::-webkit-scrollbar {
   height: 5px;

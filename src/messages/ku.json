@@ -41,6 +41,10 @@
     "projects": "Projeyên me",
     "blogs": "Blog",
     "products": "Berhemên me",
+    "users": "Bikarhêner",
+    "posts": "Weşan",
+    "add_user": "Bikarhênerek zêde bike",
+    "add_post": "Weşanek zêde bike",
     "announcements": "Daxuyanî",
     "dashboard": "Panela rêveberiyê",
     "add": "Zêde bike",
@@ -161,6 +165,8 @@
     "search": "Lêgerîn ...",
     "results": "Encam",
     "all": "Hemû",
+    "cancel": "Betal bike",
+    "confirm": "Piştrast bike",
     "no_results_yet": "Hêj encamek tune",
     "filters": "Parzûn",
     "sort": "Rêzkirin",
@@ -183,5 +189,14 @@
     "category": "Kategorî",
     "video": "Vîdyo",
     "more_results": "Encamên heman rengî"
+  },
+  "popup": {
+    "are_you_sure": "Tu ji vê çalakiyê bawer î?",
+    "undone_text": "Piştî vê nikarî bê paşve xistin"
+  },
+
+  "tabel": {
+    "from": "Ji",
+    "to": "Bo"
   }
 }

@@ -5,11 +5,21 @@ import { useClickOutside } from "@/hooks/useClickOutside";
 import languages from "@/constants/languages";
 import Tooltip from "@/components/tooltip/Tooltip";
 import { useAppContext } from "@/context/AppContext";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import { useLocale } from "next-intl";
 
 const TopHeader = () => {
   const { isOpen, ref, toggleOpen } = useClickOutside();
   const { changeMode } = useAppContext();
+
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const changeLanguage = (newLocale) =>
+    router.replace(pathname, {
+      locale: newLocale,
+    });
 
   return (
     <div className="top-header">
@@ -27,7 +37,13 @@ const TopHeader = () => {
           {isOpen && (
             <div className="language-options">
               {languages.map((e) => (
-                <p key={e.code}>{e.name}</p>
+                <p
+                  key={e.code}
+                  onClick={() => changeLanguage(e.code)}
+                  className={locale === e.code ? "active" : ""}
+                >
+                  {e.name}
+                </p>
               ))}
             </div>
           )}

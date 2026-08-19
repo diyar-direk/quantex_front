@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import APIClient from "@/utils/ApiClient";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { endPoints } from "@/constants/endPoints";
+import { useTranslations } from "next-intl";
 
 const Delete = ({
   setSelectedItems,
@@ -41,11 +42,13 @@ const Delete = ({
     handleDelete.mutate([...selectedItems]);
   }, [handleDelete, selectedItems]);
 
+  const t = useTranslations();
+
   return (
     <>
       <IconButton
         color="secondry-color"
-        title="Delete"
+        title={t("actions.delete")}
         disabled={!selectedItems?.size}
         onClick={() => selectedItems?.size && setIsPopUpOpen(true)}
       >

@@ -14,22 +14,23 @@ import { formatInputsData } from "@/utils/formatInputsData";
 import { useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 import DBkeys from "@/constants/DBkeys";
+import { useTranslations } from "next-intl";
 
 const columns = [
   {
     name: "username",
     sort: true,
-    headerName: "username",
+    headerName: "user.username",
   },
   {
     name: DBkeys.createdAt,
-    headerName: DBkeys.createdAt,
+    headerName: "actions.created_at",
     sort: true,
     getCell: ({ row }) => dateFormatter(row[DBkeys.createdAt], "fullDate"),
   },
   {
     name: DBkeys.updatedAt,
-    headerName: DBkeys.updatedAt,
+    headerName: "actions.updated_at",
     sort: true,
     getCell: ({ row }) => dateFormatter(row[DBkeys.updatedAt], "fullDate"),
   },
@@ -52,12 +53,14 @@ const AllUsers = () => {
 
   const { user } = useAuth();
 
+  const t = useTranslations();
+
   return (
     <>
       <Breadcrumbs />
       <main className="dashboard-main">
         <div className="table-container">
-          <TableToolBar title={"users"}>
+          <TableToolBar title={t("pages.users")}>
             <Search setSearch={setSearch} />
             <Add path={pages.dashboard.users.add} />
             <Delete

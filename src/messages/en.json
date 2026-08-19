@@ -57,6 +57,10 @@
     "products": "products",
     "announcements": "announcements",
     "dashboard": "dashboard",
+    "users": "users",
+    "add_user": "add user",
+    "add_post": "add post",
+    "posts": "posts",
     "add": "add",
     "update": "update"
   },
@@ -147,6 +151,9 @@
     "created_at": "created at",
     "updated_at": "last update",
     "sort": "sort",
+    "cancel": "cancel",
+    "confirm": "confirm",
+    "reset": "reset",
     "no_results_yet": "no results yet",
     "save": "save"
   },
@@ -162,7 +169,15 @@
   },
   "posts": {
     "category": "category",
-    "category": "category",
+    "video": "video",
     "more_results": "similar results"
+  },
+  "popup": {
+    "are_you_sure": "Are you sure about this action?",
+    "undone_text": "This cannot be undone later"
+  },
+  "tabel": {
+    "from": "from",
+    "to": "to"
   }
 }

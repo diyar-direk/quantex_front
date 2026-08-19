@@ -8,6 +8,7 @@ import { faFilter } from "@fortawesome/free-solid-svg-icons";
 import { useDebounce } from "use-debounce";
 import DBkeys from "@/constants/DBkeys";
 import { useAuth } from "@/context/AuthContext";
+import { useTranslations } from "next-intl";
 
 /**
  * @typedef {Object} FromToFieldsProps
@@ -57,10 +58,12 @@ const Filters = ({
     setLocalFilters((prev) => ({ ...prev, [name]: value }));
   }, []);
 
+  const t = useTranslations();
+
   return (
     <>
       <IconButton
-        title="Filters"
+        title={t("actions.filters")}
         color={isOpen ? "main" : "secondry-color"}
         onClick={toggleOpen}
       >
@@ -71,7 +74,7 @@ const Filters = ({
         {!hideCreatedAtInputs && (
           <>
             <Input
-              label={"from date"}
+              label={`${t("actions.created_at")} ${t("tabel.from")}`}
               type="date"
               value={localFilters?.[`${[DBkeys.createdAt]}[gte]`]}
               name={`${[DBkeys.createdAt]}[gte]`}
@@ -79,7 +82,7 @@ const Filters = ({
               notRequired
             />
             <Input
-              label={"to date"}
+              label={`${t("actions.created_at")} ${t("tabel.to")}`}
               type="date"
               value={localFilters?.[`${[DBkeys.createdAt]}[lte]`]}
               name={`${[DBkeys.createdAt]}[lte]`}
@@ -91,7 +94,7 @@ const Filters = ({
         {!hideUpdatedAtInputs && (
           <>
             <Input
-              label={"from date"}
+              label={`${t("actions.updated_at")} ${t("tabel.from")}`}
               type="date"
               value={localFilters?.[`${[DBkeys.updatedAt]}[gte]`]}
               name={`${[DBkeys.updatedAt]}[gte]`}
@@ -99,7 +102,7 @@ const Filters = ({
               notRequired
             />
             <Input
-              label={"to date"}
+              label={`${t("actions.updated_at")} ${t("tabel.to")}`}
               type="date"
               value={localFilters?.[`${[DBkeys.updatedAt]}[lte]`]}
               name={`${[DBkeys.updatedAt]}[lte]`}
@@ -115,8 +118,8 @@ const Filters = ({
               <Fragment key={i}>
                 <Input
                   {...e}
-                  label={`from ${e.label}`}
-                  placeholder={`from ${e.label}`}
+                  label={`${t("tabel.from")} ${e.label}`}
+                  placeholder={`${t("tabel.from")} ${e.label}`}
                   type={e.type || "date"}
                   value={localFilters?.[`${e.name}[gte]`]}
                   name={`${e.name}[gte]`}
@@ -125,8 +128,8 @@ const Filters = ({
                 />
                 <Input
                   {...e}
-                  label={`to ${e.label}`}
-                  placeholder={`to ${e.label}`}
+                  label={`${t("tabel.to")} ${e.label}`}
+                  placeholder={`${t("tabel.to")} ${e.label}`}
                   type={e.type || "date"}
                   value={localFilters?.[`${e.name}[lte]`]}
                   name={`${e.name}[lte]`}

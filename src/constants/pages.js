@@ -1,6 +1,5 @@
 import {
   faContactBook,
-  faDashboard,
   faHome,
   faLightbulb,
   faNewspaper,
@@ -98,11 +97,6 @@ const pagesActionRouts = {
 
 const dashboardPages = [
   {
-    title: "statistics",
-    to: pages.dashboard.page,
-    icon: faDashboard,
-  },
-  {
     title: "users",
     to: pages.dashboard.users.page,
     icon: faUsers,
@@ -113,7 +107,7 @@ const dashboardPages = [
         icon: faUsers,
       },
       {
-        title: "add user",
+        title: "add_user",
         to: pages.dashboard.users.add,
         icon: faUserPlus,
       },
@@ -130,7 +124,7 @@ const dashboardPages = [
         icon: faNewspaper,
       },
       {
-        title: "add post",
+        title: "add_post",
         to: pages.dashboard.posts.add,
         icon: faPlus,
       },
