@@ -4,6 +4,7 @@ import "./style.css";
 import Button from "../buttons/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faClose } from "@fortawesome/free-solid-svg-icons";
+import { useTranslations } from "next-intl";
 
 /**
  * @typedef {Object} OptionItem
@@ -103,11 +104,13 @@ const SelectOptionInput = ({
     [errorText],
   );
 
+  const t = useTranslations();
+
   const placeholderValue = useMemo(() => {
     const frontText = !isArray ? value : value.length > 0 && value.join();
     const text = frontText || placeholder;
-    return text || `select ${label}`;
-  }, [value, placeholder, label, isArray]);
+    return text || `${t("inputs.select")} ${label}`;
+  }, [value, placeholder, label, isArray, t]);
 
   return (
     <div {...wrapperProps} className={wrapperClassName}>

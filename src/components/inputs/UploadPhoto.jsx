@@ -6,6 +6,7 @@ import PopUp from "../popup/PopUp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCameraRetro, faClose } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 function UploadPhoto({
   onChange = () => {},
@@ -128,6 +129,8 @@ function UploadPhoto({
     [isDragging, errorText],
   );
 
+  const t = useTranslations();
+
   return (
     <div className={`${className || ""} upload-file font-color`}>
       <label
@@ -191,11 +194,13 @@ function UploadPhoto({
                 className={`upload-placeholder ${isDragging ? "dragging" : ""}`}
               >
                 {isDragging ? (
-                  <h1>drop</h1>
+                  <h1>{t("inputs.drop")}</h1>
                 ) : (
                   <>
-                    <h1>upload {title}</h1>
-                    <h2>drag</h2>
+                    <h1>
+                      {t("inputs.upload")} {title}
+                    </h1>
+                    <h2>{t("inputs.drag")}</h2>
                   </>
                 )}
               </div>

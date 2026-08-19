@@ -3,6 +3,7 @@
   border-radius: 8px 8px 0 0;
   background: var(--aside-color);
   border: solid 1px var(--border-color);
+  direction: ltr;
 }
 .my-editor.error .ql-toolbar,
 .my-editor.error .ql-container {

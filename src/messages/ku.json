@@ -124,7 +124,11 @@
       "title": "Berhemên Cloudê",
       "description": "Em çareseriyên cloudê çêdikin û rêve dikin ku nermbûn, performans û gihîştina pêbawer a xizmetên te peyda dikin.",
       "tags": ["AWS", "Cloud", "DevOps"]
-    }
+    },
+    "blog": "Blog",
+    "Project": "Proje",
+    "Product": "Berhem",
+    "Announcement": "Daxuyanî"
   },
 
   "services_page": {
@@ -148,11 +152,16 @@
     "username": "Navê bikarhêner",
     "password": "Şîfre",
     "username_placeholder": "Navê bikarhêner binivîse",
-    "password_placeholder": "Şîfreyê binivîse"
+    "password_placeholder": "Şîfreyê binivîse",
+    "password_confirm": "Piştrastkirina şîfreyê",
+    "password_confirm_placeholder": "Şîfreyê dîsa binivîse"
   },
 
   "error": {
-    "required_field": "Ev qada pêwîst e"
+    "password_match": "Her du şîfre li hev nayên",
+    "required_field": "Ev qada pêwîst e",
+    "min": "Divê ev qada herî kêm {min} tîpan hebe",
+    "max": "Divê ev qada ji {max} tîpan zêdetir nebe"
   },
   "actions": {
     "close": "Bigire",
@@ -172,7 +181,8 @@
     "sort": "Rêzkirin",
     "created_at": "Dîroka afirandinê",
     "updated_at": "Dîroka dawî ya nûvekirinê",
-    "save": "Tomar bike"
+    "save": "Tomar bike",
+    "reset": "Ji nû ve saz bike"
   },
 
   "contact_page": {
@@ -186,17 +196,31 @@
     "send": "Serlêdanê bişîne"
   },
   "posts": {
+    "type": "Cure",
+    "title": "Sernav",
+    "image": "Wêne",
+    "title_placeholder": "Sernavê binivîse",
+    "content_placeholder": "Naverokê binivîse",
+    "content": "Naverok",
     "category": "Kategorî",
     "video": "Vîdyo",
     "more_results": "Encamên heman rengî"
   },
+
   "popup": {
     "are_you_sure": "Tu ji vê çalakiyê bawer î?",
     "undone_text": "Piştî vê nikarî bê paşve xistin"
   },
 
   "tabel": {
+    "actions": "Çalakî",
     "from": "Ji",
     "to": "Bo"
+  },
+  "inputs": {
+    "upload": "Barkirin",
+    "drop": "Li vir berde",
+    "drag": "an jî bikişîne û berde",
+    "select": "Hilbijêre"
   }
 }

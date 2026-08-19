@@ -12,6 +12,7 @@ import MyEditor from "@/components/editor/MyEditor";
 import { postSchema } from "@/schema/post";
 import SelectOptionInput from "@/components/inputs/SelectOptionInput";
 import { categories, postTypes } from "@/constants/enums";
+import { useTranslations } from "next-intl";
 
 const api = new APIClient(endPoints.posts.all);
 
@@ -37,6 +38,7 @@ const AddPost = () => {
       router.back();
     },
   });
+  const t = useTranslations();
 
   const formik = useFormik({
     initialValues: {
@@ -47,7 +49,7 @@ const AddPost = () => {
       image: "",
       video: "",
     },
-    validationSchema: postSchema,
+    validationSchema: postSchema(t),
     onSubmit: handleAdd.mutate,
   });
 
@@ -61,9 +63,9 @@ const AddPost = () => {
         >
           <div className="dashboard-form flex-form">
             <Input
-              label="title"
-              placeholder="enter title"
-              errorText={formik.errors.title}
+              label={t("posts.title")}
+              placeholder={t("posts.title_placeholder")}
+              errorText={formik.errors.title && formik.errors.title}
               value={formik.values.title}
               onChange={formik.handleChange}
               name="title"
@@ -71,24 +73,28 @@ const AddPost = () => {
             />
 
             <SelectOptionInput
-              label="type"
-              errorText={formik.errors.type}
-              value={formik.values.type}
+              label={t("posts.type")}
+              errorText={formik.errors.type && formik.errors.type}
+              value={formik.values.type && t(`enums.${formik.values.type}`)}
               options={Object.values(postTypes)?.map((e) => ({
-                text: e.value,
                 value: e.value,
+                text: t(`enums.${e.value}`),
+                icon: e.icon,
               }))}
               onSelectOption={(e) => formik.setFieldValue("type", e.value)}
               wrapperProps={{ style: { flex: "200px" } }}
             />
-            
+
             <SelectOptionInput
-              label="category"
-              errorText={formik.errors.category}
-              value={formik.values.category}
+              label={t("posts.category")}
+              errorText={formik.errors.category && formik.errors.category}
+              value={
+                formik.values.category && t(`enums.${formik.values.category}.title`)
+              }
               options={Object.values(categories)?.map((e) => ({
-                text: e.value,
                 value: e.value,
+                text: t(`enums.${e.value}.title`),
+                icon: e.icon,
               }))}
               onSelectOption={(e) => formik.setFieldValue("category", e.value)}
               wrapperProps={{ style: { flex: "200px" } }}
@@ -97,31 +103,31 @@ const AddPost = () => {
             <MyEditor
               value={formik.values.content}
               onChange={(e) => formik.setFieldValue("content", e)}
-              placeholder="write content"
-              errorText={formik.errors.content}
-              label="content"
+              placeholder={t("posts.content_placeholder")}
+              errorText={formik.errors.content && formik.errors.content}
+              label={t("posts.content")}
             />
             <UploadPhoto
-              errorText={formik.errors.image}
+              errorText={formik.errors.image && formik.errors.image}
               accept="image/*"
               name="image"
-              title="image"
+              title={t("posts.image")}
               onChange={(i) => formik.setFieldValue("image", i)}
               value={formik.values.image}
             />
             <UploadPhoto
-              errorText={formik.errors.video}
+              errorText={formik.errors.video && formik.errors.video}
               notRequired
               accept="video/*"
               name="video"
-              title="video"
+              title={t("posts.video")}
               onChange={(i) => formik.setFieldValue("video", i)}
               value={formik.values.video}
             />
           </div>
 
           <Button className="submit-btn" type="submit">
-            save
+            {t("actions.save")}
           </Button>
         </form>
       </main>

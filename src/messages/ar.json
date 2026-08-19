@@ -104,7 +104,11 @@
       "title": "المنتجات السحابية",
       "description": "ننشئ وندير حلولاً سحابية توفر المرونة والأداء والوصول الموثوق إلى خدماتك.",
       "tags": ["AWS", "Cloud", "DevOps"]
-    }
+    },
+    "blog": "مدونة",
+    "Project": "مشروع",
+    "Product": "منتج",
+    "Announcement": "إعلان"
   },
   "home": {
     "more_about_us": "المزيد عنا",
@@ -148,11 +152,16 @@
     "username": "اسم المستخدم",
     "password": "كلمة المرور",
     "username_placeholder": "أدخل اسم المستخدم",
-    "password_placeholder": "أدخل كلمة المرور"
+    "password_placeholder": "أدخل كلمة المرور",
+    "password_confirm": "تأكيد كلمة المرور",
+    "password_confirm_placeholder": "أكد كلمة المرور"
   },
 
   "error": {
-    "required_field": "هذا الحقل مطلوب"
+    "required_field": "هذا الحقل مطلوب",
+    "min": "يجب أن يحتوي الحقل على {min} أحرف على الأقل",
+    "password_match": "كلمتا المرور غير متطابقتين",
+    "max": "يجب ألا يتجاوز الحقل {max} حرفًا"
   },
   "actions": {
     "close": "إغلاق",
@@ -172,7 +181,8 @@
     "updated_at": "آخر تحديث",
     "filters": "الفلاتر",
     "sort": "الترتيب",
-    "save": "حفظ"
+    "save": "حفظ",
+    "reset": "إعادة تعيين"
   },
 
   "contact_page": {
@@ -186,16 +196,31 @@
     "send": "إرسال الطلب"
   },
   "posts": {
+    "type": "النوع",
+    "title": "العنوان",
+    "title_placeholder": "أدخل العنوان",
+    "content_placeholder": "أدخل المحتوى",
+    "image": "الصورة",
+    "content": "المحتوى",
     "category": "التصنيف",
     "video": "فيديو",
     "more_results": "نتائج مشابهة"
   },
+
   "popup": {
     "are_you_sure": "هل أنت متأكد من هذا الإجراء؟",
     "undone_text": "لا يمكن التراجع عن هذا الإجراء لاحقًا"
   },
+
   "tabel": {
+    "actions": "الإجراءات",
     "from": "من",
     "to": "إلى"
+  },
+  "inputs": {
+    "upload": "رفع",
+    "drop": "أفلت الملف هنا",
+    "drag": "أو اسحب وأفلت",
+    "select": "اختيار"
   }
 }

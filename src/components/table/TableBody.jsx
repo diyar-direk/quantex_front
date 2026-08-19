@@ -1,6 +1,7 @@
 import { memo, useCallback } from "react";
 import DBkeys from "@/constants/DBkeys";
 import { useAuth } from "@/context/AuthContext";
+import { useTranslations } from "next-intl";
 
 const TableBody = ({
   column,
@@ -24,6 +25,8 @@ const TableBody = ({
     },
     [setSelectedItems],
   );
+
+  const t = useTranslations();
 
   return (
     <tbody>
@@ -50,6 +53,7 @@ const TableBody = ({
               const cellProps = {
                 row,
                 user,
+                t,
               };
 
               if (!allowedTo || allowedTo?.includes(role))

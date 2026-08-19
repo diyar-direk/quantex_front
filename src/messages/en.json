@@ -117,7 +117,11 @@
       "title": "Cloud Products",
       "description": "We create and manage cloud solutions that provide flexibility, performance, and reliable access to your services.",
       "tags": ["AWS", "Cloud", "DevOps"]
-    }
+    },
+    "blog": "blog",
+    "Project": "Project",
+    "Product": "Product",
+    "Announcement": "Announcement"
   },
   "footer": {
     "col_1_title": "quantex company",
@@ -131,10 +135,15 @@
     "username": "username",
     "password": "password",
     "username_placeholder": "enter your username",
-    "password_placeholder": "enter your password"
+    "password_placeholder": "enter your password",
+    "password_confirm": "confirm password",
+    "password_confirm_placeholder": "confirm your password"
   },
   "error": {
-    "required_field": "this is required field"
+    "required_field": "this is required field",
+    "password_match": "Passwords do not match",
+    "min": "This field must contain at least {min} characters",
+    "max": "This field must not exceed {max} characters"
   },
   "actions": {
     "close": "close",
@@ -168,6 +177,12 @@
     "send": "send application"
   },
   "posts": {
+    "type": "type",
+    "title": "title",
+    "title_placeholder": "enter the title",
+    "content_placeholder": "enter the content",
+    "image": "image",
+    "content": "content",
     "category": "category",
     "video": "video",
     "more_results": "similar results"
@@ -177,7 +192,14 @@
     "undone_text": "This cannot be undone later"
   },
   "tabel": {
+    "actions": "actions",
     "from": "from",
     "to": "to"
+  },
+  "inputs": {
+    "upload": "upload",
+    "drop": "drop here",
+    "drag": "or drag and drop",
+    "select": "select"
   }
 }

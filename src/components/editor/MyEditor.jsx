@@ -3,6 +3,7 @@
 import ReactQuill from "react-quill-new";
 import "react-quill-new/dist/quill.snow.css";
 import "./style.css";
+import { useEffect } from "react";
 
 export default function MyEditor({
   value,
@@ -10,10 +11,17 @@ export default function MyEditor({
   placeholder,
   errorText = "",
   label,
+  initialValue,
 }) {
-  const handleChange = (content) => {
-    onChange?.(content);
-  };
+  useEffect(() => {
+    const text = new DOMParser()
+      .parseFromString(value, "text/html")
+      .body.textContent.trim();
+
+    if (text || !initialValue) return;
+
+    onChange(initialValue);
+  }, [value, initialValue]);
 
   return (
     <div className={`my-editor w-100 ${errorText ? "error" : ""}`}>
@@ -21,7 +29,7 @@ export default function MyEditor({
       <ReactQuill
         theme="snow"
         value={value}
-        onChange={handleChange}
+        onChange={(e) => onChange(e)}
         placeholder={placeholder}
         modules={{
           toolbar: [

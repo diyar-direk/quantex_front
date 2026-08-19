@@ -9,12 +9,14 @@ import Button from "@/components/buttons/Button";
 import { useRouter } from "@/i18n/navigation";
 import UploadPhoto from "@/components/inputs/UploadPhoto";
 import MyEditor from "@/components/editor/MyEditor";
-import { postUpdateSchema } from "@/schema/post";
 import SelectOptionInput from "@/components/inputs/SelectOptionInput";
 import { categories, postTypes } from "@/constants/enums";
 import { useParams } from "next/navigation";
 import imgServerSrc from "@/utils/imgServerSrc";
 import HandleError from "@/components/error/HandleError";
+import Skeleton from "@/components/skeleton/Skeleton";
+import { useTranslations } from "next-intl";
+import { postSchema } from "@/schema/post";
 
 const api = new APIClient(endPoints.posts.all);
 
@@ -24,7 +26,7 @@ const UpdatePost = () => {
   const router = useRouter();
   const { id } = useParams();
 
-  const { data, error, refetch } = useQuery({
+  const { data, error, refetch, isLoading } = useQuery({
     queryKey: [endPoints.posts.all, id],
     queryFn: () => api.getOne(id),
   });
@@ -47,6 +49,8 @@ const UpdatePost = () => {
     },
   });
 
+  const t = useTranslations();
+
   const formik = useFormik({
     initialValues: {
       title: data?.title ?? "",
@@ -56,11 +60,12 @@ const UpdatePost = () => {
       image: "",
       video: "",
     },
-    validationSchema: postUpdateSchema,
+    validationSchema: postSchema(t, true),
     onSubmit: handleAdd.mutate,
     enableReinitialize: true,
   });
 
+  if (isLoading) return <Skeleton height="300px" />;
   if (error) return <HandleError error={error} refetch={refetch} />;
 
   return (
@@ -73,9 +78,9 @@ const UpdatePost = () => {
         >
           <div className="dashboard-form flex-form">
             <Input
-              label="title"
-              placeholder="enter title"
-              errorText={formik.errors.title}
+              label={t("posts.title")}
+              placeholder={t("posts.title_placeholder")}
+              errorText={formik.errors.title && formik.errors.title}
               value={formik.values.title}
               onChange={formik.handleChange}
               name="title"
@@ -83,51 +88,61 @@ const UpdatePost = () => {
             />
 
             <SelectOptionInput
-              label="type"
-              errorText={formik.errors.type}
-              value={formik.values.type}
+              label={t("posts.type")}
+              errorText={formik.errors.type && formik.errors.type}
+              value={formik.values.type && t(`enums.${formik.values.type}`)}
               options={Object.values(postTypes)?.map((e) => ({
-                text: e.value,
                 value: e.value,
+                text: t(`enums.${e.value}`),
+                icon: e.icon,
               }))}
               onSelectOption={(e) => formik.setFieldValue("type", e.value)}
               wrapperProps={{ style: { flex: "200px" } }}
             />
 
             <SelectOptionInput
-              label="category"
-              errorText={formik.errors.category}
-              value={formik.values.category}
+              label={t("posts.category")}
+              errorText={formik.errors.category && formik.errors.category}
+              value={
+                formik.values.category &&
+                t(`enums.${formik.values.category}.title`)
+              }
               options={Object.values(categories)?.map((e) => ({
-                text: e.value,
                 value: e.value,
+                text: t(`enums.${e.value}.title`),
+                icon: e.icon,
               }))}
               onSelectOption={(e) => formik.setFieldValue("category", e.value)}
               wrapperProps={{ style: { flex: "200px" } }}
             />
 
             <MyEditor
+              key={id}
               value={formik.values.content}
-              onChange={(e) => formik.setFieldValue("content", e)}
-              placeholder="write content"
+              onChange={(content) => {
+                formik.setFieldValue("content", content);
+              }}
+              placeholder={t("posts.content_placeholder")}
               errorText={formik.errors.content}
-              label="content"
+              label={t("posts.content")}
+              initialValue={data?.content}
             />
+
             <UploadPhoto
-              errorText={formik.errors.image}
+              errorText={formik.errors.image && formik.errors.image}
               accept="image/*"
               name="image"
-              title="image"
+              title={t("posts.image")}
               onChange={(i) => formik.setFieldValue("image", i)}
               value={formik.values.image}
               defaultImage={data?.image && imgServerSrc(data?.image)}
             />
             <UploadPhoto
-              errorText={formik.errors.video}
+              errorText={formik.errors.video && formik.errors.video}
               notRequired
               accept="video/*"
               name="video"
-              title="video"
+              title={t("posts.video")}
               onChange={(i) => formik.setFieldValue("video", i)}
               value={formik.values.video}
               defaultVideo={data?.video && imgServerSrc(data?.video)}
@@ -135,7 +150,7 @@ const UpdatePost = () => {
           </div>
 
           <Button className="submit-btn" type="submit">
-            save
+            {t("actions.save")}
           </Button>
         </form>
       </main>

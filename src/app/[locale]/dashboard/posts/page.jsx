@@ -22,6 +22,7 @@ import imgServerSrc from "@/utils/imgServerSrc";
 import ImgViewPopup from "@/components/popup/ImgViewPopup";
 import SelectOptionInput from "@/components/inputs/SelectOptionInput";
 import { categories, postTypes } from "@/constants/enums";
+import { useTranslations } from "next-intl";
 
 const AllPosts = () => {
   const [search, setSearch] = useState("");
@@ -45,7 +46,7 @@ const AllPosts = () => {
       {
         name: "title",
         sort: true,
-        headerName: "title",
+        headerName: "posts.title",
         getCell: ({ row }) => (
           <Link
             href={pagesActionRouts.dashboard.posts.view(row[DBkeys.id])}
@@ -57,15 +58,17 @@ const AllPosts = () => {
       },
       {
         name: "type",
-        headerName: "type",
+        headerName: "posts.type",
+        getCell: ({ row, t }) => t(`enums.${row.type}`),
       },
       {
         name: "category",
-        headerName: "category",
+        headerName: "posts.category",
+        getCell: ({ row, t }) => t(`enums.${row.category}.title`),
       },
       {
         name: "image",
-        headerName: "image",
+        headerName: "posts.image",
         getCell: ({ row }) => (
           <Image
             src={imgServerSrc(row.image)}
@@ -80,19 +83,19 @@ const AllPosts = () => {
       },
       {
         name: DBkeys.createdAt,
-        headerName: DBkeys.createdAt,
+        headerName: "actions.created_at",
         sort: true,
         getCell: ({ row }) => dateFormatter(row[DBkeys.createdAt], "fullDate"),
       },
       {
         name: DBkeys.updatedAt,
-        headerName: DBkeys.updatedAt,
+        headerName: "actions.updated_at",
         sort: true,
         getCell: ({ row }) => dateFormatter(row[DBkeys.updatedAt], "fullDate"),
       },
       {
         name: "actions",
-        headerName: "actions",
+        headerName: "tabel.actions",
         getCell: ({ row }) => (
           <div className="center gap-10">
             <Link
@@ -114,12 +117,14 @@ const AllPosts = () => {
     [],
   );
 
+  const t = useTranslations();
+
   return (
     <>
       <Breadcrumbs />
       <main className="dashboard-main">
         <div className="table-container">
-          <TableToolBar title={"posts"}>
+          <TableToolBar title={t("pages.posts")}>
             <Search setSearch={setSearch} />
             <Add path={pages.dashboard.posts.add} />
             <Delete
@@ -131,39 +136,47 @@ const AllPosts = () => {
             />
             <Filters filters={filters} setFilters={setFilters}>
               <SelectOptionInput
-                label="type"
+                label={t("posts.type")}
                 notRequired
                 onSelectOption={(e) =>
                   setFilters((p) => ({ ...p, type: e.value }))
                 }
-                options={Object.keys(postTypes)?.map((e) => ({
-                  text: e,
-                  value: e,
+                options={Object.values(postTypes)?.map((e) => ({
+                  text: t(`enums.${e.value}`),
+                  value: e.value,
+                  icon: e.icon,
                 }))}
                 value={filters?.type}
-                placeholder={filters?.type ? filters?.type : "all"}
+                placeholder={
+                  filters?.type ? t(`eunms.${filters?.type}`) : t("actions.all")
+                }
                 customOptions={[
                   {
-                    title: "all",
+                    title: t("actions.all"),
                     onChange: () => setFilters((p) => ({ ...p, type: "" })),
                   },
                 ]}
               />
               <SelectOptionInput
-                label="category"
+                label={t("posts.category")}
                 notRequired
                 onSelectOption={(e) =>
                   setFilters((p) => ({ ...p, category: e.value }))
                 }
-                options={Object.keys(categories)?.map((e) => ({
-                  text: e,
-                  value: e,
+                options={Object.values(categories)?.map((e) => ({
+                  text: t(`enums.${e.value}.title`),
+                  value: e.value,
+                  icon: e.icon,
                 }))}
                 value={filters?.category}
-                placeholder={filters?.category ? filters?.category : "all"}
+                placeholder={
+                  filters?.category
+                    ? t(`enums.${filters?.category}.title`)
+                    : t("actions.all")
+                }
                 customOptions={[
                   {
-                    title: "all",
+                    title: t("actions.all"),
                     onChange: () => setFilters((p) => ({ ...p, category: "" })),
                   },
                 ]}
