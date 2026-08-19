@@ -121,5 +121,15 @@
     "col_3_title": "services",
     "copyright": "© 2026 Quantex. All rights reserved.",
     "col_1_desc": "We create modern digital solutions that turn ideas into meaningful experiences and help businesses grow"
+  },
+  "user": {
+    "login": "login",
+    "username": "username",
+    "password": "password",
+    "username_placeholder": "enter your username",
+    "password_placeholder": "enter your password"
+  },
+  "error": {
+    "required_field": "this is required field"
   }
 }

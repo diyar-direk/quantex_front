@@ -138,5 +138,16 @@
     "copyright": "© 2026 Quantex. Hemû maf parastî ne.",
 
     "col_1_desc": "Em çareseriyên dîjîtal ên nûjen çêdikin ku ramanan diguherînin bo ezmûnên watedar û alîkariya karsaziyan dikin ku mezin bibin."
+  },
+  "user": {
+    "login": "Têkeve",
+    "username": "Navê bikarhêner",
+    "password": "Şîfre",
+    "username_placeholder": "Navê bikarhêner binivîse",
+    "password_placeholder": "Şîfreyê binivîse"
+  },
+
+  "error": {
+    "required_field": "Ev qada pêwîst e"
   }
 }

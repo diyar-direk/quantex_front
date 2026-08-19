@@ -26,6 +26,8 @@ import { useTranslations } from "next-intl";
 
 const Breadcrumbs = ({ replace = [] }) => {
   const pathname = usePathname();
+
+  
   const pathes = useMemo(() => pathname.split("/").filter(Boolean), [pathname]);
 
   const className = useMemo(() => `${"home container"} breadcrumbs`, []);

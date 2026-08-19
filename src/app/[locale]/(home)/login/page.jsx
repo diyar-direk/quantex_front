@@ -10,6 +10,7 @@ import AuthHelper from "@/utils/authHelper";
 import { useQueryClient } from "@tanstack/react-query";
 import { pages } from "@/constants/pages";
 import { useRouter } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 
 const { setToken } = new AuthHelper();
 
@@ -20,8 +21,8 @@ const LoginPage = () => {
   const formik = useFormik({
     initialValues: { password: "", username: "" },
     validationSchema: yup.object({
-      username: yup.string().required(),
-      password: yup.string().required(),
+      username: yup.string().required("error.required_field"),
+      password: yup.string().required("error.required_field"),
     }),
     onSubmit: async (v) => {
       const { data } = await axiosInstance.post(endPoints.users.login, v);
@@ -31,28 +32,30 @@ const LoginPage = () => {
     },
   });
 
+  const t = useTranslations();
+
   return (
     <main className="container main-section login-page center">
       <form onSubmit={formik.handleSubmit}>
-        <h1>login</h1>
+        <h1>{t("user.login")}</h1>
         <Input
           name="username"
-          label="username"
-          placeholder="enter your username"
-          errorText={formik.errors.username}
+          label={t("user.username")}
+          placeholder={t("user.username_placeholder")}
+          errorText={t(formik.errors.username)}
           value={formik.values.username}
           onChange={formik.handleChange}
         />
         <Input
           name="password"
-          label="password"
-          placeholder="enter your password"
-          errorText={formik.errors.password}
+          label={t("user.password")}
+          placeholder={t("user.password_placeholder")}
+          errorText={t(formik.errors.password)}
           value={formik.values.password}
           onChange={formik.handleChange}
         />
         <Button type="submit" isSending={formik.isSubmitting}>
-          submit
+          {t("user.login")}
         </Button>
       </form>
     </main>
