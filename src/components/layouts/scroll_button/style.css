@@ -20,6 +20,11 @@
 .scroll-top-btn:hover svg {
   animation: 1.5s up-down infinite;
 }
+[lang="ar"] .scroll-top-btn {
+  right: auto;
+  left: 40px;
+  animation: view-btn-ar 0.5s;
+}
 
 @keyframes view-btn {
   0% {
@@ -28,6 +33,16 @@
   }
   100% {
     right: 40px;
+    opacity: 1;
+  }
+}
+@keyframes view-btn-ar {
+  0% {
+    left: -40px;
+    opacity: 0;
+  }
+  100% {
+    left: 40px;
     opacity: 1;
   }
 }
@@ -43,5 +58,98 @@
   40%,
   60% {
     transform: translateY(5px);
+  }
+}
+
+@media (max-width: 800px) {
+  .scroll-top-btn {
+    width: 35px;
+    height: 35px;
+    right: 35px;
+  }
+  [lang="ar"] .scroll-top-btn {
+    left: 35px;
+  }
+  @keyframes view-btn {
+    0% {
+      right: -35px;
+      opacity: 0;
+    }
+    100% {
+      right: 35px;
+      opacity: 1;
+    }
+  }
+  @keyframes view-btn-ar {
+    0% {
+      left: -35px;
+      opacity: 0;
+    }
+    100% {
+      left: 35px;
+      opacity: 1;
+    }
+  }
+}
+@media (max-width: 600px) {
+  .scroll-top-btn {
+    width: 33px;
+    height: 33px;
+    right: 30px;
+    font-size: 14px;
+  }
+  [lang="ar"] .scroll-top-btn {
+    left: 30px;
+  }
+  @keyframes view-btn {
+    0% {
+      right: -30px;
+      opacity: 0;
+    }
+    100% {
+      right: 30px;
+      opacity: 1;
+    }
+  }
+  @keyframes view-btn-ar {
+    0% {
+      left: -30px;
+      opacity: 0;
+    }
+    100% {
+      left: 30px;
+      opacity: 1;
+    }
+  }
+}
+@media (max-width: 400px) {
+  .scroll-top-btn {
+    width: 30px;
+    height: 30px;
+    right: 15px;
+    font-size: 13px;
+  }
+  [lang="ar"] .scroll-top-btn {
+    left: 15px;
+  }
+  @keyframes view-btn {
+    0% {
+      right: -15px;
+      opacity: 0;
+    }
+    100% {
+      right: 15px;
+      opacity: 1;
+    }
+  }
+  @keyframes view-btn-ar {
+    0% {
+      left: -15px;
+      opacity: 0;
+    }
+    100% {
+      left: 15px;
+      opacity: 1;
+    }
   }
 }

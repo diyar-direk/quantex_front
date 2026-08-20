@@ -161,7 +161,8 @@
     "required_field": "هذا الحقل مطلوب",
     "min": "يجب أن يحتوي الحقل على {min} أحرف على الأقل",
     "password_match": "كلمتا المرور غير متطابقتين",
-    "max": "يجب ألا يتجاوز الحقل {max} حرفًا"
+    "max": "يجب ألا يتجاوز الحقل {max} حرفًا",
+    "valide_email": "يرجى إدخال بريد إلكتروني صالح"
   },
   "actions": {
     "close": "إغلاق",
@@ -186,9 +187,17 @@
   },
 
   "contact_page": {
+    "name": "الاسم",
+    "email": "البريد الإلكتروني",
+    "email_placeholder": "أدخل بريدك الإلكتروني",
+    "message": "الرسالة",
+    "message_placeholder": "أدخل رسالتك",
+    "phone": "رقم الهاتف",
+    "phone_placeholder": "أدخل رقم هاتفك",
+    "name_placeholder": "أدخل اسمك الكامل",
     "social_links": "روابط التواصل الاجتماعي",
     "location": "موقع الشركة",
-    "send_message": "أرسل رسالة"
+    "send_message": "إرسال رسالة"
   },
   "join_page": {
     "title": "ابنِ مستقبلك مع كوانتكس",

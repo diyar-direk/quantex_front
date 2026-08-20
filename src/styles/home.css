@@ -38,8 +38,12 @@
 .ticker-inner {
   display: flex;
   gap: 60px;
-  animation: scroll-partners 20s linear infinite;
+  animation: 20s linear infinite;
+  animation-name: scroll-partners;
   white-space: nowrap;
+}
+[lang="ar"] .ticker-inner {
+  animation-name: scroll-partners-ar;
 }
 
 .ticker-inner div {
@@ -52,7 +56,6 @@
   opacity: 0.8;
 }
 .ticker-inner svg {
-  border-radius: 6px;
   color: var(--main-color);
 }
 
@@ -62,6 +65,14 @@
   }
   100% {
     transform: translateX(-100%);
+  }
+}
+@keyframes scroll-partners-ar {
+  0% {
+    transform: translateX(150%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 
@@ -78,7 +89,7 @@
 .home-landing code {
   background-color: color-mix(in srgb, var(--aside-color) 35%, transparent);
   backdrop-filter: blur(2px);
-  border: solid 2px var(--border-color);
+  border: solid 3px var(--border-color);
   padding: 10px 20px 20px;
   border-radius: 6px;
   font-weight: bold;
@@ -146,7 +157,7 @@
   border: solid 1px var(--main-color);
   backdrop-filter: blur(2px);
   background-color: color-mix(in srgb, var(--main-color) 25%, transparent);
-  border-radius: 10px;
+  border-radius: 50px;
   padding: 25px;
   position: relative;
   text-align: center;
@@ -166,6 +177,7 @@
 .home-contact p {
   max-width: 600px;
   font-size: 18px;
+  opacity: 0.8;
 }
 .home-contact .btns {
   margin-top: 20px;
@@ -208,11 +220,11 @@
 
 .about-page {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
   gap: 20px;
 }
 .about-page section {
-  flex: 300px;
+  flex: 350px;
 }
 .about-page section img {
   max-height: 350px;
@@ -236,4 +248,163 @@
 .about-page section p {
   opacity: 0.7;
   padding-inline: 15px;
+}
+
+@media (max-width: 1000px) {
+  .home-landing > section {
+    flex: 100%;
+    text-align: center;
+  }
+  .home-landing .btns {
+    justify-content: center;
+  }
+  .home-landing h1 {
+    max-width: 100%;
+    font-size: 30px;
+  }
+  .home-landing .typing-text {
+    font-size: 22px;
+  }
+  .home-landing p {
+    font-size: 15px;
+    max-width: 100%;
+  }
+  .home-landing code {
+    font-size: 15px;
+  }
+}
+@media (max-width: 800px) {
+  .ticker-inner div {
+    font-size: 14px;
+  }
+  .ticker-inner {
+    gap: 45px;
+  }
+  .about-page section h2 {
+    font-size: 20px;
+  }
+  .about-page section p {
+    font-size: 14px;
+  }
+  .about-page section img {
+    max-height: 270px;
+  }
+  .home-contact h1 {
+    font-size: 25px;
+  }
+  .home-contact p {
+    font-size: 16px;
+  }
+}
+@media (max-width: 600px) {
+  .live-ticker {
+    padding: 8px 0;
+  }
+  .ticker-inner div {
+    font-size: 13px;
+  }
+  .ticker-inner {
+    gap: 40px;
+  }
+  .home-landing h1 {
+    font-size: 24px;
+  }
+  .home-landing .typing-text {
+    font-size: 19px;
+  }
+  .home-landing p {
+    font-size: 13px;
+  }
+  .home-landing code {
+    font-size: 14px;
+    padding: 10px 14px 15px;
+  }
+  .home-landing code section {
+    padding-left: 14px;
+  }
+  .home-landing code div {
+    gap: 8px;
+  }
+  .home-landing code .circle-actions {
+    width: 10px;
+    height: 10px;
+  }
+
+  .about-page section h2 {
+    font-size: 19px;
+  }
+
+  .about-page section img {
+    max-height: 250px;
+  }
+  .home-contact h1 {
+    font-size: 22px;
+  }
+  .home-contact p {
+    font-size: 15px;
+  }
+  .home-contact:after,
+  .home-contact::before {
+    width: 35px;
+  }
+  .home-contact {
+    padding: 20px;
+  }
+}
+@media (max-width: 400px) {
+  .ticker-inner div {
+    font-size: 12px;
+  }
+  .ticker-inner {
+    gap: 20px;
+  }
+
+  .home-landing h1 {
+    font-size: 21px;
+  }
+  .home-landing .typing-text {
+    font-size: 17px;
+  }
+  .home-landing p {
+    font-size: 13px;
+  }
+  .home-landing code {
+    font-size: 13px;
+    padding: 10px 10px 12px;
+    border-width: 2px;
+  }
+  .home-landing code section {
+    padding-left: 12px;
+  }
+  .home-landing code div {
+    gap: 6px;
+  }
+  .home-landing code .circle-actions {
+    width: 9px;
+    height: 9px;
+  }
+  .about-page section h2 {
+    font-size: 17px;
+  }
+  .about-page section p {
+    font-size: 13px;
+  }
+  .about-page section img {
+    max-height: 220px;
+  }
+
+  .home-contact h1 {
+    font-size: 18px;
+  }
+  .home-contact p {
+    font-size: 14px;
+  }
+  .home-contact:after,
+  .home-contact::before {
+    width: 35px;
+  }
+  .home-contact {
+    padding: 10px;
+    min-height: 250px;
+  }
 }

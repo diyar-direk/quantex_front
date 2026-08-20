@@ -161,7 +161,8 @@
     "password_match": "Her du şîfre li hev nayên",
     "required_field": "Ev qada pêwîst e",
     "min": "Divê ev qada herî kêm {min} tîpan hebe",
-    "max": "Divê ev qada ji {max} tîpan zêdetir nebe"
+    "max": "Divê ev qada ji {max} tîpan zêdetir nebe",
+    "valide_email": "Ji kerema xwe navnîşana e-nameya derbasdar binivîse"
   },
   "actions": {
     "close": "Bigire",
@@ -186,6 +187,14 @@
   },
 
   "contact_page": {
+    "name": "Nav",
+    "email": "E-name",
+    "email_placeholder": "E-nameya xwe binivîse",
+    "message": "Peyam",
+    "message_placeholder": "Peyama xwe binivîse",
+    "phone": "Telefon",
+    "phone_placeholder": "Hejmara telefona xwe binivîse",
+    "name_placeholder": "Navê xwe yê tevahî binivîse",
     "social_links": "Girêdanên torên civakî",
     "location": "Cihê şirketa",
     "send_message": "Peyamek bişîne"

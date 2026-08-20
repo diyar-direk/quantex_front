@@ -13,6 +13,7 @@
   border-radius: 99px;
   background: color-mix(in srgb, var(--main-color) 15%, transparent);
   font-size: 15px;
+  margin-bottom: 3px;
 }
 .main-title h2::before {
   content: "";
@@ -38,5 +39,20 @@
   }
   50% {
     opacity: 0.2;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-title h2 {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+  .main-title h1 {
+    font-size: 22px;
+  }
+}
+@media (max-width: 400px) {
+  .main-title h1 {
+    font-size: 20px;
   }
 }

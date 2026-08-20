@@ -6,7 +6,7 @@
   padding-block: 30px;
   display: flex;
   flex-wrap: wrap;
-  gap: 30px 10px;
+  gap: 30px 20px;
   border-top: solid 1px color-mix(in srgb, var(--main-color) 60%, transparent);
 }
 
@@ -17,10 +17,10 @@
   text-transform: uppercase;
   font-weight: 500;
   color: var(--main-color);
-  font-size: 1.4vw;
+  font-size: 22px;
 }
 .home-footer .company-section p {
-  font-size: 0.9vw;
+  font-size: 14px;
   opacity: 0.7;
 }
 .home-footer .company-section .links {
@@ -94,9 +94,86 @@
 }
 .home-footer .footer-foot :where(p, a) {
   opacity: 0.6;
-  text-transform: capitalize;
+}
+.home-footer .footer-foot a {
+  direction: ltr;
+  display: flex;
+  align-items: center;
+  gap: 3px;
 }
 .home-footer .footer-foot a:hover {
   color: var(--main-color);
   opacity: 1;
+}
+
+@media (max-width: 1000px) {
+  .home-footer > div h2 {
+    font-size: 20px;
+  }
+}
+@media (max-width: 800px) {
+  .home-footer > div h2 {
+    font-size: 18px;
+  }
+  .home-footer .company-section p {
+    font-size: 13px;
+  }
+  .home-footer .quick-link .links a {
+    font-size: 15px;
+  }
+  .home-footer .company-section .links a {
+    width: 30px;
+    height: 30px;
+  }
+  .home-footer .footer-foot :where(p, a) {
+    font-size: 12px;
+  }
+}
+@media (max-width: 600px) {
+  .home-footer {
+    gap: 15px;
+  }
+  .home-footer > div h2 {
+    font-size: 17px;
+  }
+  .home-footer .quick-link .links a {
+    font-size: 14px;
+  }
+  .home-footer .company-section .links a {
+    width: 28px;
+    height: 28px;
+  }
+  .home-footer .company-section .links a svg {
+    font-size: 12px;
+  }
+  .home-footer .footer-foot {
+    flex-direction: column;
+    margin-top: 0;
+  }
+}
+@media (max-width: 400px) {
+  .home-footer > div h2 {
+    font-size: 16px;
+  }
+  .home-footer .company-section p {
+    font-size: 12px;
+  }
+  .home-footer .company-section .links {
+    gap: 5px;
+    margin-top: 3px;
+  }
+  .home-footer .company-section .links a {
+    width: 25px;
+    height: 25px;
+  }
+  .home-footer .company-section .links a svg {
+    font-size: 11px;
+  }
+  .home-footer {
+    gap: 10px;
+    padding-block: 20px;
+  }
+  .home-footer .footer-foot :where(p, a) {
+    font-size: 11px;
+  }
 }

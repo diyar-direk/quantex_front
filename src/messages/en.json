@@ -141,6 +141,7 @@
   },
   "error": {
     "required_field": "this is required field",
+    "valide_email": "please enter a valid email address",
     "password_match": "Passwords do not match",
     "min": "This field must contain at least {min} characters",
     "max": "This field must not exceed {max} characters"
@@ -167,8 +168,16 @@
     "save": "save"
   },
   "contact_page": {
+    "name": "name",
+    "email": "email",
+    "email_placeholder": "enter your email",
+    "message": "message",
+    "message_placeholder": "enter your message",
+    "phone": "phone",
+    "phone_placeholder": "enter your phone number",
+    "name_placeholder": "enter your full name",
     "social_links": "social links",
-    "location": "compnay location",
+    "location": "company location",
     "send_message": "send a message"
   },
   "join_page": {

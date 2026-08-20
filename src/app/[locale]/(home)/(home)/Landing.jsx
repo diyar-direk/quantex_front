@@ -6,10 +6,11 @@ import { TypeAnimation } from "react-type-animation";
 import { Link } from "@/i18n/navigation";
 import { pages } from "@/constants/pages";
 import { faLightbulb, faRightLong } from "@fortawesome/free-solid-svg-icons";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 const Landing = () => {
   const t = useTranslations();
+  const local = useLocale();
 
   return (
     <>
@@ -62,7 +63,10 @@ const Landing = () => {
             <Link href={pages.contactUs}>
               <Button btnStyleType="transparent">
                 {t("landing.start_now")}
-                <FontAwesomeIcon icon={faRightLong} />
+                <FontAwesomeIcon
+                  icon={faRightLong}
+                  style={{ rotate: local === "ar" ? "180deg" : "0" }}
+                />
               </Button>
             </Link>
           </div>
@@ -149,6 +153,7 @@ const Landing = () => {
               <div>
                 <span style={{ color: "#976905" }}>{` }`}</span>
               </div>
+              <div></div>
 
               <div>
                 <article>

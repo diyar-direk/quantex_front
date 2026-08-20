@@ -2,18 +2,11 @@ import { companyLocation, socialLinks } from "@/constants/links";
 import "./style.css";
 import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Input from "@/components/inputs/Input";
-import Button from "@/components/buttons/Button";
-import {
-  faEnvelope,
-  faLink,
-  faMessage,
-  faPaperPlane,
-  faPhone,
-  faSignature,
-} from "@fortawesome/free-solid-svg-icons";
+import { faLink, faMessage } from "@fortawesome/free-solid-svg-icons";
 import { useTranslations } from "next-intl";
 import MainTitle from "@/components/main_title/MainTitle";
+import { Form } from "formik";
+import ContactForm from "./ContactForm";
 
 export const metadata = {
   title: "contact us",
@@ -65,39 +58,7 @@ const ContactUs = () => {
             <FontAwesomeIcon icon={faMessage} />
             {t("contact_page.send_message")}
           </h2>
-          <form>
-            <Input
-              name="name"
-              label="name"
-              placeholder="enter your name"
-              labelIcon={faSignature}
-            />
-            <Input
-              name="phone"
-              label="phone"
-              placeholder="enter your phone"
-              labelIcon={faPhone}
-              notRequired
-            />
-            <Input
-              name="email"
-              label="email"
-              placeholder="enter your email"
-              labelIcon={faEnvelope}
-            />
-            <Input
-              name="message"
-              label="message"
-              placeholder="enter your message"
-              elementType="textarea"
-              rows={5}
-              labelIcon={faMessage}
-            />
-            <Button btnStyleType="transparent">
-              <FontAwesomeIcon icon={faPaperPlane} />
-              {t("actions.submit")}
-            </Button>
-          </form>
+          <ContactForm />
         </section>
       </main>
     </>

@@ -23,12 +23,12 @@ const Footer = () => {
             <FontAwesomeIcon icon={socialLinks.instagram.icon} />
           </a>
 
-          <a href={socialLinks.email.link} target="_blank">
-            <FontAwesomeIcon icon={socialLinks.email.icon} />
+          <a href={socialLinks.linkedin.link} target="_blank">
+            <FontAwesomeIcon icon={socialLinks.linkedin.icon} />
           </a>
 
-          <a href={socialLinks.phone.link}>
-            <FontAwesomeIcon icon={socialLinks.phone.icon} />
+          <a href={socialLinks.twitter.link}>
+            <FontAwesomeIcon icon={socialLinks.twitter.icon} />
           </a>
         </div>
       </div>

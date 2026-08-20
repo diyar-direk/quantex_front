@@ -155,4 +155,18 @@
   }
 }
 @media (max-width: 400px) {
+  .home-navbar {
+    height: 55px;
+  }
+  .home-navbar .logo {
+    width: 100px;
+  }
+  .home-navbar .settings .selected-lang,
+  .home-navbar .settings .itm,
+  .home-navbar .language-container article p {
+    font-size: 10px;
+  }
+  .home-navbar .settings .itm {
+    padding: 3px 6px;
+  }
 }
