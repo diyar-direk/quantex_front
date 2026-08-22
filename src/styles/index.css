@@ -214,6 +214,10 @@ body::-webkit-scrollbar {
     grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
     gap: 15px;
   }
+  .grid-2 {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 15px;
+  }
   :root {
     --container-inline-padding: 7%;
   }
@@ -225,6 +229,10 @@ body::-webkit-scrollbar {
 @media (max-width: 800px) {
   .grid-3 {
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 15px;
+  }
+  .grid-2 {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 15px;
   }
   :root {
@@ -239,6 +247,10 @@ body::-webkit-scrollbar {
   .grid-3 {
     gap: 10px;
   }
+  .grid-2 {
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 10px;
+  }
   :root {
     --container-inline-padding: 4%;
   }
@@ -248,8 +260,9 @@ body::-webkit-scrollbar {
 }
 
 @media (max-width: 400px) {
-  .grid-3 {
-    grid-template-columns: 1fr;
+  .grid-3,
+  .grid-2 {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   }
   :root {
     --container-inline-padding: 3%;

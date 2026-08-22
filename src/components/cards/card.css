@@ -137,3 +137,77 @@
 .body-color .card .card-body .btn-category {
   background-color: var(--aside-color);
 }
+
+@media (max-width: 1000px) {
+  .card .card-body h2 {
+    font-size: 18px;
+  }
+  .card .card-body > p {
+    font-size: 15px;
+  }
+  .card .card-body .card-footer {
+    font-size: 12px;
+  }
+  .card .style-4 button,
+  .card .card-body .btn-category,
+  .card button {
+    font-size: 11px;
+  }
+}
+@media (max-width: 800px) {
+  .card .style-4 button,
+  .card .card-body .btn-category,
+  .card button {
+    gap: 3px;
+    padding: 4px 8px;
+  }
+  .card:not(.card-padding) .card-body,
+  .card-padding {
+    padding: 15px;
+  }
+  .card .card-body h2 {
+    font-size: 17px;
+  }
+  .card .card-body > p {
+    font-size: 13px;
+  }
+  .card .card-body .card-footer {
+    font-size: 11px;
+  }
+}
+@media (max-width: 600px) {
+  .card:not(.card-padding) .card-body,
+  .card-padding {
+    padding: 10px;
+  }
+  .card .card-cover {
+    height: 270px;
+  }
+  .card .card-body h2 {
+    font-size: 16px;
+  }
+  .card .style-4 button,
+  .card .card-body .btn-category,
+  .card button,
+  .card .card-body .card-info .btn-category {
+    font-size: 10px;
+  }
+  .card .style-4 button {
+    top: 10px;
+    right: 10px;
+  }
+}
+@media (max-width: 400px) {
+  .card .card-cover {
+    height: 240px;
+  }
+  .card .card-body h2 {
+    font-size: 15px;
+  }
+  .card .card-body > p {
+    font-size: 12px;
+  }
+  .card .card-body .card-footer {
+    font-size: 10px;
+  }
+}

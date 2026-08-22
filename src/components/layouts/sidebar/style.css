@@ -111,7 +111,7 @@
     height: calc(100% - 55px);
   }
   .sidebar-overlay aside {
-    width: 85%;
+    width: 100%;
   }
   .sidebar-overlay .pages {
     font-size: 12px;

@@ -19,6 +19,7 @@
   cursor: pointer;
   background: var(--body-color);
   margin-bottom: 10px;
+  display: flex;
 }
 .card-view .view-cover img {
   width: 100%;

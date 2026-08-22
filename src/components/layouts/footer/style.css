@@ -153,7 +153,10 @@
 }
 @media (max-width: 400px) {
   .home-footer > div h2 {
-    font-size: 16px;
+    font-size: 15px;
+  }
+  .home-footer .quick-link .links a {
+    font-size: 13px;
   }
   .home-footer .company-section p {
     font-size: 12px;
