@@ -71,3 +71,86 @@
 .contact-page form > div {
   flex: 100%;
 }
+
+@media (max-width: 1000px) {
+  .contact-page h2 {
+    font-size: 20px;
+  }
+  .contact-page {
+    gap: 25px 30px;
+  }
+  .contact-page .map .social-links .icon {
+    width: 32px;
+    height: 32px;
+  }
+  .contact-page .map .social-links .info h3 {
+    font-size: 15px;
+  }
+  .contact-page .map .social-links .info span {
+    font-size: 13px;
+  }
+}
+@media (max-width: 800px) {
+  .contact-page h2 {
+    font-size: 18px;
+  }
+  .contact-page {
+    gap: 10px 25px;
+  }
+  .contact-page .map .social-links .icon {
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+  }
+  .contact-page .map .social-links .info h3 {
+    font-size: 14px;
+  }
+  .contact-page .map .social-links .info span {
+    font-size: 12px;
+  }
+  .contact-page .map .social-links {
+    gap: 15px;
+  }
+}
+@media (max-width: 600px) {
+  .contact-page h2 {
+    font-size: 16px;
+  }
+
+  .contact-page .map .social-links .icon {
+    width: 29px;
+    height: 29px;
+    font-size: 14px;
+  }
+  .contact-page .map .social-links .info h3 {
+    font-size: 13px;
+  }
+  .contact-page .map .social-links {
+    gap: 10px;
+  }
+  .message-length {
+    font-size: 14px;
+  }
+}
+@media (max-width: 400px) {
+  .contact-page form {
+    gap: 8px;
+  }
+  .contact-page h2 {
+    font-size: 14px;
+  }
+  .contact-page .map .social-links .icon {
+    width: 27px;
+    height: 27px;
+    font-size: 13px;
+  }
+  .contact-page .map .social-links .info h3 {
+    font-size: 12px;
+  }
+  .contact-page .map .social-links .info span {
+    font-size: 11px;
+  }
+  .message-length {
+    font-size: 13px;
+  }
+}

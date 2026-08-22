@@ -11,6 +11,7 @@ import {
   faUpload,
   faClose,
 } from "@fortawesome/free-solid-svg-icons";
+import { useTranslations } from "next-intl";
 
 const UploadFile = ({
   onChange = () => {},
@@ -84,6 +85,8 @@ const UploadFile = ({
     [notRequired],
   );
 
+  const t = useTranslations();
+
   return (
     <div className={`${className || ""} upload-file`}>
       <label className={labelClassName} htmlFor={name}>
@@ -121,7 +124,9 @@ const UploadFile = ({
           <label htmlFor={name} className="upload-placeholder-file">
             <FontAwesomeIcon icon={faUpload} size="2x" />
 
-            <h3>upload {title}</h3>
+            <h3>
+              {t("inputs.upload")} {title}
+            </h3>
 
             <span>PDF, Word, Excel, PowerPoint, ZIP...</span>
           </label>

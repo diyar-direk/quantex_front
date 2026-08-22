@@ -1,22 +1,70 @@
-.about-card-container {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-}
-
 .about-card {
   background-color: var(--body-color);
   padding: 20px;
   border-radius: 10px;
   position: relative;
   text-align: center;
-  border: solid 2px transparent;
+  overflow: hidden;
+  z-index: 1;
+}
+.about-card .card-border {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.about-card .card-border::before,
+.about-card .card-border::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(
+    to left,
+    var(--main-color),
+    color-mix(in srgb, var(--main-color) 10%, transparent)
+  );
+  transition: 0.4s;
+}
+.about-card:hover .card-border::before,
+.about-card:hover .card-border::after {
+  width: 100%;
+}
+
+.about-card::before,
+.about-card::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 0;
+  background: linear-gradient(
+    to left,
+    var(--main-color),
+    color-mix(in srgb, var(--main-color) 50%, transparent)
+  );
+  transition: 0.4s;
+}
+.about-card::before,
+.about-card .card-border::before {
+  top: 0;
+  left: 0;
+}
+.about-card::after,
+.about-card .card-border::after {
+  right: 0;
+  bottom: 0;
+}
+.about-card:hover::before,
+.about-card:hover::after {
+  height: 100%;
 }
 
 .about-card:hover {
   box-shadow: 0 0 20px color-mix(in srgb, var(--main-color) 10%, transparent);
   transform: translateY(-5px);
-  border-color: color-mix(in srgb, var(--main-color) 30%, transparent);
 }
 .about-card .icon {
   font-size: 30px;
@@ -32,4 +80,60 @@
 }
 .about-card p {
   opacity: 0.7;
+}
+
+@media (max-width: 1000px) {
+  .about-card {
+    padding: 15px;
+  }
+  .about-card h2 {
+    font-size: 18px;
+  }
+  .about-card p {
+    font-size: 15px;
+  }
+}
+@media (max-width: 800px) {
+  .about-card h2 {
+    font-size: 16px;
+  }
+  .about-card p {
+    font-size: 14px;
+  }
+  .about-card .icon {
+    font-size: 27px;
+  }
+}
+@media (max-width: 600px) {
+  .about-card {
+    padding: 10px;
+  }
+  .about-card h2 {
+    font-size: 15px;
+  }
+  .about-card p {
+    font-size: 13px;
+  }
+  .about-card .icon {
+    font-size: 25px;
+  }
+}
+@media (max-width: 400px) {
+  .about-card h2 {
+    font-size: 14px;
+  }
+  .about-card p {
+    font-size: 12px;
+  }
+  .about-card .icon {
+    font-size: 22px;
+  }
+  .about-card::before,
+  .about-card::after {
+    width: 1px;
+  }
+  .about-card .card-border::before,
+  .about-card .card-border::after {
+    height: 1px;
+  }
 }

@@ -200,9 +200,16 @@
     "send_message": "Peyamek bişîne"
   },
   "join_page": {
-    "title": "Dahatiya xwe bi Quantex re ava bike",
-    "desc": "Em her tim li kesên jîr, meraqdar û bi hewês in ku dixwazin fêr bibin, biafirînin û pêşve biçin. Ger tu amade yî ku rû bi rûyê dijwariyên nû bibî û bibî beşek ji tiştekî watedar, em dê kêfxweş bibin ku dengê te bibihîzin.",
-    "send": "Serlêdanê bişîne"
+    "title": "Dahatûya xwe bi Quantex re ava bike",
+    "desc": "Em her dem li kesên jêhatî, meraqdar û bi hewês in ku dixwazin fêr bibin, biafirînin û pêşve biçin. Heke tu amade yî ku bi dijwariyên nû re rû bi rû bibî û bibî beşek ji tiştekî watedar, em ê kêfxweş bin ku ji te bibihîzin.",
+    "send": "Serlêdana xwe bişîne",
+    "email": "E-name",
+    "email_placeholder": "E-nameya xwe binivîse",
+    "name_placeholder": "Navê xwe yê tevahî binivîse",
+    "message_placeholder": "Hinekî li ser xwe ji me re bêje",
+    "cv": "CV-ya te",
+    "message": "Peyam",
+    "name": "Nav"
   },
   "posts": {
     "type": "Cure",

@@ -45,3 +45,50 @@
 .join-us-page form > div {
   flex: 100%;
 }
+
+@media (max-width: 1000px) {
+  .join-us-page .image h1 {
+    font-size: 28px;
+  }
+  .join-us-page .image p {
+    font-size: 15px;
+  }
+  .join-us-page section {
+    flex: 400px;
+    min-height: 300px;
+    padding: 20px 25px;
+  }
+}
+@media (max-width: 800px) {
+  .join-us-page .image h1 {
+    font-size: 25px;
+  }
+  .join-us-page .image p {
+    font-size: 14px;
+    max-width: 85%;
+  }
+}
+@media (max-width: 600px) {
+  .join-us-page section {
+    padding: 20px 15px;
+  }
+  .join-us-page .image h1 {
+    font-size: 22px;
+  }
+  .join-us-page .image p {
+    max-width: 90%;
+    font-size: 14px;
+  }
+}
+@media (max-width: 400px) {
+  .join-us-page .image h1 {
+    font-size: 18px;
+  }
+  .join-us-page .image p {
+    max-width: 100%;
+    font-size: 12px;
+  }
+  .join-us-page section {
+    padding: 20px 10px;
+  }
+}

@@ -37,7 +37,7 @@ const AboutUs = () => {
       </main>
 
       <main className="container main-section section-color">
-        <div className="about-card-container">
+        <div className="grid-2">
           <AboutUsCards
             title={t("about_page.what_we_do")}
             desc={t("about_page.what_we_do_desc")}

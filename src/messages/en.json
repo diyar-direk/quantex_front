@@ -183,7 +183,14 @@
   "join_page": {
     "title": "Build your future with Quantex",
     "desc": "We’re always looking for talented, curious, and passionate people who want to learn, create, and grow. If you’re ready to take on new challenges and be part of something meaningful, we’d love to hear from you",
-    "send": "send application"
+    "send": "send application",
+    "email": "email",
+    "email_placeholder": "",
+    "name_placeholder": "",
+    "message_placeholder": "tell us a little about yourself",
+    "cv": "your cv",
+    "message": "message",
+    "name": "name"
   },
   "posts": {
     "type": "type",

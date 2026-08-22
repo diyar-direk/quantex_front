@@ -224,6 +224,9 @@ body::-webkit-scrollbar {
   .main-padding {
     padding-block: 40px;
   }
+  .main-section {
+    padding-block: 60px;
+  }
 }
 
 @media (max-width: 800px) {
@@ -241,6 +244,9 @@ body::-webkit-scrollbar {
   .main-padding {
     padding-block: 30px;
   }
+  .main-section {
+    padding-block: 50px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -257,6 +263,9 @@ body::-webkit-scrollbar {
   .main-padding {
     padding-block: 20px;
   }
+  .main-section {
+    padding-block: 40px;
+  }
 }
 
 @media (max-width: 400px) {
@@ -266,6 +275,9 @@ body::-webkit-scrollbar {
   }
   :root {
     --container-inline-padding: 3%;
+  }
+  .main-section {
+    padding-block: 30px;
   }
 }
 

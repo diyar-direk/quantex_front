@@ -37,28 +37,32 @@ const JoinUs = () => {
           <form>
             <Input
               name="name"
-              label="name"
-              placeholder="enter your name"
+              label={t("join_page.name")}
+              placeholder={t("join_page.name_placeholder")}
               labelIcon={faSignature}
             />
 
             <Input
               name="email"
-              label="email"
-              placeholder="enter your email"
+              label={t("join_page.email")}
+              placeholder={t("join_page.email_placeholder")}
               labelIcon={faEnvelope}
             />
 
             <Input
               name="message"
-              label="message"
-              placeholder="tell us a little about yourself"
+              label={t("join_page.message")}
+              placeholder={t("join_page.message_placeholder")}
               elementType="textarea"
               rows={5}
               labelIcon={faMessage}
             />
 
-            <UploadFile title="your cv" name="cv" labelIcon={faVcard} />
+            <UploadFile
+              title={t("join_page.cv")}
+              name="cv"
+              labelIcon={faVcard}
+            />
 
             <Button btnStyleType="transparent">
               <FontAwesomeIcon icon={faPaperPlane} /> {t("join_page.send")}
