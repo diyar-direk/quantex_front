@@ -67,7 +67,7 @@ const ContactForm = () => {
         labelIcon={faMessage}
         onChange={formik.handleChange}
       />
-      <div className={`message-length `}>
+      <div className={`message-length ${formik.errors.message ? "field-error" : ""}`}>
         {formik.values.message.length} / 550
       </div>
       <Button btnStyleType="transparent">
