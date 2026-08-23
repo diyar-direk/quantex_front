@@ -8,9 +8,17 @@ import MainTitle from "@/components/main_title/MainTitle";
 import { useTranslations } from "next-intl";
 
 export const metadata = {
-  title: "our services",
-  description: "meta description",
-  keywords: ["te", "tes", "test"],
+  title: "Our Services",
+  description:
+    "نقدّم في كوانتكس حلولاً برمجية ورقمية متكاملة تشمل تطوير الويب والموبايل، الأنظمة المخصصة، والخدمات التقنية المصممة لتلبية احتياجات الأعمال.",
+  keywords: [
+    "خدمات كوانتكس",
+    "خدمات برمجية",
+    "تطوير الويب",
+    "تطوير تطبيقات الموبايل",
+    "حلول رقمية",
+    "خدمات تقنية",
+  ],
 };
 
 const Services = () => {

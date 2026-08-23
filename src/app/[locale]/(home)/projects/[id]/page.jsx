@@ -1,45 +1,65 @@
-"use client";
-import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
-import PostView from "@/components/posts/PostView";
-import { endPoints } from "@/constants/endPoints";
 import APIClient from "@/utils/ApiClient";
-import { useQuery } from "@tanstack/react-query";
-import { useParams } from "next/navigation";
-import MoreResults from "./MoreResults";
-import Skeleton from "@/components/skeleton/Skeleton";
-import HandleError from "@/components/error/HandleError";
+import { endPoints } from "@/constants/endPoints";
+import ViewProject from "./ViewProject";
+import { stripHtml } from "@/utils/stripHtml";
 
 const api = new APIClient(endPoints.posts.all);
-const ViewProject = () => {
-  const { id } = useParams();
-  const { data, isLoading, error, refetch } = useQuery({
-    queryKey: [endPoints.posts.all, id],
-    queryFn: () => api.getOne(id),
-  });
 
-  if (isLoading)
-    return (
-      <div className="container main-section">
-        <Skeleton height="500px" />
-      </div>
-    );
+export async function generateMetadata({ params }) {
+  const { id } = await params;
 
-  if (error)
-    return (
-      <div className="container main-section">
-        <HandleError error={error} refetch={refetch} />
-      </div>
-    );
+  try {
+    const data = await api.getOne(id);
 
-  return (
-    <>
-      <Breadcrumbs replace={[{ from: id, text: data?.title }]} />
-      <main className="container main-section">
-        <PostView data={data} />
-        <MoreResults id={id} category={data?.category} />
-      </main>
-    </>
-  );
-};
+    const content = stripHtml(data?.content || "").slice(0, 160);
 
-export default ViewProject;
+    return {
+      title: data?.title,
+
+      description:
+        content ||
+        "تعرّف على مشاريع كوانتكس والحلول البرمجية والتقنية التي طوّرناها.",
+
+      keywords: [
+        "كوانتكس",
+        "مشاريع كوانتكس",
+        "مشاريع برمجية",
+        "حلول تقنية",
+        "تطوير البرمجيات",
+        data?.category,
+      ].filter(Boolean),
+
+      openGraph: {
+        type: "article",
+        title: data?.title,
+        description: content,
+
+        images: data?.image
+          ? [
+              {
+                url: data.image,
+                alt: data.title,
+              },
+            ]
+          : ["/logo.jpeg"],
+      },
+
+      twitter: {
+        card: "summary_large_image",
+        title: data?.title,
+        description: content,
+
+        images: data?.image ? [data.image] : ["/logo.jpeg"],
+      },
+    };
+  } catch {
+    return {
+      description:
+        "تعرّف على أبرز مشاريع كوانتكس والحلول البرمجية والتقنية التي طوّرناها.",
+    };
+  }
+}
+
+export default function Page() {
+  return <ViewProject />;
+}

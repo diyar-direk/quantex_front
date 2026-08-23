@@ -103,17 +103,24 @@ export const postTypes = {
   blog: {
     value: "blog",
     icon: faNewspaper,
+    color: "#618dca",
   },
+
   Project: {
     value: "Project",
     icon: faFolderOpen,
+    color: "#6464d1",
   },
+
   Product: {
     value: "Product",
     icon: faBoxOpen,
+    color: "#a07f65",
   },
+
   Announcement: {
     value: "Announcement",
     icon: faBullhorn,
+    color: "#a4b16b",
   },
 };

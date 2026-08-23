@@ -17,3 +17,20 @@
   letter-spacing: 2px;
   color: var(--main-color);
 }
+
+@media (max-width: 600px) {
+  .login-page form {
+    padding: 25px 20px;
+  }
+  .login-page form h1 {
+    font-size: 25px;
+  }
+}
+@media (max-width: 400px) {
+  .login-page form {
+    padding: 20px 10px;
+  }
+  .login-page form h1 {
+    font-size: 20px;
+  }
+}

@@ -27,13 +27,12 @@ const MoreResults = ({ id, category }) => {
       </div>
     );
 
-
   if (!data?.totalCount) return;
 
   return (
     <>
       <h1 className="more-results">SIMILAR results</h1>
-      <div className="grid-4">
+      <div className="grid-3">
         {data?.data?.map((e) => (
           <Animations key={e[DBkeys.id]}>
             <Link href={pagesActionRouts.blogs(e[DBkeys.id])}>

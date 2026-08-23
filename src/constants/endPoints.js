@@ -10,4 +10,6 @@ export const endPoints = {
     all: "/posts/",
   },
   deleteMany: "delete-many",
+  contactUs: "contact-us",
+  joinUs: "join-us",
 };

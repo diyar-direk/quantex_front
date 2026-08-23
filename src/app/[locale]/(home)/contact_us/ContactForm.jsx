@@ -1,7 +1,9 @@
 "use client";
 import Button from "@/components/buttons/Button";
 import Input from "@/components/inputs/Input";
+import { endPoints } from "@/constants/endPoints";
 import { contactSchema } from "@/schema/contact";
+import axiosInstance from "@/utils/axios";
 import {
   faEnvelope,
   faMessage,
@@ -24,6 +26,10 @@ const ContactForm = () => {
       message: "",
     },
     validationSchema: contactSchema(t),
+    onSubmit: async (v) => {
+      await axiosInstance.post(endPoints.contactUs, v);
+      formik.resetForm();
+    },
   });
 
   return (
@@ -70,7 +76,7 @@ const ContactForm = () => {
       <div className={`message-length `}>
         {formik.values.message.length} / 550
       </div>
-      <Button btnStyleType="transparent">
+      <Button btnStyleType="transparent" isSending={formik.isSubmitting}>
         <FontAwesomeIcon icon={faPaperPlane} />
         {t("actions.submit")}
       </Button>

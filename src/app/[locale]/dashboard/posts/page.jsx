@@ -59,27 +59,44 @@ const AllPosts = () => {
       {
         name: "type",
         headerName: "posts.type",
-        getCell: ({ row, t }) => t(`enums.${row.type}`),
+        getCell: ({ row, t }) => (
+          <p
+            className="tabel-enums"
+            style={{ "--main-color": postTypes[row.type]?.color }}
+          >
+            <FontAwesomeIcon icon={postTypes[row.type]?.icon} />
+            {t(`enums.${row.type}`)}
+          </p>
+        ),
       },
       {
         name: "category",
         headerName: "posts.category",
-        getCell: ({ row, t }) => t(`enums.${row.category}.title`),
+        getCell: ({ row, t }) => (
+          <p
+            className="tabel-enums"
+            style={{ "--main-color": categories[row.category]?.color }}
+          >
+            <FontAwesomeIcon icon={categories[row.category]?.icon} />
+            {t(`enums.${row.category}.title`)}
+          </p>
+        ),
       },
       {
         name: "image",
         headerName: "posts.image",
-        getCell: ({ row }) => (
-          <Image
-            src={imgServerSrc(row.image)}
-            alt={row.title}
-            width={50}
-            height={50}
-            onClick={() => setViewImg(imgServerSrc(row.image))}
-            style={{ borderRadius: "6px", cursor: "pointer" }}
-            unoptimized
-          />
-        ),
+        getCell: ({ row }) =>
+          row.image && (
+            <Image
+              src={imgServerSrc(row.image)}
+              alt={row.title}
+              width={50}
+              height={50}
+              onClick={() => setViewImg(imgServerSrc(row.image))}
+              style={{ borderRadius: "6px", cursor: "pointer" }}
+              unoptimized
+            />
+          ),
       },
       {
         name: DBkeys.createdAt,

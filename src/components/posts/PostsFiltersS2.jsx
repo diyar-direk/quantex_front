@@ -49,7 +49,7 @@ const PostsFiltersS2 = ({ filters, setFilters }) => {
           <FontAwesomeIcon icon={faMagnifyingGlass} />
         </label>
 
-        <div className="relative">
+        <div className="relative flex-1">
           <div className="sort" onClick={toggleCategory} ref={categoryRef}>
             <span>
               {t(
@@ -88,27 +88,29 @@ const PostsFiltersS2 = ({ filters, setFilters }) => {
           )}
         </div>
 
-        <div className="sort" onClick={toggleOpen} ref={ref}>
-          <span>
-            {t(
-              `actions.${sortOption.find((e) => e.value === filters?.sort)?.text}`,
-            )}
-          </span>
-          <FontAwesomeIcon icon={faChevronDown} />
-        </div>
-        {isOpen && (
-          <div className="sort-options">
-            {sortOption.map((e) => (
-              <p
-                key={e.value}
-                onClick={() => setFilters((p) => ({ ...p, sort: e.value }))}
-                className={e.value === filters?.sort ? "active" : ""}
-              >
-                {t(`actions.${e.text}`)}
-              </p>
-            ))}
+        <div className="relative flex-1">
+          <div className="sort" onClick={toggleOpen} ref={ref}>
+            <span>
+              {t(
+                `actions.${sortOption.find((e) => e.value === filters?.sort)?.text}`,
+              )}
+            </span>
+            <FontAwesomeIcon icon={faChevronDown} />
           </div>
-        )}
+          {isOpen && (
+            <div className="sort-options">
+              {sortOption.map((e) => (
+                <p
+                  key={e.value}
+                  onClick={() => setFilters((p) => ({ ...p, sort: e.value }))}
+                  className={e.value === filters?.sort ? "active" : ""}
+                >
+                  {t(`actions.${e.text}`)}
+                </p>
+              ))}
+            </div>
+          )}
+        </div>
       </section>
     </>
   );

@@ -25,7 +25,7 @@ const PostView = ({ data }) => {
     <>
       <h1 className="view-title"> {data?.title} </h1>
       <div className="card-view">
-        <main className="main-view-section">
+        <main className="main-view-section" style={{ maxWidth: "100%" }}>
           {data?.image && (
             <div className="view-cover" onClick={() => setIsOpen(true)}>
               <Image

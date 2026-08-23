@@ -9,6 +9,10 @@ import HomeAnnouncement from "./(home)/HomeAnnouncements";
 import Homeproducts from "./(home)/HomeProduct";
 import HomeContact from "./(home)/HomeContact";
 
+export const metadata = {
+  title: "Home",
+};
+
 export default function Home() {
   return (
     <>

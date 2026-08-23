@@ -227,6 +227,9 @@ body::-webkit-scrollbar {
   .main-section {
     padding-block: 60px;
   }
+  .field-error {
+    font-size: 15px;
+  }
 }
 
 @media (max-width: 800px) {
@@ -247,6 +250,9 @@ body::-webkit-scrollbar {
   .main-section {
     padding-block: 50px;
   }
+  .field-error {
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -266,6 +272,9 @@ body::-webkit-scrollbar {
   .main-section {
     padding-block: 40px;
   }
+  .field-error {
+    font-size: 13px;
+  }
 }
 
 @media (max-width: 400px) {
@@ -278,6 +287,9 @@ body::-webkit-scrollbar {
   }
   .main-section {
     padding-block: 30px;
+  }
+  .field-error {
+    font-size: 12px;
   }
 }
 

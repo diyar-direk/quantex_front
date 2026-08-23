@@ -1,48 +1,70 @@
-"use client";
-import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
-import PostView from "@/components/posts/PostViewS2";
-import { endPoints } from "@/constants/endPoints";
+import React from "react";
+import ViewProducts from "./ViewProducts";
+import { stripHtml } from "@/utils/stripHtml";
 import APIClient from "@/utils/ApiClient";
-import { useQuery } from "@tanstack/react-query";
-import { useParams } from "next/navigation";
-import PostSideBar from "./PostSideBar";
-import Skeleton from "@/components/skeleton/Skeleton";
-import HandleError from "@/components/error/HandleError";
-import "react-quill-new/dist/quill.snow.css";
+import { endPoints } from "@/constants/endPoints";
 
 const api = new APIClient(endPoints.posts.all);
 
-const ViewProducts = () => {
-  const { id } = useParams();
-  const { data, isLoading, error, refetch } = useQuery({
-    queryKey: [endPoints.posts.all, id],
-    queryFn: () => api.getOne(id),
-  });
+export async function generateMetadata({ params }) {
+  const { id } = await params;
 
-  if (isLoading)
-    return (
-      <div className="container main-section">
-        <Skeleton height="500px" />
-      </div>
-    );
+  try {
+    const data = await api.getOne(id);
 
-  if (error)
-    return (
-      <div className="container main-section">
-        <HandleError error={error} refetch={refetch} />
-      </div>
-    );
+    const content = stripHtml(data?.content || "").slice(0, 160);
 
+    return {
+      title: `${data?.title}`,
 
-  return (
-    <>
-      <Breadcrumbs replace={[{ from: id, text: data?.title }]} />
-      <main className="container main-section post-view-s2-container">
-        <PostView data={data} />
-        <PostSideBar data={data} />
-      </main>
-    </>
-  );
+      description:
+        content ||
+        "اكتشف منتجات كوانتكس الرقمية والبرمجية المصممة لتقديم حلول عملية وذكية.",
+
+      keywords: [
+        "كوانتكس",
+        "منتجات كوانتكس",
+        "منتجات رقمية",
+        "منتجات برمجية",
+        "حلول تقنية",
+        "حلول رقمية",
+        data?.category,
+      ].filter(Boolean),
+
+      openGraph: {
+        type: "website",
+        title: data?.title,
+        description: content,
+
+        images: data?.image
+          ? [
+              {
+                url: data.image,
+                alt: data.title,
+              },
+            ]
+          : ["/logo.jpeg"],
+      },
+
+      twitter: {
+        card: "summary_large_image",
+        title: data?.title,
+        description: content,
+
+        images: data?.image ? [data.image] : ["/logo.jpeg"],
+      },
+    };
+  } catch {
+    return {
+      title: "المنتجات | كوانتكس",
+      description:
+        "اكتشف منتجات كوانتكس الرقمية والبرمجية والحلول التقنية التي نقدمها.",
+    };
+  }
+}
+
+const Page = () => {
+  return <ViewProducts />;
 };
 
-export default ViewProducts;
+export default Page;

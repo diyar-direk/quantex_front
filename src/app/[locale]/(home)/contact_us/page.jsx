@@ -5,13 +5,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink, faMessage } from "@fortawesome/free-solid-svg-icons";
 import { useTranslations } from "next-intl";
 import MainTitle from "@/components/main_title/MainTitle";
-import { Form } from "formik";
 import ContactForm from "./ContactForm";
 
 export const metadata = {
-  title: "contact us",
-  description: "meta description",
-  keywords: ["te", "tes", "test"],
+  title: "Contact Us",
+  description:
+    "تواصل مع فريق كوانتكس لمناقشة مشروعك أو استفساراتك، واكتشف كيف يمكننا مساعدتك من خلال حلولنا البرمجية والتقنية.",
+  keywords: [
+    "تواصل مع كوانتكس",
+    "اتصل بنا",
+    "شركة كوانتكس",
+    "شركة برمجيات",
+    "حلول تقنية",
+    "استشارات برمجية",
+  ],
 };
 
 const ContactUs = () => {
