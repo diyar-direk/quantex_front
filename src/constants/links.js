@@ -14,8 +14,8 @@ import {
 
 const socialLinks = {
   instagram: {
-    text: "@diyar_direk",
-    link: "diyardireki",
+    text: "quantex.company",
+    link: "https://www.instagram.com/quantex.company/",
     icon: faInstagram,
   },
   github: {
