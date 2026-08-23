@@ -42,9 +42,6 @@
   animation-name: scroll-partners;
   white-space: nowrap;
 }
-[lang="ar"] .ticker-inner {
-  animation-name: scroll-partners-ar;
-}
 
 .ticker-inner div {
   display: flex;
@@ -67,20 +64,14 @@
     transform: translateX(-100%);
   }
 }
-@keyframes scroll-partners-ar {
-  0% {
-    transform: translateX(150%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
 
 .home-landing {
   min-height: calc(90vh - 75px);
   display: flex;
   gap: 30px;
   flex-wrap: wrap;
+  background-color: color-mix(in oklab, var(--aside-color) 30%, transparent);
+  backdrop-filter: blur(1px);
 }
 
 .home-landing > section {
