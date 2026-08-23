@@ -29,6 +29,11 @@
 .card-view .view-sidebar {
   flex: 300px;
 }
+.card-view .view-sidebar video {
+  max-height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
 
 .view-sidebar .view-info {
   background-color: var(--body-color);
@@ -86,6 +91,7 @@
   justify-content: flex-end;
   margin-bottom: 10px;
   position: relative;
+  flex-wrap: wrap;
 }
 .posts-search .posts-search-inp {
   display: flex;
@@ -94,7 +100,7 @@
   background-color: var(--body-color);
   border-radius: 20px;
   padding: 8px 15px;
-  flex: 1;
+  flex: 10;
   border: solid 1px var(--border-color);
 }
 .posts-search .posts-search-inp input {
@@ -115,6 +121,8 @@
   gap: 5px;
   border-radius: 20px;
   text-transform: capitalize;
+  flex: 1;
+  justify-content: center;
 }
 
 .posts-search .sort span {
@@ -136,6 +144,8 @@
   min-width: 100px;
   border: solid 1px var(--border-color);
   transition: fadeIn 0.4s;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .posts-search .sort-options p {
@@ -210,7 +220,6 @@
   justify-content: center;
   align-items: center;
   gap: 12px;
-  font-size: 16px;
   display: flex;
   flex-direction: column;
   background-color: var(--aside-color);
@@ -229,10 +238,188 @@
 }
 .posts-search .posts-poup .filters-container {
   flex-wrap: wrap;
+  align-content: flex-start;
 }
 .posts-search .posts-poup .filters-container:has(.options.active) {
   min-height: 300px;
 }
 .posts-search .posts-poup .filters-container .inp {
   flex: 200px;
+}
+
+@media (max-width: 1000px) {
+  .posts-search .posts-search-inp {
+    padding: 7px 15px;
+  }
+  .posts-search .sort {
+    padding: 6px 15px;
+  }
+  .posts-search .sort span {
+    font-size: 15px;
+  }
+  .posts-search .sort-options p {
+    font-size: 13px;
+  }
+  .categories-filter {
+    gap: 8px;
+  }
+  .categories-filter button {
+    padding: 7px 13px;
+    font-size: 11px;
+  }
+  .post-results {
+    font-size: 28px;
+  }
+  .view-title,
+  .more-results {
+    font-size: 27px;
+  }
+}
+@media (max-width: 800px) {
+  .posts-search .posts-search-inp {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+  .posts-search .sort {
+    padding: 5px 10px;
+  }
+  .posts-search .sort span {
+    font-size: 14px;
+  }
+  .posts-search .sort-options p {
+    gap: 5px;
+  }
+  .categories-filter {
+    gap: 6px;
+  }
+  .categories-filter button {
+    padding: 5px 11px;
+  }
+  .post-results {
+    font-size: 26px;
+  }
+  .no-results-yet svg {
+    font-size: 40px;
+  }
+  .no-results-yet span {
+    font-size: 15px;
+  }
+  .view-title,
+  .more-results {
+    font-size: 24px;
+  }
+  .view-sidebar .view-info article {
+    font-size: 12px;
+  }
+}
+@media (max-width: 600px) {
+  .posts-search {
+    gap: 6px;
+  }
+  .posts-search .posts-search-inp {
+    padding: 5px 10px;
+    font-size: 13px;
+  }
+  .posts-search .posts-search-inp input {
+    font-size: 13px;
+  }
+  .posts-search .sort {
+    padding: 5px 10px;
+  }
+  .posts-search .sort span {
+    font-size: 13px;
+  }
+  .posts-search .sort-options p {
+    font-size: 12px;
+    padding: 2px 8px;
+  }
+  .categories-filter {
+    gap: 5px;
+  }
+  .categories-filter button {
+    padding: 4px 10px;
+    font-size: 10px;
+  }
+  .post-results {
+    font-size: 23px;
+  }
+  .posts-search .sort-options {
+    min-width: 100%;
+  }
+  .no-results-yet svg {
+    font-size: 35px;
+  }
+  .no-results-yet span {
+    font-size: 14px;
+  }
+  .view-title,
+  .more-results {
+    font-size: 22px;
+  }
+  .view-sidebar .view-info article {
+    font-size: 11px;
+  }
+  .card-view .view-sidebar video {
+    max-height: 250px;
+  }
+  .card-view .view-cover {
+    max-height: 400px;
+  }
+}
+@media (max-width: 400px) {
+  .posts-search {
+    gap: 5px;
+  }
+  .posts-search .posts-search-inp {
+    padding: 4px 10px;
+    font-size: 12px;
+    flex: 100%;
+  }
+  .posts-search .posts-search-inp input {
+    font-size: 11px;
+  }
+
+  .posts-search .sort {
+    padding: 4px 9px;
+  }
+  .posts-search .sort span {
+    font-size: 12px;
+  }
+  .posts-search .sort-options p {
+    font-size: 11px;
+    gap: 4px;
+  }
+  .categories-filter {
+    gap: 5px 4px;
+  }
+  .categories-filter button {
+    padding: 4px 8px;
+  }
+  .post-results {
+    font-size: 20px;
+  }
+  .no-results-yet {
+    min-height: 150px;
+  }
+  .no-results-yet svg {
+    font-size: 30px;
+  }
+  .no-results-yet span {
+    font-size: 13px;
+  }
+  .view-title,
+  .more-results {
+    font-size: 19px;
+  }
+  .more-results {
+    margin-block: 10px;
+  }
+  .view-sidebar .view-info article {
+    font-size: 10px;
+  }
+
+  .card-view .view-cover {
+    min-height: 250px;
+    max-height: 350px;
+  }
 }

@@ -476,6 +476,19 @@ tr:not(:last-of-type) td {
   }
 }
 
+.tabel-enums {
+  padding: 4px 10px;
+  border: solid 1px var(--main-color);
+  width: fit-content;
+  font-size: 13px;
+  background: color-mix(in srgb, var(--main-color) 10%, transparent);
+  border-radius: 30px;
+  color: var(--main-color);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
 @media (max-width: 800px) {
   .table-container .table-toolbar .table-toolbar-search {
     padding: 7px;
@@ -575,6 +588,15 @@ tr:not(:last-of-type) td {
   .pagination {
     padding: 10px;
   }
+  table .checkbox {
+    width: 12px;
+    height: 12px;
+  }
+  .tabel-enums {
+    padding: 3px 6px;
+    font-size: 11px;
+    gap: 2px;
+  }
 }
 
 @media (max-width: 500px) {
@@ -596,5 +618,13 @@ tr:not(:last-of-type) td {
   }
   .pagination {
     padding: 8px;
+  }
+  table .checkbox {
+    width: 10px;
+    height: 10px;
+  }
+  .tabel-enums {
+    padding: 2px 5px;
+    font-size: 10px;
   }
 }

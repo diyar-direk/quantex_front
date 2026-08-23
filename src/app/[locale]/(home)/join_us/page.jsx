@@ -1,22 +1,20 @@
-import Input from "@/components/inputs/Input";
 import "./style.css";
-import UploadFile from "@/components/inputs/UploadFile";
-import Button from "@/components/buttons/Button";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faEnvelope,
-  faMessage,
-  faPaperPlane,
-  faSignature,
-  faVcard,
-} from "@fortawesome/free-solid-svg-icons";
 import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
 import { useTranslations } from "next-intl";
+import JoinForm from "./JoinForm";
 
 export const metadata = {
-  title: "join us",
-  description: "meta description",
-  keywords: ["te", "tes", "test"],
+  title: "Join Us",
+  description:
+    "انضم إلى فريق كوانتكس وكن جزءاً من بيئة تقنية تجمع بين الإبداع والتعلم والتطوير، واستكشف فرص العمل المتاحة لدينا.",
+  keywords: [
+    "العمل في كوانتكس",
+    "انضم إلى كوانتكس",
+    "وظائف كوانتكس",
+    "فرص عمل برمجية",
+    "وظائف تقنية",
+    "شركة برمجيات",
+  ],
 };
 
 const JoinUs = () => {
@@ -34,40 +32,7 @@ const JoinUs = () => {
         </section>
 
         <section>
-          <form>
-            <Input
-              name="name"
-              label={t("join_page.name")}
-              placeholder={t("join_page.name_placeholder")}
-              labelIcon={faSignature}
-            />
-
-            <Input
-              name="email"
-              label={t("join_page.email")}
-              placeholder={t("join_page.email_placeholder")}
-              labelIcon={faEnvelope}
-            />
-
-            <Input
-              name="message"
-              label={t("join_page.message")}
-              placeholder={t("join_page.message_placeholder")}
-              elementType="textarea"
-              rows={5}
-              labelIcon={faMessage}
-            />
-
-            <UploadFile
-              title={t("join_page.cv")}
-              name="cv"
-              labelIcon={faVcard}
-            />
-
-            <Button btnStyleType="transparent">
-              <FontAwesomeIcon icon={faPaperPlane} /> {t("join_page.send")}
-            </Button>
-          </form>
+          <JoinForm />
         </section>
       </main>
     </>

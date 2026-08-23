@@ -1,45 +1,63 @@
-"use client";
-import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
-import PostView from "@/components/posts/PostView";
-import { endPoints } from "@/constants/endPoints";
+import ViewBlogs from "./ViewBlogs";
 import APIClient from "@/utils/ApiClient";
-import { useQuery } from "@tanstack/react-query";
-import { useParams } from "next/navigation";
-import MoreResults from "./MoreResults";
-import Skeleton from "@/components/skeleton/Skeleton";
-import HandleError from "@/components/error/HandleError";
+import { endPoints } from "@/constants/endPoints";
+import { stripHtml } from "@/utils/stripHtml";
 
 const api = new APIClient(endPoints.posts.all);
-const ViewBlogs = () => {
-  const { id } = useParams();
-  const { data, isLoading, error, refetch } = useQuery({
-    queryKey: [endPoints.posts.all, id],
-    queryFn: () => api.getOne(id),
-  });
 
-  if (isLoading)
-    return (
-      <div className="container main-section">
-        <Skeleton height="500px" />
-      </div>
-    );
+export async function generateMetadata({ params }) {
+  const { id } = await params;
 
-  if (error)
-    return (
-      <div className="container main-section">
-        <HandleError error={error} refetch={refetch} />
-      </div>
-    );
+  try {
+    const data = await api.getOne(id);
 
-  return (
-    <>
-      <Breadcrumbs replace={[{ from: id, text: data?.title }]} />
-      <main className="container main-section">
-        <PostView data={data} />
-        <MoreResults id={id} category={data?.category} />
-      </main>
-    </>
-  );
-};
+    const content = stripHtml(data?.content || "").slice(0, 160);
 
-export default ViewBlogs;
+    return {
+      title: `${data?.title}`,
+
+      description:
+        content || "اقرأ أحدث المقالات والأفكار والرؤى التقنية من كوانتكس.",
+
+      keywords: [
+        "كوانتكس",
+        "مدونة كوانتكس",
+        "مقالات تقنية",
+        data?.category,
+      ].filter(Boolean),
+
+      openGraph: {
+        type: "article",
+        title: data?.title,
+        description: content,
+
+        images: data?.image
+          ? [
+              {
+                url: data.image,
+                alt: data.title,
+              },
+            ]
+          : ["/logo.jpeg"],
+      },
+
+      twitter: {
+        card: "summary_large_image",
+        title: data?.title,
+        description: content,
+
+        images: data?.image ? [data.image] : ["/logo.jpeg"],
+      },
+    };
+  } catch {
+    return {
+      title: "المدونة | كوانتكس",
+      description:
+        "استكشف أحدث المقالات والأفكار والرؤى في عالم البرمجيات والتكنولوجيا من كوانتكس.",
+    };
+  }
+}
+
+export default function Page() {
+  return <ViewBlogs />;
+}

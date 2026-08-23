@@ -12,9 +12,17 @@ import AboutUsCards from "@/components/about_us_cards/AboutUsCards";
 import { useTranslations } from "next-intl";
 
 export const metadata = {
-  title: "About us",
-  description: "meta description",
-  keywords: ["te", "tes", "test"],
+  title: "About Us",
+  description:
+    "اكتشف من نحن وما الذي تقدمه كوانتكس. نطوّر حلولاً برمجية ورقمية حديثة تساعد الشركات على بناء تجارب أفضل وتحقيق نمو مستدام.",
+  keywords: [
+    "كوانتكس",
+    "من نحن",
+    "شركة برمجيات",
+    "حلول رقمية",
+    "تطوير البرمجيات",
+    "شركة تقنية",
+  ],
 };
 
 const AboutUs = () => {

@@ -1,0 +1,47 @@
+.not-found-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: rgb(17, 17, 17);
+  color: white;
+}
+.not-found-page h1 {
+  color: red;
+  font-size: 70px;
+  position: relative;
+}
+.not-found-page h1::after {
+  content: "";
+  height: 3px;
+  background-color: red;
+  width: 50%;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.not-found-page h2 {
+  font-size: 35px;
+  text-transform: uppercase;
+}
+.not-found-page p {
+  max-width: 500px;
+  opacity: 0.8;
+  font-size: 20px;
+}
+.not-found-page a {
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: 1px solid;
+  text-transform: capitalize;
+  font-size: 17px;
+}
+
+.not-found-page a:hover {
+  background-color: black;
+  border-color: transparent;
+}

@@ -13,7 +13,8 @@ import axiosInstance from "@/utils/axios";
 import AuthHelper from "@/utils/authHelper";
 import { endPoints } from "@/constants/endPoints";
 import { extarctErrorMessage } from "@/utils/extarctErrorMessage";
-import { useRouter } from "@/i18n/navigation";
+import { usePathname, useRouter } from "@/i18n/navigation";
+import { pages } from "@/constants/pages";
 
 const AuthContext = createContext();
 
@@ -24,6 +25,7 @@ export const AuthProvider = ({ children, token }) => {
   const isRefreshing = useRef(false);
   const failedQueue = useRef([]);
   const { replace } = useRouter();
+  const pathname = usePathname();
 
   const logout = useCallback(async () => {
     await axiosInstance.post(endPoints.users.logout);
@@ -150,9 +152,13 @@ export const AuthProvider = ({ children, token }) => {
     enabled: Boolean(token),
   });
 
+  if (isLoading) return <Loading />;
+
+  if (!user && pathname.startsWith(pages.dashboard.page)) return replace("/");
+
   return (
     <AuthContext.Provider value={{ user, logout }}>
-      {isLoading ? <Loading /> : children}
+      {children}
     </AuthContext.Provider>
   );
 };

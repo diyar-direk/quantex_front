@@ -30,7 +30,7 @@ const PostViewS2 = ({ data }) => {
           />
         </div>
 
-        <section className="main-view-section">
+        <section className="main-view-section" style={{ maxWidth: "100%" }}>
           <button
             className="category"
             style={{ "--main-color": categories[data?.category]?.color }}
